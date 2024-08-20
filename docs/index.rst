@@ -28,7 +28,7 @@ Your instructor and TAs are here to support you throughout the entire semester. 
 * The help room and office hours are held at MATH 206/211. From my understanding, there will be someone available for this course every weekday. The great thing is, you can ask anyone there for assistance. Just drop by the office hours or meet us online using WebEx, Zoom, or Teams!
 * Email is best suited for answering short questions. If your question is more complex, especially if it involves using a program or your laptop, please visit the help room or schedule an in-person meeting.
 * In the syllabus, you will find contact information for all the instructors and TAs. Be sure to note down the contact details for the instructor and TA assigned to your section.
-* Note: A Cengage (WebAssign) representative will be available in person for assistance in MATH 431 every Monday and Tuesday.
+* Note: A Cengage (WebAssign) representative will be available in person for assistance in MATH 431 every Monday and Tuesday from 10 AM to 3:30 PM.
 
 
 Some Important Notes
