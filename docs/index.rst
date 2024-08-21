@@ -41,7 +41,7 @@ When our goal is to understand cause and effect (causality), experiments are the
 
 There's an odd connection between eating more chocolate and winning the Nobel Prize.
 
-.. image:: /images/0201.png
+.. image:: /images/0202.png
 
 Well-designed experiments take steps to avoid confounding. The key is randomize.
 
@@ -88,7 +88,7 @@ Nonetheless, the random comparative experiment, because of its ability to give c
 
 **Blocked Designs**: Completely randomized designs are the simplest statistical designs for experiments. But, as with sampling, there are times when the simplest method does not yield the most precise results.
 
-* A *block* is a group of experimental units that are known, before the experiment, to be similar in some way that is expected to affect the response to the treatments. Blocking by certain variables, such as age, sex.
+* A **block** is a group of experimental units that are known, before the experiment, to be similar in some way that is expected to affect the response to the treatments. Blocking by certain variables, such as age, sex.
 
 * In a **block design**, the random assignment of experimental units to treatments is carried out separately within each block. 
 
