@@ -11,6 +11,100 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Lecture 02  Producing Data 08/18-08/24/2024
+-------------------------------------------
+
+Sources of Data
+^^^^^^^^^^^^^^^
+
+If we aim to study something, our objective is often to draw conclusions or uncover **causal relationships**. However, it's important to be cautious about relying solely on personal experience or hearsay when forming these conclusions.
+
+**Anecdotal data** represent individual cases that often come to our attention because they are striking in some way. We tend to remember these cases because they are unusual. **The fact that they are unusual means that they may not be representative of any larger group of cases.**
+
+We can use **available data**, data that were produced in the past for some other purpose but that may help answer a present question inexpensively. Alternatively, we can intentionally generate new data specifically to answer a particular question. The first approach typically results in observational studies, while the second leads to experimental studies.
+
+Both approches have their own challenges.
+
+**Sample Surveys**, researchers typically collect data without influencing the outcomes, making their work a form of observational study.. In a sample survey, a **sample** of individuals is selected from a larger **population** of individuals. One can study a small part of the population in order to gain information about the population as a whole. Conclusions drawn from a sample are valid only when the sample is drawn in a **well-defined way**.
+
+When our goal is to understand cause and effect (causality), experiments are the only source of fully convincing data. The invention of randomized experiments is a stroke of genius; even today, they remain the gold standard for large pharmaceutical companies to test the effectiveness of their new drugs. The distinction between an observational study and an experiment is one of the most important in statistics.
+
+.. admonition:: Remember!
+
+   An observational study observes individuals and measures variables of interest but does not attempt to influence the responses. The purpose is to describe some group or situation.
+
+   An experiment deliberately imposes some treatment on individuals to measure their responses. The purpose is to study whether the treatment causes a change in the response.
+
+**Confounding:** Observational studies of the effect of one variable on another often fail to establish causality because of confounding between the explanatory variable and one or more lurking/hidden variables. Finding the confounder is a million dollar question. Sometimes, people really do want to hide this hidden variable. The widely recognized phrase "Correlation is not causation."
+
+.. image:: /images/0201.png
+
+There's an odd connection between eating more chocolate and winning the Nobel Prize.
+
+.. image:: /images/0201.png
+
+Well-designed experiments take steps to avoid confounding. The key is randomize.
+
+Design of Experiments
+^^^^^^^^^^^^^^^^^^^^^
+
+An experiment is a study in which we actually do something (a treatment) to people, animals, or objects (the experimental units) to observe the response. 
+
+* An **experimental unit** is the smallest entity to which a treatment is applied. When the units are human beings, they are often called **subjects**.
+
+* The explanatory variables in an experiment are often called **factors**.
+
+* A specific condition applied to the individuals in an experiment is called a **treatment**. If an experiment has several explanatory variables, a treatment is a combination of specific values of these variables. 
+
+* **Outcomes** are the measured variables that are used to compare the treatments.
+
+To clearly observe and measure effects, we need well-designed comparative experiments. Effective design is as crucial in experiments as it is in sampling, which often involves assigning subjects to two or more groups. Typically, these include a **control group** and a **treatment group**. The treatment group receives the treatment/intervention being studied, while the control group receives a placebo. The **placebo effect** occurs when people respond favorably to personal attention or to any treatment that they hope will help them. A study is **biased** if it systematically favors certain outcomes over others. 
+
+The Need for Randomization: Comparison alone is not enough. If the treatments are given to groups that differ greatly, bias will result. The solution to the problem of bias is random assignment. Just like sampling surveys, we need to choose our survey participants randomly. 
+
+.. admonition:: Remember!
+   
+   In an experiment, **random assignment** means that experimental units are assigned to treatments at random—that is, using some sort of chance process. 
+
+.. image:: /images/0203.png
+
+How to Randomize: One way to randomize an experiment is to rely on random digits to make choices in a neutral way. We can use a table of random digits or the random sampling function provided by most statistical software. Roll a dice?
+
+**Principles of Experimental Design:**
+
+* **Control** for lurking variables that might affect the response, most simply by comparing two or more treatments. 
+
+* **Randomize:** Use chance to assign experimental units to treatments.
+
+* **Replication:** Use enough experimental units in each group to reduce chance variation in the results.
+
+In a **double-blind experiment**, neither the subjects nor those with whom they interact know which treatment a subject received.
+
+The most serious **potential weakness** of experiments is **lack of realism**. That is, the subjects or treatments or setting of an experiment might not realistically duplicate the conditions we really want to study.
+
+The experimental conditions often do not accurately reflect real-world situations. Simulation, we know it's just a simulation. 
+
+Nonetheless, the random comparative experiment, because of its ability to give convincing evidence for causation, is one of the most important ideas in statistics.
+
+**Blocked Designs**: Completely randomized designs are the simplest statistical designs for experiments. But, as with sampling, there are times when the simplest method does not yield the most precise results.
+
+* A *block* is a group of experimental units that are known, before the experiment, to be similar in some way that is expected to affect the response to the treatments. Blocking by certain variables, such as age, sex.
+
+* In a **block design**, the random assignment of experimental units to treatments is carried out separately within each block. 
+
+Form blocks based on the most important unavoidable sources of variability (lurking variables) among the experimental units. Randomization will average out the effects of the remaining lurking variables and allow an unbiased comparison of the treatments. What we lose here?
+
+**Control what you can, block what you cannot control (that is, form blocks), and randomize to create comparable groups.** 
+
+Population and Sample
+^^^^^^^^^^^^^^^^^^^^^
+
+The distinction between population and sample is basic to statistics. To make sense of any sample result, you must know what population the sample represents.  In a statistical study, the **population** is the entire group of individuals about which we want information. A **sample** is the part of the population from which we actually collect information. We use information from a sample to draw conclusions about the entire population.
+
+.. image:: /images/0204.png
+
+
+
 Lecture 01 08/18-08/24/2024
 ---------------------------
 Things always tend to get a bit chaotic at the beginning. Just this Monday, I was assigned a new office, and after a deep cleaning and I was ready to set up the monitor, I was informed that I had been assigned to the wrong office and needed to move again. Life has a way of throwing us curveballs, but that unpredictability is also what makes it interesting—it's full of uncertainties and randomness.
