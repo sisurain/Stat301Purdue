@@ -11,6 +11,49 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Lecture 03 Ch3 Producing Data 08/25-08/31/2024
+----------------------------------------------
+
+We are building up our terminologi valcuabiry so we do more intersting stuff later. For some of the definitions and concepts, they are easy to understand. But for some they are a little bit difficult if you first encounter them. I will suggest to read the examples in the texbook (Yeah! I finally got the textbook), once you have the context, they are more easy to understand. In class, I will try to explain the importnant parts of those definitiion and concepts. Most importantly, I will try my best to connect them together so you will understand the logic behind the big picture, so that you could easily remmeber this concepts, and know why we have these concetps. I think this is quite imporatnt of the learning process.
+
+Summary of Ch3.1 Sources of Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Confounding**, you will hear this often, this is probabiliy one of the bigest challenges that we need to tackle if we want to establish causality. The reason we want to recover causality is becasue a lot of times we want to the response of some response variable **Y**, if we are giving a treatment or intervention to explanatory variable **X**. For observational studies, usually we have to use advenace statitical techniques to deal with confounding, In experimental studies, by carefully design the experiment, we can reduce the effect of confounding. For this chapter, we mainly focuse on experiemnt studies. 
+
+.. admonition:: Remember!
+  
+   **Confounding** occurs when an explanatory variable is related to one or more other variables that have an influence on the response variable. When this happens, we sometimes attribute a relationship to an explanatory variable when the effect is fully or partly due to the confounding variables.
+
+**Textbook reason to study experiment**
+
+An observational study, even one based on a carefully chosen sample, is a poor way to determine what will happen if we change something. The best way to see the effects of a change is to do an intervention—where we actually impose the change. When our goal is to understand cause and effect, experiments are the only source of fully convincing data.
+
+.. admonition:: Remember!
+
+   In an **observational study**, we observe individuals and measure variables of interest but do not attempt to influence the responses.
+
+   In an **experiment**, we deliberately impose some condition on individuals, and we observe their responses. The condition imposed is called a treatment or an **intervention**.
+
+**Section 3.1 SUMMARY**
+
+- **Anecdotal data** come from stories or reports about cases that do not necessarily represent a larger group of cases.
+
+- **Available data** are data that were produced for some other purpose but that may help answer a question of interest.
+
+- A **sample survey** collects data from a **sample** of cases that represent some larger **population** of cases.
+
+- A **census** collects data from all cases in the population of interest.
+
+- In an **observational study**, we observe individuals but we do not attempt to influence their responses.
+
+- In an **experiment**, a treatment or an intervention is imposed, and the responses are recorded.
+
+
+
+
+
+
 Lecture 02  Producing Data 08/18-08/24/2024
 -------------------------------------------
 
