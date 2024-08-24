@@ -267,8 +267,10 @@ Ch5.1 Toward Statistical Inference
 4. **Estimator:** A rule or formula used to calculate a statistic that estimates a population parameter. 
 
    *Formula*: For the sample mean, the estimator is:
+
       :math:`\hat{\mu} = \frac{1}{n} \sum_{i=1}^{n} X_i`
-      where (:math:`X_i`) are the sample values and (:math:`n`) is the sample size.
+
+         where (:math:`X_i`) are the sample values and (:math:`n`) is the sample size.
 
 5. **Estimate:** The specific value obtained by applying the estimator to a particular sample. It is a realization of the estimator.
 
@@ -293,14 +295,16 @@ Ch5.1 Toward Statistical Inference
    *Formula*: The variance of the sampling distribution of the sample mean (standard error squared) is given by:
 
       :math:`\text{Var}(\hat{\mu}) = \frac{\sigma^2}{n}`
-      where (:math:`\sigma^2`) is the population variance and (:math:`n`) is the sample size.
+
+         where (:math:`\sigma^2`) is the population variance and (:math:`n`) is the sample size.
 
 11. **Standard Error:** The standard deviation of the sampling distribution. It measures the precision of the estimator and how much the sample mean is expected to vary from sample to sample. 
 
    *Formula*: The standard error of the sample mean is:
 
       :math:`\text{SE}(\hat{\mu}) = \frac{\sigma}{\sqrt{n}}`
-      *Note*: The standard error decreases as the sample size increases.
+
+         *Note*: The standard error decreases as the sample size increases.
 
 **What is a Sampling Distribution?**
 
