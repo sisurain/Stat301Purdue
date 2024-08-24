@@ -267,11 +267,8 @@ Ch5.1 Toward Statistical Inference
 4. **Estimator**
    - *Explanation*: A rule or formula used to calculate a statistic that estimates a population parameter.
    - *Formula*: For the sample mean, the estimator is:
-     .. math::
-     
-       \hat{\mu} = \frac{1}{n} \sum_{i=1}^{n} X_i
-
-     where \(X_i\) are the sample values and \(n\) is the sample size.
+       :math:`\hat{\mu} = \frac{1}{n} \sum_{i=1}^{n} X_i`
+     where (:math:`X_i`) are the sample values and (:math:`n`) is the sample size.
 
 5. **Estimate**
    - *Explanation*: The specific value obtained by applying the estimator to a particular sample. It is a realization of the estimator.
@@ -289,28 +286,20 @@ Ch5.1 Toward Statistical Inference
 
 9. **Bias**
    - *Explanation*: The difference between the expected value of an estimator and the true value of the population parameter. Bias measures the accuracy of an estimator.
-   - *Formula*: Bias of an estimator \( \hat{\theta} \) for a parameter \( \theta \) is given by:
-      .. math::
-     
-       \text{Bias}(\hat{\theta}) = E(\hat{\theta}) - \theta
+   - *Formula*: Bias of an estimator (:math:`\hat{\theta}`) for a parameter (:math:`\theta`) is given by:
+       :math:`\text{Bias}(\hat{\theta}) = E(\hat{\theta}) - \theta`
      
 
 10. **Variance of the Sampling Distribution**
     - *Explanation*: The spread of the sampling distribution, indicating how much the statistic varies from one sample to another. Lower variance means more precise estimates.
     - *Formula*: The variance of the sampling distribution of the sample mean (standard error squared) is given by:
-      .. math::
-      
-        \text{Var}(\hat{\mu}) = \frac{\sigma^2}{n}
-      
-      where \( \sigma^2 \) is the population variance and \( n \) is the sample size.
+        :math:`\text{Var}(\hat{\mu}) = \frac{\sigma^2}{n}`  
+      where (:math:`\sigma^2`) is the population variance and (:math:`n`) is the sample size.
 
 11. **Standard Error**
     - *Explanation*: The standard deviation of the sampling distribution. It measures the precision of the estimator and how much the sample mean is expected to vary from sample to sample.
-    - *Formula*: The standard error of the sample mean is:
-      .. math::
-      
-        \text{SE}(\hat{\mu}) = \frac{\sigma}{\sqrt{n}}
-      
+    - *Formula*: The standard error of the sample mean is:     
+        :math:`\text{SE}(\hat{\mu}) = \frac{\sigma}{\sqrt{n}}`
     - *Note*: The standard error decreases as the sample size increases.
 
 **What is a Sampling Distribution?**
