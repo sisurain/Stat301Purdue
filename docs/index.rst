@@ -252,34 +252,55 @@ Ch5.1 Toward Statistical Inference
 
 **Key Terms Related to Sampling Distribution**
 
-1. **Population:** The entire set of individuals or elements that we are interested in studying. A population has parameters like the true mean (:math:`\mu`) and standard deviation (:math:`\sigma`). *Example*: The average height of all Purdue students.
+1. **Population:** The entire set of individuals or elements that we are interested in studying. A population has parameters like the true mean (:math:`\mu`) and standard deviation (:math:`\sigma`). 
 
-2. **Sample:** A subset of the population selected for measurement. The sample is used to make inferences about the population. *Example*: We select 100 students to form a sample.
+   *Example*: The average height of all Purdue students.
 
-3. **Statistic:** A numerical value calculated from a sample. It is used to estimate a population parameter. *Example*: The sample mean calculated for each sample is a statistic.
+2. **Sample:** A subset of the population selected for measurement. The sample is used to make inferences about the population. 
 
-4. **Estimator:** A rule or formula used to calculate a statistic that estimates a population parameter. *Formula*: For the sample mean, the estimator is:
-   :math:`\hat{\mu} = \frac{1}{n} \sum_{i=1}^{n} X_i`
-   where (:math:`X_i`) are the sample values and (:math:`n`) is the sample size.
+   *Example*: We select 100 students to form a sample.
+
+3. **Statistic:** A numerical value calculated from a sample. It is used to estimate a population parameter. 
+   
+   *Example*: The sample mean calculated for each sample is a statistic.
+
+4. **Estimator:** A rule or formula used to calculate a statistic that estimates a population parameter. 
+
+   *Formula*: For the sample mean, the estimator is:
+      :math:`\hat{\mu} = \frac{1}{n} \sum_{i=1}^{n} X_i`
+      where (:math:`X_i`) are the sample values and (:math:`n`) is the sample size.
 
 5. **Estimate:** The specific value obtained by applying the estimator to a particular sample. It is a realization of the estimator.
 
-6. **Sampling Distribution:** The probability distribution of a statistic obtained from a large number of samples drawn from a specific population. It shows how the statistic varies from sample to sample. *Example*: The distribution of the `sample_means` represents the sampling distribution of the sample mean.
+6. **Sampling Distribution:** The probability distribution of a statistic obtained from a large number of samples drawn from a specific population. It shows how the statistic varies from sample to sample. 
 
-7. **Unbiased Estimator:** An estimator whose expected value (mean of its sampling distribution) is equal to the true value of the population parameter it estimates. *Example*: The sample mean is an unbiased estimator of the population mean.
+   *Example*: The distribution of the `sample_means` represents the sampling distribution of the sample mean.
+
+7. **Unbiased Estimator:** An estimator whose expected value (mean of its sampling distribution) is equal to the true value of the population parameter it estimates. 
+
+   *Example*: The sample mean is an unbiased estimator of the population mean.
 
 8. **Biased Estimator:** An estimator whose expected value is not equal to the true value of the population parameter it estimates. This introduces a systematic error (bias) in the estimates.
 
-9. **Bias:** The difference between the expected value of an estimator and the true value of the population parameter. Bias measures the accuracy of an estimator. *Formula*: Bias of an estimator (:math:`\hat{\theta}`) for a parameter (:math:`\theta`) is given by:
-   :math:`\text{Bias}(\hat{\theta}) = E(\hat{\theta}) - \theta`
-     
-10. **Variance of the Sampling Distribution:** The spread of the sampling distribution, indicating how much the statistic varies from one sample to another. Lower variance means more precise estimates. *Formula*: The variance of the sampling distribution of the sample mean (standard error squared) is given by:
-   :math:`\text{Var}(\hat{\mu}) = \frac{\sigma^2}{n}`
-   where (:math:`\sigma^2`) is the population variance and (:math:`n`) is the sample size.
+9. **Bias:** The difference between the expected value of an estimator and the true value of the population parameter. Bias measures the accuracy of an estimator. 
 
-11. **Standard Error:** The standard deviation of the sampling distribution. It measures the precision of the estimator and how much the sample mean is expected to vary from sample to sample. *Formula*: The standard error of the sample mean is:
-   :math:`\text{SE}(\hat{\mu}) = \frac{\sigma}{\sqrt{n}}`
-   *Note*: The standard error decreases as the sample size increases.
+   *Formula*: Bias of an estimator (:math:`\hat{\theta}`) for a parameter (:math:`\theta`) is given by:
+
+      :math:`\text{Bias}(\hat{\theta}) = E(\hat{\theta}) - \theta`
+     
+10. **Variance of the Sampling Distribution:** The spread of the sampling distribution, indicating how much the statistic varies from one sample to another. Lower variance means more precise estimates. 
+
+   *Formula*: The variance of the sampling distribution of the sample mean (standard error squared) is given by:
+
+      :math:`\text{Var}(\hat{\mu}) = \frac{\sigma^2}{n}`
+      where (:math:`\sigma^2`) is the population variance and (:math:`n`) is the sample size.
+
+11. **Standard Error:** The standard deviation of the sampling distribution. It measures the precision of the estimator and how much the sample mean is expected to vary from sample to sample. 
+
+   *Formula*: The standard error of the sample mean is:
+
+      :math:`\text{SE}(\hat{\mu}) = \frac{\sigma}{\sqrt{n}}`
+      *Note*: The standard error decreases as the sample size increases.
 
 **What is a Sampling Distribution?**
 
