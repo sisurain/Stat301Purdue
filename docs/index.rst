@@ -14,18 +14,20 @@ My primary goal with this resource is to support your learning in STAT 301, and 
 Lecture 03 Ch3 Producing Data 08/25-08/31/2024
 ----------------------------------------------
 
-We are building up our terminologi valcuabiry so we do more intersting stuff later. For some of the definitions and concepts, they are easy to understand. But for some they are a little bit difficult if you first encounter them. I will suggest to read the examples in the texbook (Yeah! I finally got the textbook), once you have the context, they are more easy to understand. In class, I will try to explain the importnant parts of those definitiion and concepts. Most importantly, I will try my best to connect them together so you will understand the logic behind the big picture, so that you could easily remmeber this concepts, and know why we have these concetps. I think this is quite imporatnt of the learning process.
+We're building our terminology vocabulary so we can explore more interesting topics later on. Some of the definitions and concepts are straightforward, but others might be a bit challenging if you're encountering them for the first time. I suggest reading the examples in the textbook (Yes! I finally got the textbook). Once you have the context, the concepts become easier to understand. In class, I'll focus on explaining the key parts of these definitions and concepts. Most importantly, I'll do my best to connect them, so you can grasp the overall logic and see the big picture. This will help you remember the concepts more easily and understand why they exist. I believe this approach is crucial to the learning process.
 
 Summary of Ch3.1 Sources of Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Confounding**, you will hear this often, this is probabiliy one of the bigest challenges that we need to tackle if we want to establish causality. The reason we want to recover causality is becasue a lot of times we want to the response of some response variable **Y**, if we are giving a treatment or intervention to explanatory variable **X**. For observational studies, usually we have to use advenace statitical techniques to deal with confounding, In experimental studies, by carefully design the experiment, we can reduce the effect of confounding. For this chapter, we mainly focuse on experiemnt studies. 
+**Confounding**, You will hear this often—it is probably one of the biggest challenges we face when trying to establish causality. For example, consider the smoking and lung cancer example, or the placebo effect in medical experiments. The reason we seek to establish causality is that we often want to understand the response of a variable **Y** when we apply a treatment or intervention to an explanatory variable **X**.
+
+In observational studies, advanced statistical techniques are typically required to address confounding variables. In experimental studies, careful design can help reduce the impact of confounding. In this chapter, we will primarily focus on experimental studies.
 
 .. admonition:: Remember!
   
    **Confounding** occurs when an explanatory variable is related to one or more other variables that have an influence on the response variable. When this happens, we sometimes attribute a relationship to an explanatory variable when the effect is fully or partly due to the confounding variables.
 
-**Textbook reason to study experiment**
+**Textbook justification for studying experiments**
 
 An observational study, even one based on a carefully chosen sample, is a poor way to determine what will happen if we change something. The best way to see the effects of a change is to do an intervention—where we actually impose the change. When our goal is to understand cause and effect, experiments are the only source of fully convincing data.
 
@@ -48,6 +50,296 @@ An observational study, even one based on a carefully chosen sample, is a poor w
 - In an **observational study**, we observe individuals but we do not attempt to influence their responses.
 
 - In an **experiment**, a treatment or an intervention is imposed, and the responses are recorded.
+
+Summary of Ch3.2 Design of Experiments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+One of the challenges in dealing with confounding is that the confounding variable, or confounder, is often hidden or lurking. For example, in the 1950s, many studies attempted to establish a causal relationship between smoking and lung cancer—a conclusion that was obviously bad news for tobacco companies and the entire industry. The tobacco industry argued that a genetic factor might influence both smoking behavior and the development of lung cancer, and that this genetic factor—a hidden variable—could not be measured with the technology available in the 1950s.
+
+The best way to avoid confounding is to do a **comparative experiment** according to the textbook.
+
+In medical settings, it is standard practice to randomly assign patients either to one or more **treatment groups** or a **control group**. The effects of a treatment are evaluated by making a **comparison** with the control group. For a comparison to be valid, the conditions experienced by subjects in each **treatment group** and the control group should be identical except that the treatment groups receive the product or products that are being evaluated.
+
+**Purpose of an experiment, explanatory and response variable:**
+
+Because the purpose of an experiment is to reveal the response of one variable to changes in one or more other variables, the distinction between explanatory and response variables is important. The explanatory variables in an experiment are often called **factors**. Many experiments study the joint effects of several factors. In such an experiment, each **treatment** is formed by combining a specific value (often called a **level**) of each of the factors.
+
+If groups assigned to treatments are quite different in a comparative experiment, we should be concerned that our experiment will be **bias**. That's why **Randomization** is essential to ensure that the groups are similar. **Matching** can be helpful, but often there are too many lurking varibles. Therefore, randomized comparative experiments are crucial. For more details, refer to Figure 3.3 and the smartphone example 3.18 in the textbook.
+
+.. admonition:: Remember!
+
+   When all experimental units are allocated at random among all treatments, as in Examples 3.20 (page 168) and 3.21, the experimental design is known as a **completely randomized design**. Completely randomized designs can compare any number of treatments. The treatments can be formed by levels of a single factor or by more than one factor.
+
+.. admonition:: Principles of experimental design
+
+   The basic principles of statistical design of experiments are
+
+   1. **Compare** two or more treatments. This will control the effects of lurking variables on the response.
+
+   2. **Randomize**: use chance to assign experimental units to treatments.
+
+   3. **Repeat** each treatment on many units to reduce chance variation in the results.
+
+**Other Experiment Designs:**
+
+**Matched Pairs Designs**
+
+Completely randomized designs are the simplest statistical designs for experiments. They illustrate clearly the principles of control, randomization, and **repetition**. However, completely randomized designs are often inferior to more elaborate statistical designs. In particular, matching the subjects in various ways can produce more precise results than simple randomization.
+
+The simplest use of matching is a **matched pairs design**, which compares just two treatments. The subjects are matched in pairs. For example, an experiment to compare two advertisements for the same product might use pairs of subjects with the same age, sex, and income. The idea is that matched subjects are more similar than unmatched subjects so that comparing responses within a number of pairs is more efficient than comparing the responses of groups of randomly assigned subjects. Randomization remains important: which one of a matched pair sees the first ad is decided at random. One common variation of the matched pairs design imposes both treatments on the same subjects so that each subject serves as his or her own control.
+
+**Block Designs**
+
+Block designs extend the use of "similar subjects" from pairs to larger groups. See Figure 3.6 and the cancer example 3.26 in the textbook.
+
+A **block** is a group of experimental units or subjects that are known before the experiment to be similar in some way that is expected to affect the response to the treatments. In a **block design**, the random assignment of units to treatments is carried out separately within each block.
+
+**Section 3.2 SUMMARY**
+
+- In an experiment, one or more **treatments** are imposed on the **experimental units** or **subjects**. Each treatment is a combination of **levels** of the explanatory variables, which we call **factors**. **Outcomes** are the measured variables that are used to compare the treatments.
+
+- The **design** of an experiment refers to the choice of treatments and the manner in which the experimental units or subjects are assigned to the treatments.
+
+- The basic principles of statistical design of experiments are **comparison**, **randomization**, and **repetition**.
+
+- The simplest form of control is **comparison**. Experiments should compare two or more treatments in order to prevent **confounding** the effect of a treatment with other influences, such as lurking variables.
+
+- **Randomization** uses chance (Table B at the back of the textbook or software) to assign subjects to the treatments. Randomization creates treatment groups that are similar (except for chance variation) before the treatments are applied. Randomization and comparison together prevent **bias**, or systematic favoritism, in experiments.
+
+- You can carry out randomization by giving numerical labels to the experimental units and using software or a **table of random digits** to choose treatment groups.
+
+- **Repetition** of the treatments on many units reduces the role of chance variation and makes the experiment more sensitive to differences among the treatments.
+
+- Good experiments require attention to detail as well as good statistical design. Many behavioral and medical experiments are **double-blind**. Lack of realism in an experiment can prevent us from generalizing its results.
+
+- **Matched pairs** are used to compare two treatments. In some matched pairs designs, each subject receives both treatments in a random order. This is called a **cross-over experiment**. In others, the subjects are matched in pairs as closely as possible, and one subject in each pair receives each treatment.
+
+- In addition to comparison, a second form of control is to restrict randomization by forming **blocks** of experimental units that are similar in some way that is important to the response. Randomization is then carried out separately within each block.
+
+Summary of Ch3.3 Sampling Design
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The sample design refers to the method used to choose the sample from the population. The entire group of individuals that we want information about is called the **population**. A **sample** is a part of the population that we actually examine in order to gather information. A **parameter** is a number that describes the population, the information we want to know. Because in practice, we do not know the parameter's value. A **statistic** is a number that describes a sample. The value of a statistic is known when we have taken a sample, but it can change from sample to sample. We use a statistic to estimate an unknown parameter. The purpose of sampling or experimentation is usually **statistical inference:** using sample statistics to make statements about unknown parameters.
+
+**Voluntary response sample**
+
+A **voluntary response sample** consists of people who choose themselves by responding to a general appeal. Voluntary response samples are frequently biased because people with strong opinions, especially negative opinions, are most likely to respond.
+
+**Simple random sample**
+
+A **simple random sample (SRS)** of size n consists of n individuals from the population chosen in such a way that every set of n individuals has an equal chance to be the sample actually selected.
+
+Each treatment group in a **completely randomized experimental design** (When all experimental units are allocated at random among all treatments.) is an SRS drawn from the available experimental units. We select an SRS by labeling all the individuals in the population and using software or a table of random digits to select a sample of the desired size, just as in experimental randomization. **Notice that an SRS not only gives every possible sample an equal chance to be chosen but also gives each individual an equal chance to be chosen.** There are other random sampling designs that give each individual, but not each sample, an equal chance. One such design, systematic random sampling, is described in Exercise 3.40 (page 191).
+
+Please refer to the textbook for guidance on how to perform a Simple Random Sample (SRS) using software or random digits.
+
+Often, the problems we are studying require more complex sampling designs.
+
+**More complex sampling designs**
+
+A **probability sample** is a sample chosen by chance. We must know what samples are possible and what chance, or probability, each possible sample has.
+
+Some probability sampling designs (such as an SRS) give each member of the population an equal chance to be selected. This may not be true in more elaborate sampling designs. In every case, however, the use of chance to select the sample is the essential principle of statistical sampling.
+
+Designs for sampling from large populations spread out over a wide area are usually more complex than an SRS. For example, it is common to sample important groups within the population separately and then combine these samples. This is the idea of a **stratified sample**.
+
+**Stratified random sample**
+
+To select a **stratified random sample**, first divide the population into groups of similar individuals, called **strata**. Then choose a separate SRS in each stratum and combine these SRSs to form the full sample.
+
+Choose the strata based on facts known before the sample is taken. For example, a population of election districts might be divided into urban, suburban, and rural strata.
+
+**Multistage random samples**
+
+Another common means of restricting random selection is to choose the sample in stages. This type of design is called a **multistage design**. This type of design is widely used in national samples of households or people. For example, data on employment and unemployment are gathered by the government’s Current Population Survey, which conducts interviews in about 60,000 households each month. The cost of sending interviewers to the widely scattered households in an SRS would be too high. Moreover, the government wants data broken down by states and large cities.
+
+**EXAMPLE 3.38 The Current Population Survey.**
+
+The Current Population Survey uses a multistage design. The final sample consists of groups of nearby households, called **clusters**, that an interviewer can easily visit. Most opinion polls and other national samples are also multistage, though interviewing in most national samples today is done by telephone rather than in person, eliminating the economic need for clustering. The Current Population Survey sampling design is roughly as follows:
+
+**Stage 1.** Divide the United States into 2007 geographical areas called primary sampling units, or PSUs. PSUs do not cross state lines. Select a sample of 754 PSUs. This sample includes the 428 PSUs with the largest population and a stratified sample of 326 of the others.
+
+**Stage 2.** Divide each PSU selected into smaller areas called blocks. Stratify the blocks using ethnic and other information and take a stratified sample of the blocks in each PSU.
+
+**Stage 3.** Sort the housing units in each block into clusters of four nearby units. Interview the households in a probability sample of these clusters.
+
+Analysis of data from sampling designs more complex than an SRS takes us beyond basic statistics. But the SRS is the building block of more elaborate designs, and analysis of other designs differs more in complexity of detail than in fundamental concepts.
+
+**Cautions about sample surveys**
+
+.. admonition:: Remember!
+
+   **Undercoverage** occurs when some groups in the population are left out of the process of choosing the sample.
+
+   **Nonresponse** occurs when an individual chosen for a sample can't be contacted or does not cooperate.
+
+**Section 3.3 SUMMARY**
+
+- A sample survey selects a **sample** from the **population** of all individuals about which we desire information. We base conclusions about the population on data about the sample.
+
+- The **sample design** refers to the method used to select the sample from the population. **Probability sample designs** use impersonal chance to select a sample.
+
+- The basic probability sample is a **simple random sample (SRS)**. An SRS gives every possible sample of a given size the same chance to be chosen.
+
+- Choose an SRS using software. This can also be done using a **table of random digits** to select the sample.
+
+- To choose a **stratified random sample**, divide the population into **strata**, groups of individuals that are similar in some way that is important to the response. Then choose a separate SRS from each stratum and combine them to form the full sample.
+
+- **Multistage samples** select successively smaller groups within the population in stages, resulting in a sample consisting of clusters of individuals. Each stage may employ an SRS, a stratified sample, or another type of sample.
+
+- Failure to use probability sampling often results in **bias**, or systematic errors in the way the sample represents the population.
+
+- **Voluntary response samples**, in which the respondents choose themselves, are particularly prone to large bias.
+
+- In human populations, even probability samples can suffer from bias due to **undercoverage** or **nonresponse**, from **response bias** due to the behavior of the interviewer or the respondent, or from misleading results due to **poorly worded questions**.
+
+Summary of Ch3.4 Ethics
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The production and use of data, like all other human endeavors, raise ethical quesitons. The most complex issues of data ethics arise when we collect data from people. For example, there are many articles that discuss the complex issues raised by twin studies.
+
+The ethical difficulties are more severe for experiments that impose some treatment on people than for sample surveys that simply gather information. Trials of new medical treatments, for example, can do harm as well as good to their subjects.
+
+
+**Basic data ethics**
+
+The organization that carries out a study must have an **institutional review board** that reviews all planned studies in advance in order to protect the subjects from possible harm.
+
+All individuals who are subjects in a study must give their **informed consent** before data are collected.
+
+All individual data must be kept confidential. Only statistical summaries for groups of subjects may be made public.
+
+**Section 3.4 SUMMARY**
+
+- Approval of an **institutional review board** is required for studies that involve humans or animals as subjects.
+
+- Human subjects must give **informed consent** if they are to participate in experiments.
+
+- Data on human subjects must be kept **confidential**.
+
+- Clinical trials should be evaluated from an ethics standpoint.
+
+Ch2.7 The Question of Causation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: /images/0301.png
+
+**common response:** the chocolate consumption and Nobel Prize example.
+**confounding:** the smoking and lung caner example. 
+
+**Explaining Association**
+
+Many observed associations are at least partly explained by **lurking variables**. Both **common response** and **confounding** involve the influence of a lurking variable (or variables) z on the response variable y. The distinction between these two types of relationships is less important than the common element: the influence of lurking variables. The most important lesson of these examples is one we have already emphasized: **even a very strong association between two variables is not by itself good evidence that there is a cause-and-effect link between the variables.**
+
+Figure 2.34(c) illustrates **confounding**. Both the explanatory variable x and the lurking variable z may influence the response variable y. Because x is confounded with z, we cannot distinguish the influence of x from the influence of z. We cannot say how strong the direct effect of x on y is. In fact, it can be hard to say if x influences y at all. **When many uncontrolled variables are related to a response variable, you should always ask whether or not confounding of several variables prevents you from drawing conclusions about causation.**
+
+**Establishing Causation**
+
+How can a direct causal link between x and y be established? The best method—indeed, the only fully compelling method—of establishing causation is to conduct a carefully designed **experiment** in which the effects of possible lurking variables are controlled. "Chapter 3" explains how to design convincing experiments.
+
+**Section 2.7 Summary**
+
+- Some observed associations between two variables are due to a **cause-and-effect** relationship between these variables, but others are explained by **lurking variables**.
+
+- The effect of lurking variables can operate through **common response** if changes in both the explanatory and the response variables are caused by changes in lurking variables. **Confounding** of two variables (either explanatory or lurking variables or both) means that we cannot distinguish their effects on the response variable.
+
+- Establishing that an association is due to causation is best accomplished by conducting an **experiment** that changes the explanatory variable while controlling other influences on the response.
+
+- In the absence of experimental evidence, be cautious in accepting claims of causation. Good evidence of causation (1) requires a strong association, (2) appears consistently in many studies, (3) has higher levels of the explanatory variable associated with stronger responses, (4) requires that alleged cause precede the effect in time, and (5) must be plausible.
+
+Ch5.1 Toward Statistical Inference
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Key Terms Related to Sampling Distribution**
+
+1. **Population**
+   - *Explanation*: The entire set of individuals or elements that we are interested in studying. A population has parameters like the true mean (:math:`\mu`) and standard deviation (:math:`\sigma`).
+   - *Example*: The average height of all Purdue students.
+
+2. **Sample**
+   - *Explanation*: A subset of the population selected for measurement. The sample is used to make inferences about the population.
+   - *Example*: We select 100 students to form a sample.
+
+3. **Statistic**
+   - *Explanation*: A numerical value calculated from a sample. It is used to estimate a population parameter.
+   - *Example*: The sample mean calculated for each sample is a statistic.
+
+4. **Estimator**
+   - *Explanation*: A rule or formula used to calculate a statistic that estimates a population parameter.
+   - *Formula*: For the sample mean, the estimator is:
+     ::
+     
+       \hat{\mu} = \frac{1}{n} \sum_{i=1}^{n} X_i
+
+     where \(X_i\) are the sample values and \(n\) is the sample size.
+
+5. **Estimate**
+   - *Explanation*: The specific value obtained by applying the estimator to a particular sample. It is a realization of the estimator.
+
+6. **Sampling Distribution**
+   - *Explanation*: The probability distribution of a statistic obtained from a large number of samples drawn from a specific population. It shows how the statistic varies from sample to sample.
+   - *Example*: The distribution of the `sample_means` represents the sampling distribution of the sample mean.
+
+7. **Unbiased Estimator**
+   - *Explanation*: An estimator whose expected value (mean of its sampling distribution) is equal to the true value of the population parameter it estimates.
+   - *Example*: The sample mean is an unbiased estimator of the population mean.
+
+8. **Biased Estimator**
+   - *Explanation*: An estimator whose expected value is not equal to the true value of the population parameter it estimates. This introduces a systematic error (bias) in the estimates.
+
+9. **Bias**
+   - *Explanation*: The difference between the expected value of an estimator and the true value of the population parameter. Bias measures the accuracy of an estimator.
+   - *Formula*: Bias of an estimator \( \hat{\theta} \) for a parameter \( \theta \) is given by:
+     ::
+     
+       \text{Bias}(\hat{\theta}) = E(\hat{\theta}) - \theta
+     
+
+10. **Variance of the Sampling Distribution**
+    - *Explanation*: The spread of the sampling distribution, indicating how much the statistic varies from one sample to another. Lower variance means more precise estimates.
+    - *Formula*: The variance of the sampling distribution of the sample mean (standard error squared) is given by:
+      ::
+      
+        \text{Var}(\hat{\mu}) = \frac{\sigma^2}{n}
+      
+      where \( \sigma^2 \) is the population variance and \( n \) is the sample size.
+
+11. **Standard Error**
+    - *Explanation*: The standard deviation of the sampling distribution. It measures the precision of the estimator and how much the sample mean is expected to vary from sample to sample.
+    - *Formula*: The standard error of the sample mean is:
+      ::
+      
+        \text{SE}(\hat{\mu}) = \frac{\sigma}{\sqrt{n}}
+      
+    - *Note*: The standard error decreases as the sample size increases.
+
+**What is a Sampling Distribution?**
+
+A sampling distribution is the probability distribution of a given statistic based on a large number of samples drawn from a specific population. In simpler terms, if you were to repeatedly take random samples from a population and calculate a statistic (like the mean, median, or variance) for each sample, the distribution of those calculated statistics would form the sampling distribution.
+
+For example, if you repeatedly take random samples of 30 individuals from a population and calculate the sample mean for each sample, the distribution of those sample means is the sampling distribution of the mean.
+
+**Why Do We Care About Its Mean and Variance?**
+
+*Mean of the Sampling Distribution:*
+The mean of the sampling distribution (often called the expected value) is important because it tells us about the accuracy of our estimator. If the mean of the sampling distribution is equal to the true population parameter, then the estimator is said to be unbiased. This means, on average, the estimator provides the correct value, making it a reliable tool for making inferences about the population.
+
+For example, if the mean of the sampling distribution of the sample mean is equal to the population mean, then the sample mean is an unbiased estimator of the population mean.
+
+*Variance of the Sampling Distribution:*
+The variance (or spread) of the sampling distribution indicates the variability of the estimator. It tells us how much the statistic (e.g., sample mean) will fluctuate from one sample to another. A lower variance means that the estimator is more consistent and reliable because the estimates are closely clustered around the mean of the sampling distribution.
+
+Variance is crucial because it directly affects the standard error, which measures the precision of the estimator. A smaller standard error indicates that our sample statistic is likely to be close to the true population parameter, which is desirable in statistical inference.
+
+The variance also helps us understand the trade-off between accuracy and precision. While the mean of the sampling distribution indicates accuracy (bias), the variance indicates precision (how much the estimates vary).
+
+.. image:: /images/0302.png
+
+
+
+
+
+
 
 
 
