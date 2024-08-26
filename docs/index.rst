@@ -124,7 +124,7 @@ Blocks are smaller geographical areas within each PSU, such as city blocks in ur
 - **For all 754 PSUs:** 
 
   - Suppose each PSU selects an average of 10% of its blocks.
-  - If each PSU has 100 blocks on average: **Total blocks selected = ``754 PSUs * 10 blocks = 7,540 blocks``**
+  - If each PSU has 100 blocks on average, **Total blocks selected:** ``754 PSUs * 10 blocks = 7,540 blocks``
 
 Stage 3: Selection of Housing Units within Blocks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -152,15 +152,17 @@ Within each selected block, housing units are grouped into clusters of four near
   **Example of Cluster Sampling:**
 
   - If 20% of clusters are selected from each block, and each block has 25 clusters:
+
     - **Clusters selected per block:** ``25 * 20% = 5 clusters selected``
 
 - **For all 7,540 blocks:**
 
-  - **Total clusters selected = ``7,540 blocks * 5 clusters = 37,700 clusters``**
+  - **Total clusters selected:** ``7,540 blocks * 5 clusters = 37,700 clusters``
 
 ### Step 3: Final Selection of Housing Units
 
 - **Total Housing Units:** Each cluster contains 4 housing units.
+
   - **Total housing units selected:** ``37,700 clusters * 4 housing units per cluster = 150,800 housing units selected``
 
 Summary of the CPS Sampling Process
@@ -175,7 +177,7 @@ Summary of the CPS Sampling Process
 3. **Stage 3: Cluster and Housing Unit Selection**
    - Within these blocks, **37,700 clusters** (each containing 4 housing units) are selected.
    - **Final Sample:** Approximately **150,800 households** are included in the CPS.
-   
+
 
 Lecture 03 Ch3 Producing Data 08/25-08/31/2024
 ----------------------------------------------
