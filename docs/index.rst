@@ -11,6 +11,172 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Special Topic: Current Population Survey (CPS) sampling process
+---------------------------------------------------------------
+
+The CPS uses a multistage sampling design to select households across the United States. This process ensures that the survey is representative of the entire population while also being efficient and cost-effective. Below is a step-by-step breakdown of how the sampling works, along with hypothetical numbers to illustrate each stage.
+
+Stage 1: Selection of Primary Sampling Units (PSUs)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**What are PSUs?**
+
+Primary Sampling Units (PSUs) are large geographic areas such as metropolitan areas, counties, or groups of adjacent counties. The U.S. is divided into 2007 PSUs that cover the entire country.
+
+### Step 1: Automatically Include Largest PSUs
+
+- **Automatic Inclusion:** The first step involves automatically selecting the 428 PSUs with the largest populations. These PSUs are selected because they account for a significant portion of the U.S. population and are critical for ensuring that the sample is representative of the country’s population distribution.
+  
+  **Example:**
+
+  - **Top 428 PSUs:** These might include large metropolitan areas like New York City, Los Angeles, and Chicago, along with other densely populated areas across the country.
+
+### Step 2: Stratify and Sample the Remaining PSUs
+
+**Stratification Process:**
+
+- **Remaining PSUs:** After selecting the 428 largest PSUs, 1579 PSUs remain.
+- **Stratification:** These 1579 PSUs are grouped into strata. Stratification is done based on various characteristics, ensuring that the sample captures the diversity of the remaining PSUs. Typical stratification criteria might include:
+
+  - **Geographic location:** (e.g., Northeast, Midwest, South, West)
+  - **Urban vs. rural:** (e.g., urban areas, suburban areas, rural areas)
+  - **Socio-economic characteristics:** (e.g., income levels, education levels)
+  - **Population density:** (e.g., high-density vs. low-density areas)
+
+**Example of Stratification:**
+
+- **Suppose the 1579 PSUs are divided into 5 strata based on geographic location:**
+
+  - Stratum 1: Northeast (300 PSUs)
+  - Stratum 2: Midwest (400 PSUs)
+  - Stratum 3: South (500 PSUs)
+  - Stratum 4: West (279 PSUs)
+  - Stratum 5: Rural areas across all regions (100 PSUs)
+
+**Sampling within Each Stratum:**
+
+- Within each stratum, a proportional number of PSUs are randomly selected to ensure that each region is adequately represented in the final sample.
+
+**Example of Selecting 326 PSUs:**
+
+- **From the 5 strata:**
+
+  - Stratum 1 (Northeast): ``300/1579 * 326 ≈ 62`` PSUs selected
+  - Stratum 2 (Midwest): ``400/1579 * 326 ≈ 83`` PSUs selected
+  - Stratum 3 (South): ``500/1579 * 326 ≈ 103`` PSUs selected
+  - Stratum 4 (West): ``279/1579 * 326 ≈ 58`` PSUs selected
+  - Stratum 5 (Rural areas): ``100/1579 * 326 ≈ 20`` PSUs selected
+
+- **Total PSUs selected:** ``62 + 83 + 103 + 58 + 20 = 326 PSUs``
+
+**Final Selection:**
+
+- **Total PSUs:** The 428 largest PSUs + 326 selected from the remaining PSUs = **754 PSUs selected** for the CPS.
+
+Stage 2: Selection of Blocks within Each PSU
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**What are Blocks?**
+
+Blocks are smaller geographical areas within each PSU, such as city blocks in urban areas or defined rural areas. Blocks are used to further refine the sampling process within each PSU.
+
+### Step 1: Divide Each PSU into Blocks
+
+- **Division Process:** Each selected PSU is divided into blocks. The number of blocks within each PSU depends on its size and population density.
+  
+  **Example:**
+
+  - **Urban PSU:** An urban PSU might be divided into 200 blocks.
+  - **Rural PSU:** A rural PSU might be divided into 50 blocks.
+
+### Step 2: Stratify and Sample the Blocks
+
+**Stratification Process:**
+
+- **Stratify by Characteristics:** Blocks within each PSU are stratified based on characteristics like:
+
+  - **Ethnic composition:** (e.g., blocks with a high proportion of a certain ethnic group)
+  - **Socio-economic status:** (e.g., income levels, housing values)
+  - **Housing type:** (e.g., single-family homes, apartments)
+
+**Example of Block Stratification:**
+
+- Suppose an urban PSU is divided into 200 blocks and stratified by income levels into three strata:
+
+  - Stratum 1: High-income blocks (50 blocks)
+  - Stratum 2: Middle-income blocks (100 blocks)
+  - Stratum 3: Low-income blocks (50 blocks)
+
+**Sampling within Each Stratum:**
+
+- A random sample of blocks is selected from each stratum. The number of blocks selected depends on the size of the stratum.
+
+**Example of Selecting Blocks:**
+
+- **From the urban PSU with 200 blocks:**
+
+  - Stratum 1 (High-income): 20% of 50 blocks = **10 blocks selected**
+  - Stratum 2 (Middle-income): 20% of 100 blocks = **20 blocks selected**
+  - Stratum 3 (Low-income): 20% of 50 blocks = **10 blocks selected**
+  
+  - **Total blocks selected from this PSU:** ``10 + 20 + 10 = 40 blocks selected``
+
+- **For all 754 PSUs:** 
+
+  - Suppose each PSU selects an average of 10% of its blocks.
+  - If each PSU has 100 blocks on average: **Total blocks selected = ``754 PSUs * 10 blocks = 7,540 blocks``**
+
+Stage 3: Selection of Housing Units within Blocks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**What are Clusters?**
+
+Within each selected block, housing units are grouped into clusters of four nearby units. Each cluster is a small group of housing units that are geographically close, making it easier for interviewers to visit.
+
+### Step 1: Sort Housing Units into Clusters
+
+**Sorting Process:**
+
+- **List and Sort:** All housing units within each selected block are listed and sorted based on proximity. This could mean sorting by address, physical location, or other geographic indicators.
+  
+  **Example:**
+
+  - In a block with 100 housing units, the units are sorted and grouped into 25 clusters of 4 units each.
+
+### Step 2: Sample Clusters within Blocks
+
+**Sampling Process:**
+
+- **Probability Sampling:** A random sample of clusters is selected from each block. The selection might be done using **Simple Random Sampling (SRS)** or **Probability Proportional to Size (PPS)**.
+  
+  **Example of Cluster Sampling:**
+
+  - If 20% of clusters are selected from each block, and each block has 25 clusters:
+    - **Clusters selected per block:** ``25 * 20% = 5 clusters selected``
+
+- **For all 7,540 blocks:**
+
+  - **Total clusters selected = ``7,540 blocks * 5 clusters = 37,700 clusters``**
+
+### Step 3: Final Selection of Housing Units
+
+- **Total Housing Units:** Each cluster contains 4 housing units.
+  - **Total housing units selected:** ``37,700 clusters * 4 housing units per cluster = 150,800 housing units selected``
+
+Summary of the CPS Sampling Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **Stage 1: PSU Selection**
+   - **754 PSUs** are selected from the total of 2007 PSUs.
+
+2. **Stage 2: Block Selection**
+   - From these 754 PSUs, **7,540 blocks** are selected.
+
+3. **Stage 3: Cluster and Housing Unit Selection**
+   - Within these blocks, **37,700 clusters** (each containing 4 housing units) are selected.
+   - **Final Sample:** Approximately **150,800 households** are included in the CPS.
+   
+
 Lecture 03 Ch3 Producing Data 08/25-08/31/2024
 ----------------------------------------------
 
