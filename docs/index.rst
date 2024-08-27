@@ -496,6 +496,12 @@ The variance also helps us understand the trade-off between accuracy and precisi
 
 .. image:: /images/0302.png
 
+**Example Two: Normal Distribution with mean = 50, standard deviation = 10**
+
+The true population consists of 10,000 units. For the large sample experiment, we draw 100 units at a time to form each sample. For the small sample experiment, we draw 10 units per sample. We repeat this process 100 times, resulting in 100 large samples and 100 small samples. We then calculate the sample means for each sample to create sampling distributions for both experiments. As shown in the graph, the sampling distribution for the small sample is much more dispersed than that of the large sample, indicating greater variability.
+
+.. image:: /images/0303.png
+
 
 
 
