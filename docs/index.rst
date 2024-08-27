@@ -17,7 +17,7 @@ Special Topic: Current Population Survey (CPS) sampling process
 The CPS uses a multistage sampling design to select households across the United States. This process ensures that the survey is representative of the entire population while also being efficient and cost-effective. Below is a step-by-step breakdown of how the sampling works, along with hypothetical numbers to illustrate each stage.
 
 Stage 1: Selection of Primary Sampling Units (PSUs)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **What are PSUs?**
 
@@ -74,7 +74,7 @@ Primary Sampling Units (PSUs) are large geographic areas such as metropolitan ar
 - **Total PSUs:** The 428 largest PSUs + 326 selected from the remaining PSUs = **754 PSUs selected** for the CPS.
 
 Stage 2: Selection of Blocks within Each PSU
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **What are Blocks?**
 
@@ -127,7 +127,7 @@ Blocks are smaller geographical areas within each PSU, such as city blocks in ur
   - If each PSU has 100 blocks on average, **Total blocks selected:** ``754 PSUs * 10 blocks = 7,540 blocks``
 
 Stage 3: Selection of Housing Units within Blocks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **What are Clusters?**
 
@@ -166,7 +166,7 @@ Within each selected block, housing units are grouped into clusters of four near
   - **Total housing units selected:** ``37,700 clusters * 4 housing units per cluster = 150,800 housing units selected``
 
 Summary of the CPS Sampling Process
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. **Stage 1: PSU Selection**
    - **754 PSUs** are selected from the total of 2007 PSUs.
