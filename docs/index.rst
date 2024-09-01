@@ -11,6 +11,65 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+
+Week 03: Ch5.1 Bias and Variability, Ch1: Graphing and Numerical Summaries
+--------------------------------------------------------------------------
+
+Section 5.1 Toward Statistical Inference SUMMARY
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- A number that describes a population is a **parameter**. A number that describes a sample, and is computed from the sample data, is a **statistic**.
+
+- The purpose of sampling or experimentation is usually **statistical inference**: using sample statistics to make statements about unknown parameters.
+
+- A statistic from a probability sample or a randomized experiment varies randomly from sample to sample. The **sampling distribution** of a statistic describes how the statistic varies in these repeated data productions. The sampling distribution answers the question "What would happen if we repeated the sample or experiment many times?" Formal statistical inference is based on the sampling distributions of statistics.
+
+- **Simulation** can be used to imitate the production of many random samples. If we calculate the statistic for each of these samples, their distribution approximates the statistic’s sampling distribution.
+
+- A statistic as an **estimator** of a parameter may suffer from **bias** or from large **variability**. Bias means that the center of the sampling distribution is not equal to the true value of the parameter. The variability of the statistic is described by the spread of its sampling distribution.
+
+- The spread of a statistic is usually reported by giving a **margin of error** for conclusions based on sample results. As the sample size increases, the margin of error decreases.
+
+- Properly chosen statistics from randomized data production designs have no bias resulting from the way the sample is selected or the way the experimental units are assigned to treatments. We can reduce the variability of the statistic by increasing the size of the sample.
+
+- As long as the population is at least 20 times larger than the sample size n, the size of the population has little influence on the variability of a statistic.
+
+Section 5.1 Exercises
+^^^^^^^^^^^^^^^^^^^^^
+
+5.1 to 5.4, 5.6, and 5.12
+
+Section 1.1 Data SUMMARY
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+- A data set contains information on a number of **cases**. Cases may be customers, companies, subjects in a study, units in an experiment, or other objects.
+
+- For each case, the data give values for one or more **variables**. A variable describes some characteristic of a case, such as a person’s height, gender, or salary. Variables can have different **values** for different cases.
+
+- A **label** is a special variable used to identify cases in a data set.
+
+- Some variables are **categorical**, and others are **quantitative**. A categorical variable places each individual into a category, such as male or female. A quantitative variable has numerical values that measure some characteristic of each case, such as height in centimeters or annual salary in dollars.
+
+- The **key characteristics** of a data set answer the questions Who? (What cases), What? (What variables), and Why? (What purpose)
+
+- Converting a count to a **rate** is an example of **adjusting one variable to create another**.
+
+Section 1.2 Displaying Distributions with Graphs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The distribution of a variable describes how the values of a variable vary from case to case. We can use graphic and numerical descriptions for a distribution. 
+
+**Exploratory data analysis:** the examination of using statistical tools and ideas help us examine data to **describe their main features**. Our focus for this examination is on careful description of the values of the variables in our data set. In many applications, our real interest is in using our descriptions to **predict**. We use the term **predictive analytics** to describe data used in this way.
+
+- Demo: Movie Rating, Categorical
+
+- Demo: Stemplot, Example 1.10
+
+- Demo: Histogram, Example 1.13
+
+- Demo: Mode, Skewness, and Time Plot
+
+
 Special Topic: Current Population Survey (CPS) sampling process
 ---------------------------------------------------------------
 
