@@ -65,9 +65,40 @@ The distribution of a variable describes how the values of a variable vary from 
 
 - Demo: Stemplot, Example 1.10
 
-- Demo: Histogram, Example 1.13
+- **Demo: Histogram, Example 1.13**
+
+We can make a histogram first
+
+.. image:: /images/IQ_histogram.png
+
+Then, we can overlay the density curve on the histogram. For the difference between a histogram and a density plot, you can refer to the following resource: `<https://online.stat.psu.edu/stat414/book/export/html/640>`_.
+
+.. image:: /images/IQ_density.png
+
+Then, we can analyze the shape of the density. Like a bell shape? The center, mean and median.
+
+.. image:: /images/IQ_mm.png
+
+The blue vertical dashed line indicates the mean, while the green line represents the median. 
+
+Then, we check the tails.
+
+Left tail in semi-transparent blue.
+
+.. image:: /images/IQ_left.png
+
+Right tail in semi-transparent red.
+
+.. image:: /images/IQ_leftright.png
+
 
 - Demo: Mode, Skewness, and Time Plot
+
+The two graphs below illustrate the different types of skewness. The solid-colored data points are outliers that are distant from the center of the distribution.
+
+.. image:: /images/skewleft.png
+
+.. image:: /images/skewright.png
 
 
 Special Topic: Current Population Survey (CPS) sampling process
