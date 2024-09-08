@@ -14,77 +14,102 @@ My primary goal with this resource is to support your learning in STAT 301, and 
 Week 04: Ch1.3 and Ch1.4
 ------------------------
 
-Calculation for the IQ dataset:
+The IQ dataset:
 5, 6, 16, 18, 18, 20, 24, 26, 27, 34, 42, 51, 54, 59, 64, 70, 72, 73, 78, 80
 
 1. **Mean**:
-   Formula: 
+
    .. math::
+
       \mu = \frac{1}{n} \sum_{i=1}^{n} x_i
 
    Example:
+
    .. math::
+
       \mu = \frac{5 + 6 + 16 + 18 + 18 + 20 + 24 + 26 + 27 + 34 + 42 + 51 + 54 + 59 + 64 + 70 + 72 + 73 + 78 + 80}{20} = 40.1
 
 2. **Median**:
-   Formula: If n is odd, the median is the middle value. If n is even, the median is the average of the two middle values.
+
+   If n is odd, the median is the middle value. If n is even, the median is the average of the two middle values.
 
    Example:
+
    .. math::
+
       Median = \frac{27 + 34}{2} = 30.5
 
 3. **Lower Quartile (Q1) / 25th Percentile**:
-   Formula: Q1 is the median of the lower half of the dataset.
+   
+   Q1 is the median of the lower half of the dataset.
 
    Example:
+
    .. math::
+
       Q1 = \frac{18 + 20}{2} = 18.5
 
 4. **Upper Quartile (Q3) / 75th Percentile**:
-   Formula: Q3 is the median of the upper half of the dataset.
+   
+   Q3 is the median of the upper half of the dataset.
 
    Example:
+
    .. math::
+
       Q3 = \frac{64 + 70}{2} = 67
 
 5. **Maximum (Max)**:
-   Formula: The maximum is the largest value in the dataset.
+   
+   The maximum is the largest value in the dataset.
 
    Example:
+
    Max = 80
 
 6. **Minimum (Min)**:
-   Formula: The minimum is the smallest value in the dataset.
+   
+   The minimum is the smallest value in the dataset.
 
    Example:
+
    Min = 5
 
 7. **Interquartile Range (IQR)**:
-   Formula: 
+   
    .. math::
+
       IQR = Q3 - Q1
 
    Example:
+
    .. math::
+
       IQR = 67 - 18.5 = 48.5
 
 8. **Outlier Threshold (1.5 * IQR)**:
-   Formula: Outliers are below Q1 - 1.5 * IQR or above Q3 + 1.5 * IQR.
+   
+   Outliers are below Q1 - 1.5 * IQR or above Q3 + 1.5 * IQR.
 
    Example:
+
    .. math::
+
       Lower Bound = Q1 - 1.5 \times IQR = 18.5 - 1.5 \times 48.5 = -53.25 \\
       Upper Bound = Q3 + 1.5 \times IQR = 67 + 1.5 \times 48.5 = 138.75
 
    Outliers are any values outside the range (-53.25, 138.75). There are no outliers in this dataset.
 
 9. **Variance (s^2)**:
-   Formula: 
+   
    .. math::
+
       s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \mu)^2
 
    Example:
+
    .. math::
+
       s^2 = \frac{(5 - 40.1)^2 + (6 - 40.1)^2 + ... + (80 - 40.1)^2}{19} = 706.95
 
 **In general, we can calculate the Pth percentile by following these steps:**
@@ -96,14 +121,17 @@ Calculation for the IQ dataset:
       \text{Position} = \frac{P}{100} \times (n + 1)
 
    where:
-   - \( P \) is the desired percentile (e.g., 25th percentile for Q1, 50th percentile for the median),
+
+   - \( P \) is the desired percentile (e.g., 25th percentile for Q1, 50th percentile for the median), \\
    - \( n \) is the number of data points in the dataset.
 
 2. **Whole Number Position**: 
+
    - If the position is a whole number, use the corresponding data point at that position directly.
 
 3. **Fractional Position**: 
-   - If the position is a fraction (i.e., not a whole number), find the two adjacent data points in the dataset.
+
+   - If the position is a fraction (i.e., not a whole number), find the two adjacent data points in the dataset. \\
    - Use the values at these adjacent positions and take their average to calculate the percentile.
 
 **Example**:
@@ -112,7 +140,7 @@ To find the median (50th percentile) in a dataset with \( n = 8 \) data points, 
 .. math::
    \text{Position} = \frac{50}{100} \times (8 + 1) = 4.5
 
-Since 4.5 is a fraction, find the 4th and 5th data points in the sorted dataset and take their average. For this textbook, the median is calculated as:
+Since 4.5 is a fraction, find the 4th and 5th data points in the sorted dataset and take their average for this textbook, the median is calculated as:
 
 .. math::
    \text{Median} = \frac{x_4 + x_5}{2}
