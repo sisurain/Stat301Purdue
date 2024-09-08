@@ -15,8 +15,8 @@ My primary goal with this resource is to support your learning in STAT 301, and 
 Week 04: Ch1.4 Density Curves and Normal Distributions
 ------------------------------------------------------
 
-The normal distribution is fully defined by its mean 
-:math:`\mu` and variance :math:`\sigma^2` because:
+**The normal distribution is fully defined by its mean 
+:math:`\mu` and variance :math:`\sigma^2` because:**
 
 - **Mean** :math:`\mu` determines the center or location of the distribution (where the peak of the bell curve is).
 - **Variance** :math:`\sigma^2` (or **standard deviation** :math:`\sigma`) determines the spread or scale of the distribution (how wide or narrow the bell curve is).
