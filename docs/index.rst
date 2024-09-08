@@ -11,8 +11,112 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
-Week 04: Ch1.3 and Ch1.4
-------------------------
+
+Week 04: Ch1.4 Density Curves and Normal Distributions
+------------------------------------------------------
+
+The normal distribution is fully defined by its mean 
+:math:`\mu` and variance :math:`\sigma^2` because:
+
+- **Mean** :math:`\mu` determines the center or location of the distribution (where the peak of the bell curve is).
+- **Variance** :math:`\sigma^2` (or **standard deviation** :math:`\sigma`) determines the spread or scale of the distribution (how wide or narrow the bell curve is).
+
+Since the shape of the normal distribution is always symmetric and bell-shaped, the only variables we need to adjust are its center and spread, which are described by the mean and variance.
+
+.. image:: /images/0405.png
+
+The **area** under the normal curve to the left of a data point :math:`x`, This area represents the **cumulative probability** of a value being less than or equal to that data point in the distribution. 
+
+**Why We Need to Know This Area:**
+
+- The area helps us calculate the **percentile** of a value, i.e., the percentage of data points that are below a certain value.
+
+.. image:: /images/0407.png
+
+**How to calculate this area?**
+
+If a data point comes from a **standard normal distribution** with a mean of 0 and a standard deviation of 1, we can use the **z-table** to find the area (the cumulative probability) under the curve. 
+
+For data points from other normal distributions (non-standard normals), we can transform the data point into a **z-score**, which standardizes the value. Once transformed, we can use the z-table to find the area for the corresponding z-score.
+
+**What is a Z-Score?**
+
+A **z-score** measures how many **standard deviations** a particular value is from the mean of the dataset. It helps us understand where a data point stands relative to the rest of the distribution. A positive z-score indicates the data point is above the mean, while a negative z-score means it is below the mean.
+
+The formula to calculate the z-score is as follows:
+
+.. image:: /images/0408.png
+   :alt: Z-Score Formula
+
+**Examples:**
+
+- A **z-score of 2** means the data point is **2 standard deviations above** the mean.
+- A **z-score of -1.5** means the data point is **1.5 standard deviations below** the mean.
+
+Once you have the z-score, use the z-table to find the area (cumulative probability) that corresponds to that score.
+
+
+**The 68-95-99.7 rule** 
+
+.. image:: /images/0409.png
+
+**SAT Example: Calculate Percentile from a Score**
+
+You scored **1300** on the SAT. The nationwide SAT scores follow a normal distribution with:
+- Mean (\ :math:`\mu` ) = **1050**
+- Standard deviation (\ :math:`\sigma` ) = **217**
+
+1. **Step 1: Calculate the Z-Score**
+
+   Use the z-score formula:
+
+   .. math::
+      z = \frac{x - \mu}{\sigma}
+
+   Where:
+   - :math:`x = 1300` (your SAT score),
+   - :math:`\mu = 1050` (average SAT score),
+   - :math:`\sigma = 217` (standard deviation).
+
+   Substituting the values:
+
+   .. math::
+      z = \frac{1300 - 1050}{217} \approx 1.15
+
+2. **Step 2: Use the Z-Table to Find the Percentile**
+
+   A **z-score of 1.15** corresponds to approximately **87.49%** in the z-table. This means you are in the **87th percentile**, meaning about **87.49%** of test-takers scored lower than you.
+
+**Reverse: Find the SAT Score for a Specific Percentile**
+
+Suppose you want to be above the **90th percentile**. Here's how to calculate the score you need:
+
+1. **Step 1: Find the Z-Score for the 90th Percentile**
+
+   From the z-table, the **90th percentile** corresponds to a **z-score of 1.28**.
+
+2. **Step 2: Convert the Z-Score to an SAT Score**
+
+   Use the reverse z-score formula:
+
+   .. math::
+      x = \mu + z \cdot \sigma
+
+   Substituting the values:
+
+   .. math::
+      x = 1050 + 1.28 \times 217 \approx 1328
+
+   To score above the **90th percentile**, you would need to score approximately **1328** on the SAT.
+
+**Normal quantile plot**
+
+.. image:: /images/0410.png
+
+.. image:: /images/0411.png
+
+Week 04: Ch1.3 Describing Distributions with Numbers
+----------------------------------------------------
 
 The IQ dataset:
 5, 6, 16, 18, 18, 20, 24, 26, 27, 34, 42, 51, 54, 59, 64, 70, 72, 73, 78, 80
@@ -215,6 +319,8 @@ We can make a histogram first
 Then, we can overlay the density curve on the histogram. For the difference between a histogram and a density plot, you can refer to the following resource: `<https://online.stat.psu.edu/stat414/book/export/html/640>`_.
 
 For a density curve, it is always above zero, and the total area under the curve is normalized to one. For each interval, such as 95 to 105, the area is equal to the area of the bar for that interval divided by the total area of all bars.
+
+.. image:: /images/0406.png
 
 .. image:: /images/IQ_density.png
 
