@@ -150,6 +150,8 @@ This method can be applied to any percentile by changing the value of \( P \). F
 
 .. image:: /images/0403.png
 
+.. image:: /images/0404.png
+
 
 Week 03: Ch5.1 Bias and Variability, Ch1: Graphing and Numerical Summaries
 --------------------------------------------------------------------------
