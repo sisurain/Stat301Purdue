@@ -11,6 +11,120 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Week 04: Ch1.3 and Ch1.4
+------------------------
+
+Calculation for the IQ dataset:
+5, 6, 16, 18, 18, 20, 24, 26, 27, 34, 42, 51, 54, 59, 64, 70, 72, 73, 78, 80
+
+1. **Mean**:
+   Formula: 
+   .. math::
+      \mu = \frac{1}{n} \sum_{i=1}^{n} x_i
+
+   Example:
+   .. math::
+      \mu = \frac{5 + 6 + 16 + 18 + 18 + 20 + 24 + 26 + 27 + 34 + 42 + 51 + 54 + 59 + 64 + 70 + 72 + 73 + 78 + 80}{20} = 40.1
+
+2. **Median**:
+   Formula: If n is odd, the median is the middle value. If n is even, the median is the average of the two middle values.
+
+   Example:
+   .. math::
+      Median = \frac{27 + 34}{2} = 30.5
+
+3. **Lower Quartile (Q1) / 25th Percentile**:
+   Formula: Q1 is the median of the lower half of the dataset.
+
+   Example:
+   .. math::
+      Q1 = \frac{18 + 20}{2} = 18.5
+
+4. **Upper Quartile (Q3) / 75th Percentile**:
+   Formula: Q3 is the median of the upper half of the dataset.
+
+   Example:
+   .. math::
+      Q3 = \frac{64 + 70}{2} = 67
+
+5. **Maximum (Max)**:
+   Formula: The maximum is the largest value in the dataset.
+
+   Example:
+   Max = 80
+
+6. **Minimum (Min)**:
+   Formula: The minimum is the smallest value in the dataset.
+
+   Example:
+   Min = 5
+
+7. **Interquartile Range (IQR)**:
+   Formula: 
+   .. math::
+      IQR = Q3 - Q1
+
+   Example:
+   .. math::
+      IQR = 67 - 18.5 = 48.5
+
+8. **Outlier Threshold (1.5 * IQR)**:
+   Formula: Outliers are below Q1 - 1.5 * IQR or above Q3 + 1.5 * IQR.
+
+   Example:
+   .. math::
+      Lower Bound = Q1 - 1.5 \times IQR = 18.5 - 1.5 \times 48.5 = -53.25 \\
+      Upper Bound = Q3 + 1.5 \times IQR = 67 + 1.5 \times 48.5 = 138.75
+
+   Outliers are any values outside the range (-53.25, 138.75). There are no outliers in this dataset.
+
+9. **Variance (s^2)**:
+   Formula: 
+   .. math::
+      s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \mu)^2
+
+   Example:
+   .. math::
+      s^2 = \frac{(5 - 40.1)^2 + (6 - 40.1)^2 + ... + (80 - 40.1)^2}{19} = 706.95
+
+**In general, we can calculate the Pth percentile by following these steps:**
+
+1. **Find the Position**: 
+   Use the following formula to determine the position in the sorted dataset:
+
+   .. math::
+      \text{Position} = \frac{P}{100} \times (n + 1)
+
+   where:
+   - \( P \) is the desired percentile (e.g., 25th percentile for Q1, 50th percentile for the median),
+   - \( n \) is the number of data points in the dataset.
+
+2. **Whole Number Position**: 
+   - If the position is a whole number, use the corresponding data point at that position directly.
+
+3. **Fractional Position**: 
+   - If the position is a fraction (i.e., not a whole number), find the two adjacent data points in the dataset.
+   - Use the values at these adjacent positions and take their average to calculate the percentile.
+
+**Example**:
+To find the median (50th percentile) in a dataset with \( n = 8 \) data points, use the formula to find the position:
+
+.. math::
+   \text{Position} = \frac{50}{100} \times (8 + 1) = 4.5
+
+Since 4.5 is a fraction, find the 4th and 5th data points in the sorted dataset and take their average. For this textbook, the median is calculated as:
+
+.. math::
+   \text{Median} = \frac{x_4 + x_5}{2}
+
+This method can be applied to any percentile by changing the value of \( P \). For example, to find the 25th percentile, use \( P = 25 \).
+
+.. image:: /images/0401.png
+
+.. image:: /images/0402.png
+
+.. image:: /images/0403.png
+
 
 Week 03: Ch5.1 Bias and Variability, Ch1: Graphing and Numerical Summaries
 --------------------------------------------------------------------------
@@ -72,6 +186,8 @@ We can make a histogram first
 .. image:: /images/IQ_histogram.png
 
 Then, we can overlay the density curve on the histogram. For the difference between a histogram and a density plot, you can refer to the following resource: `<https://online.stat.psu.edu/stat414/book/export/html/640>`_.
+
+For a density curve, it is always above zero, and the total area under the curve is normalized to one. For each interval, such as 95 to 105, the area is equal to the area of the bar for that interval divided by the total area of all bars.
 
 .. image:: /images/IQ_density.png
 
