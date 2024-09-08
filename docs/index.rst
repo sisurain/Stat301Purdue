@@ -121,17 +121,14 @@ The IQ dataset:
       \text{Position} = \frac{P}{100} \times (n + 1)
 
    where:
-
-   - \( P \) is the desired percentile (e.g., 25th percentile for Q1, 50th percentile for the median), \\
+   - \( P \) is the desired percentile (e.g., 25th percentile for Q1, 50th percentile for the median), \
    - \( n \) is the number of data points in the dataset.
 
 2. **Whole Number Position**: 
-
    - If the position is a whole number, use the corresponding data point at that position directly.
 
 3. **Fractional Position**: 
-
-   - If the position is a fraction (i.e., not a whole number), find the two adjacent data points in the dataset. \\
+   - If the position is a fraction (i.e., not a whole number), find the two adjacent data points in the dataset. \
    - Use the values at these adjacent positions and take their average to calculate the percentile.
 
 **Example**:
