@@ -25,6 +25,10 @@ Since the shape of the normal distribution is always symmetric and bell-shaped, 
 
 .. image:: /images/0405.png
 
+**Questions to Consider:** 
+
+- Why is the **normal distribution** important in statistics and data analysis?
+
 The **area** under the normal curve to the left of a data point :math:`x`, This area represents the **cumulative probability** of a value being less than or equal to that data point in the distribution. 
 
 **Why We Need to Know This Area:**
