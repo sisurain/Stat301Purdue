@@ -12,6 +12,96 @@ The views expressed in this document are my own and do not necessarily reflect t
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
 
+Week 05: Ch5.2 The Sampling Distribution of a Sample Mean
+---------------------------------------------------------
+
+**Revisit the sampling distribution of sample mean example**
+
+**Population:** 4,000 students' heights, drawn from a normal distribution with mean :math:`\mu = 170` centimeters and standard deviation :math:`\sigma = 10` cm.
+
+.. image:: /images/0501.png
+
+Now draw 50 samples, each consisting of 50 students (:math:`x_1, x_2, \ldots, x_{49}, x_{50}`). Here we can observe that each individual measurement, say :math:`x_1`, varies across these 50 samples. Therefore, we denote it as :math:`X_1` to indicate it is a random variable, whose realization depends on its random selection from the population.
+
+**Sample 1:**
+
+.. image:: /images/0502.png
+
+**Sample 2:**
+
+.. image:: /images/0503.png
+
+Continuing this process, we can calculate the sample mean, :math:`\bar{x}`, for each of the 50 samples and construct a histogram or distribution of these sample means. We then overlay the density curve on this histogram. Finally, we overlay another normal density curve with mean :math:`\mu` and standard deviation :math:`\frac{\sigma}{\sqrt{n}}` onto the graph.
+
+.. image:: /images/0504.png
+
+Ultimately, we can compare the distribution of the population and the distribution of the sample means.
+
+.. image:: /images/0505.png
+
+**Questions to Consider:**
+*What if our population comes from a distribution other than normal?*
+
+**Calculations and Definitions:**
+
+**Population Distribution**
+
+The population distribution of a variable is the distribution of its values for all members of the population. The population distribution is also the probability distribution of the variable when we choose one individual at random from the population.
+
+**Facts About Sample Means**
+
+1. Sample means are less variable than individual observations.
+2. Sample means are centered on the population mean.
+3. For large :math:`n`, the distribution of sample means is close to Normal.
+
+**Sampling Distribution of a Sample Mean: Normal Population Distribution**
+
+If a population has the :math:`N(\mu, \sigma)` distribution, then the sample mean :math:`\bar{x}` of :math:`n` independent observations has the :math:`N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)` distribution.
+
+**Mean and Variance of Sampling Distribution of a Sample Mean**
+
+The sample mean of an SRS of size :math:`n` is given by:
+
+.. math::
+   \bar{x} = \frac{1}{n} \sum_{i=1}^{n} X_i
+
+Where :math:`X_1, X_2, \ldots, X_n` are the observations in the sample.
+
+If the population has mean :math:`\mu`, then :math:`\mu` is the mean of the distribution of each observation :math:`X_i`. To derive the mean of :math:`\bar{x}`, the rules for means of random variables are applied:
+
+.. math::
+   \mu_{\bar{x}} = \frac{1}{n} (\mu_{X_1} + \mu_{X_2} + \ldots + \mu_{X_n})
+                 = \frac{1}{n} (n\mu)
+                 = \mu
+
+Thus, the mean of :math:`\bar{x}` is the same as the mean of the population, making :math:`\bar{x}` an unbiased estimator of the unknown population mean :math:`\mu`.
+
+Assuming the observations are independent, the rule for variances of independent random variables gives:
+
+.. math::
+   \sigma_{\bar{x}}^2 = \frac{1}{n^2} \left(\sigma_{X_1}^2 + \sigma_{X_2}^2 + \ldots + \sigma_{X_n}^2\right)
+                      = \frac{1}{n^2} (n\sigma^2)
+                      = \frac{\sigma^2}{n}
+
+The variance of the sample mean :math:`\bar{x}` decreases with the size of the sample :math:`n`, which demonstrates the statistical principle that averaging reduces variability.
+
+**Decrease in Standard Deviation with Sample Size**
+
+Because the standard deviation of :math:`\bar{x}` is :math:`\frac{\sigma}{\sqrt{n}}`, the standard deviation of the statistic decreases in proportion to the square root of the sample size. This means, for example, that a sample size must be multiplied by 4 in order to divide the statistic's standard deviation in half. By comparison, a sample size must be multiplied by 100 in order to reduce the standard deviation by a factor of 10.
+
+**Central Limit Theorem**
+
+Draw an SRS of size :math:`n` from any population with mean :math:`\mu` and finite standard deviation :math:`\sigma`. When :math:`n` is large, the central limit theorem states that the sampling distribution of the sample mean :math:`\bar{x}` is approximately Normal:
+
+.. math::
+   \bar{x} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)
+
+**Example 5.6 Standard Deviations for Sample Means of Visit Lengths**
+
+.. image:: /images/0506.png
+
+**Example 5.7, 5.8, and 5.11**
+
 Week 04: Ch1.4 Density Curves and Normal Distributions
 ------------------------------------------------------
 
