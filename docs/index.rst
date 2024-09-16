@@ -30,15 +30,16 @@ Consider a population of 10,000 coin tosses where each coin has a probability :m
 
 The probability distribution for each individual toss is:
 
-::
+.. list-table:: Probability Distribution of a Coin Toss
+   :widths: 25 75
+   :header-rows: 1
 
-    +-----------+-------------------+
-    | Outcome   | Probability        |
-    +===========+===================+
-    | Heads (1) | p                  |
-    +-----------+-------------------+
-    | Tails (0) | 1 - p              |
-    +-----------+-------------------+
+   * - Outcome
+     - Probability
+   * - Heads (1)
+     - :math:`p`
+   * - Tails (0)
+     - :math:`1 - p`
 
 
 We can now randomly sample from these 10,000 tosses to form a sample. Let the sample size be :math:`n`.
