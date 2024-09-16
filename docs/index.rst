@@ -148,8 +148,11 @@ The probability that exactly :math:`k` events occur in an interval, where the av
    P(X = k) = \frac{e^{-\mu} \mu^k}{k!}
 
 Where:
+
 - :math:`\mu` is the average number of successes in the given interval.
+
 - :math:`k` is the number of successes (events).
+
 - :math:`e` is approximately 2.718 (Euler's number).
 
 The **mean** of the Poisson distribution is :math:`\mu`, and the **standard deviation** is :math:`\sqrt{\mu}`.
