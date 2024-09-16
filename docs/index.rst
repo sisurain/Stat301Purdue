@@ -17,7 +17,7 @@ Week 05: Ch5.3 Sampling Distributions for Counts and Proportions
 
 **Introduction to Bernoulli and Binomial Random Variables**
 
-### Bernoulli Random Variable
+**Bernoulli Random Variable**
 
 Consider a population of 10,000 coin tosses where each coin has a probability :math:`p` of landing heads (success) and :math:`1 - p` of landing tails (failure). Each toss can be described as a Bernoulli random variable, where:
 
@@ -30,17 +30,18 @@ Consider a population of 10,000 coin tosses where each coin has a probability :m
 
 The probability distribution for each individual toss is:
 
-+-----------+-----------------+
-| Outcome   | Probability      |
-+===========+=================+
-| Heads (1) | :math:`p`        |
-+-----------+-----------------+
-| Tails (0) | :math:`1 - p`    |
-+-----------+-----------------+
++-----------+-------------------+
+| Outcome   | Probability        |
++===========+===================+
+| Heads (1) | :math:`p`          |
++-----------+-------------------+
+| Tails (0) | :math:`1 - p`      |
++-----------+-------------------+
+
 
 We can now randomly sample from these 10,000 tosses to form a sample. Let the sample size be :math:`n`.
 
-### Binomial Random Variable
+**Binomial Random Variable**
 
 The sum of :math:`n` independent Bernoulli trials is a Binomial random variable. Let :math:`X` represent the total number of heads (successes) in the sample. This is a Binomial distribution with parameters :math:`n` and :math:`p`:
 
@@ -52,7 +53,7 @@ If we define heads as 1 and tails as 0, the number of heads (successes) follows 
 .. math::
    \mu_X = np, \quad \sigma_X = \sqrt{np(1 - p)}
 
-### Proportion as a Random Variable
+**Proportion as a Random Variable**
 
 We can also define the proportion of successes in the sample. Let :math:`\hat{p}` be the proportion of heads, defined as:
 
@@ -64,18 +65,18 @@ This is another random variable that follows approximately a normal distribution
 .. math::
    \mu_{\hat{p}} = p, \quad \sigma_{\hat{p}} = \sqrt{\frac{p(1 - p)}{n}}
 
-### Example 1: Probability of Count Using Binomial and Normal Approximation
+**Example 1:** Probability of Count Using Binomial and Normal Approximation
 
 Let's calculate the probability that the number of heads (successes) is less than or equal to some number, say :math:`k`. We will do this using both the exact Binomial distribution and the approximate normal distribution.
 
-#### Binomial Distribution
+**Binomial Distribution**
 
 The exact probability for the count is:
 
 .. math::
    P(X \leq k) = \sum_{i=0}^{k} \binom{n}{i} p^i (1-p)^{n-i}
 
-#### Normal Approximation
+**Normal Approximation**
 
 The normal approximation for large :math:`n` is:
 
@@ -84,18 +85,18 @@ The normal approximation for large :math:`n` is:
 
 Where :math:`\Phi` is the CDF of the standard normal distribution.
 
-### Example 2: Probability of Proportion Using Binomial and Normal Approximation
+**Example 2:** Probability of Proportion Using Binomial and Normal Approximation
 
 For the proportion of heads, :math:`\hat{p}`, we can calculate a similar probability. Suppose we want to calculate the probability that the proportion of heads is less than or equal to a value :math:`\hat{p}_k`.
 
-#### Binomial Proportion Distribution
+**Binomial Proportion Distribution**
 
 The exact probability for the proportion is:
 
 .. math::
    P\left(\hat{p} \leq \hat{p}_k\right) = P\left(X \leq n \hat{p}_k\right)
 
-#### Normal Approximation
+**Normal Approximation**
 
 The normal approximation for large :math:`n` is:
 
