@@ -12,6 +12,163 @@ The views expressed in this document are my own and do not necessarily reflect t
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
 
+Week 05: Ch5.3 Sampling Distributions for Counts and Proportions
+----------------------------------------------------------------
+
+**Introduction to Bernoulli and Binomial Random Variables**
+
+### Bernoulli Random Variable
+
+Consider a population of 10,000 coin tosses where each coin has a probability :math:`p` of landing heads (success) and :math:`1 - p` of landing tails (failure). Each toss can be described as a Bernoulli random variable, where:
+
+.. math::
+   S_i =
+   \begin{cases}
+   1, & \text{if heads (success)} \\
+   0, & \text{if tails (failure)}
+   \end{cases}
+
+The probability distribution for each individual toss is:
+
++-----------+-----------------+
+| Outcome   | Probability      |
++===========+=================+
+| Heads (1) | :math:`p`        |
++-----------+-----------------+
+| Tails (0) | :math:`1 - p`    |
++-----------+-----------------+
+
+We can now randomly sample from these 10,000 tosses to form a sample. Let the sample size be :math:`n`.
+
+### Binomial Random Variable
+
+The sum of :math:`n` independent Bernoulli trials is a Binomial random variable. Let :math:`X` represent the total number of heads (successes) in the sample. This is a Binomial distribution with parameters :math:`n` and :math:`p`:
+
+.. math::
+   X \sim Binomial(n, p)
+
+If we define heads as 1 and tails as 0, the number of heads (successes) follows the Binomial distribution. The mean and standard deviation of :math:`X` are:
+
+.. math::
+   \mu_X = np, \quad \sigma_X = \sqrt{np(1 - p)}
+
+### Proportion as a Random Variable
+
+We can also define the proportion of successes in the sample. Let :math:`\hat{p}` be the proportion of heads, defined as:
+
+.. math::
+   \hat{p} = \frac{X}{n}
+
+This is another random variable that follows approximately a normal distribution (for large :math:`n`) with mean and standard deviation:
+
+.. math::
+   \mu_{\hat{p}} = p, \quad \sigma_{\hat{p}} = \sqrt{\frac{p(1 - p)}{n}}
+
+### Example 1: Probability of Count Using Binomial and Normal Approximation
+
+Let's calculate the probability that the number of heads (successes) is less than or equal to some number, say :math:`k`. We will do this using both the exact Binomial distribution and the approximate normal distribution.
+
+#### Binomial Distribution
+
+The exact probability for the count is:
+
+.. math::
+   P(X \leq k) = \sum_{i=0}^{k} \binom{n}{i} p^i (1-p)^{n-i}
+
+#### Normal Approximation
+
+The normal approximation for large :math:`n` is:
+
+.. math::
+   P(X \leq k) \approx \Phi\left(\frac{k - np}{\sqrt{np(1-p)}}\right)
+
+Where :math:`\Phi` is the CDF of the standard normal distribution.
+
+### Example 2: Probability of Proportion Using Binomial and Normal Approximation
+
+For the proportion of heads, :math:`\hat{p}`, we can calculate a similar probability. Suppose we want to calculate the probability that the proportion of heads is less than or equal to a value :math:`\hat{p}_k`.
+
+#### Binomial Proportion Distribution
+
+The exact probability for the proportion is:
+
+.. math::
+   P\left(\hat{p} \leq \hat{p}_k\right) = P\left(X \leq n \hat{p}_k\right)
+
+#### Normal Approximation
+
+The normal approximation for large :math:`n` is:
+
+.. math::
+   P\left(\hat{p} \leq \hat{p}_k\right) \approx \Phi\left(\frac{\hat{p}_k - p}{\sqrt{\frac{p(1-p)}{n}}}\right)
+
+**Graphs:** :math:`n = 50`, :math:`p = 0.5`.
+
+.. image:: /images/0507.png
+
+.. image:: /images/0508.png
+
+.. image:: /images/0509.png
+
+**Example 5.25, Figure 5.20**
+
+.. image:: /images/0510.png
+
+.. image:: /images/0511.png
+
+**Poisson Distribution**
+
+The **Poisson distribution** is a probability distribution that models the number of successes (events) occurring within a fixed interval of time or space when those events happen with a constant mean rate and are independent of the time since the last event.
+
+**Key Properties of the Poisson Setting**
+
+1. **Independence**: The number of successes (events) that occur in two non-overlapping intervals are independent of each other. For example, the number of phone calls received in the morning doesn’t affect the number of calls in the evening.
+   
+2. **Equal Probability**: The probability of a success occurring in any unit of measure (whether it's time, space, or another unit) is the same for all units of equal size. For instance, the likelihood of getting 3 calls in 10 minutes is proportional to the time length, and this probability doesn't change from one 10-minute block to another.
+
+3. **Rare Events**: The probability that more than one event will occur in a very small unit of measure is negligible. Events happen one at a time in these intervals, which is why it is ideal for modeling rare events.
+
+**When to Use the Poisson Distribution**
+
+The Poisson distribution is ideal when you’re counting the number of times an event happens over a fixed interval, such as:
+
+- The number of emails received in an hour.
+- The number of accidents at a particular intersection during a week.
+- The number of typographical errors on a page of text.
+
+**Poisson Distribution Formula**
+
+The probability that exactly :math:`k` events occur in an interval, where the average number of events is :math:`\mu`, follows the Poisson distribution:
+
+.. math::
+   P(X = k) = \frac{e^{-\mu} \mu^k}{k!}
+
+Where:
+- :math:`\mu` is the average number of successes in the given interval.
+- :math:`k` is the number of successes (events).
+- :math:`e` is approximately 2.718 (Euler's number).
+
+The **mean** of the Poisson distribution is :math:`\mu`, and the **standard deviation** is :math:`\sqrt{\mu}`.
+
+**Example Scenario**
+
+Let’s say we want to model the number of customer arrivals at a store in a 1-hour period, and the average number of customers arriving is 5 per hour. This fits the Poisson distribution because:
+
+1. Customer arrivals are independent (one arrival doesn’t influence another).
+2. The probability of an arrival is proportional to time (10 minutes is half as likely as 20 minutes for a given number of customers).
+3. The likelihood of more than one customer arriving at the exact same time is very small.
+
+In this case, the average number of arrivals :math:`\mu` is 5, and we can use the Poisson distribution to calculate the probability of, say, exactly 3 customers arriving in a given hour:
+
+.. math::
+   P(X = 3) = \frac{e^{-5} 5^3}{3!} \approx 0.14
+
+This means there’s about a 14% chance that exactly 3 customers will arrive in one hour.
+
+.. image:: /images/0512.png
+
+**Example 5.32**
+
 Week 05: Ch5.2 The Sampling Distribution of a Sample Mean
 ---------------------------------------------------------
 
