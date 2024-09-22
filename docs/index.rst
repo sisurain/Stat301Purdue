@@ -11,6 +11,171 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Week 06: Intro to Inference
+---------------------------
+
+A lot of times, in real-world applications, we have a sample of data points, observations, outcomes, or cases. However, we don't know the values of parameters (e.g., :math:`\mu` and :math:`\sigma`) for the population. So, we need to use the information from the sample to *guess* the values of parameters. This procedure/process is statistical learning or statistical inference.
+
+Let's first use the textbook Example 6.3 SATM score to illustrate the process. We have only one parameter, which is the population mean, :math:`\mu`, which we don't know in this case and need to estimate.
+
+One approach is that we can record the scores for all the students (:math:`N = 489{,}650`) in the population, and then calculate :math:`\mu`. But this would be time-consuming and costly.
+
+Another, more applicable approach is that we can draw a sample from the whole population, in this case :math:`n = 500` students, and use the sample mean :math:`\bar{x}` to estimate or get a rough idea of the population mean :math:`\mu`.
+
+The sample mean :math:`\bar{x}` is a natural estimator of the unknown population mean :math:`\mu` by our intuition. What's more important, it is an unbiased estimator, and the sample mean must approach the population mean as the size of the sample grows. This means the sample mean has some good properties.
+
+In the textbook, for the first sample, Sample 1, we have :math:`\bar{x} = 505`. From last time, we know that if we draw a number of different samples and calculate the sample means for each sample, then these sample means will form an approximate normal distribution with mean :math:`\mu` and standard deviation :math:`\frac{\sigma}{\sqrt{n}}`.
+
+Because that fact is normal, we know that 95% of these :math:`\bar{x}` will fall into the range of :math:`\left( \mu - 2 \times \frac{\sigma}{\sqrt{n}},\ \mu + 2 \times \frac{\sigma}{\sqrt{n}} \right)`, as shown in the graph below:
+
+.. image:: /images/0601.png
+
+We have:
+
+.. math::
+
+   2 \times \frac{\sigma}{\sqrt{n}} = 2 \times \frac{100}{\sqrt{500}} = 2 \times 4.5 = 9.
+
+If :math:`\bar{x}` lies within :math:`(\mu - 9,\ \mu + 9)`, we can also say that :math:`\mu` lies within :math:`(\bar{x} - 9,\ \bar{x} + 9)`.
+
+**Given:**
+
+.. math::
+
+   \bar{x} \in (\mu - 9,\ \mu + 9)
+
+This means:
+
+.. math::
+
+   \mu - 9 < \bar{x} < \mu + 9
+
+**Step 1: Subtract :math:`\mu` from all parts of the inequality.**
+
+.. math::
+
+   (\mu - 9) - \mu < \bar{x} - \mu < (\mu + 9) - \mu \\
+   -9 < \bar{x} - \mu < 9
+
+**Step 2: Multiply all parts by :math:`-1` to switch the direction of the inequalities.**
+
+.. math::
+
+   -1 \times (-9) > -1 \times (\bar{x} - \mu) > -1 \times 9 \\
+   9 > \mu - \bar{x} > -9
+
+This simplifies to:
+
+.. math::
+
+   -9 < \mu - \bar{x} < 9
+
+**Step 3: Add :math:`\bar{x}` to all parts of the inequality.**
+
+.. math::
+
+   -9 + \bar{x} < \mu - \bar{x} + \bar{x} < 9 + \bar{x} \\
+   \bar{x} - 9 < \mu < \bar{x} + 9
+
+**Conclusion:**
+
+.. math::
+
+   \mu \in (\bar{x} - 9,\ \bar{x} + 9)
+
+Then, we have a confidence interval, or 95% confidence interval. So what does this **95%** mean?
+
+It means that if we draw 100 samples and calculate 100 sample means, and then form 100 of these confidence intervals, 95 times this interval will contain the population mean :math:`\mu`. But for a single confidence interval, we actually do not know whether this interval will contain :math:`\mu` or not. For a single confidence interval, there are only two cases: it contains :math:`\mu` or it does not contain :math:`\mu`.
+
+.. image:: /images/0602.png
+
+Then we can calculate any confidence level intervals.
+
+.. image:: /images/0603.png
+
+.. image:: /images/0604.png
+
+If we don't know :math:`\sigma`, then we can get an estimate of it.
+
+**Example 6.7**
+
+**Estimation (Confidence Intervals)**
+
+- **Purpose:** To estimate population parameters.
+- **Method:** Uses confidence intervals to provide a range of plausible values for a population parameter, such as a mean or proportion. The confidence interval tells us, with a certain degree of confidence, where the true parameter value lies.
+
+**Hypothesis Testing (Tests of Significance)**
+
+- **Purpose:** To assess evidence provided by the data in favor of some claim about the population parameters.
+- **Method:** Uses tests of significance to determine whether observed data can reasonably occur under a specified null hypothesis. This involves calculating a test statistic, comparing it to a theoretical distribution, and computing a p-value to make a decision about the hypothesis.
+
+The null hypothesis (:math:`H_0`) is always set up to represent the status quo or no change, meaning it reflects the assumption that there is no effect or no difference from the baseline condition. For example, :math:`H_0: \mu = 170\ \text{cm}`.
+
+In hypothesis testing, we try to gather evidence to reject the null hypothesis. Therefore, we start by assuming that nothing has changed.
+
+The alternative hypothesis (:math:`H_a`) is what you're trying to find evidence for. For example, :math:`H_a: \mu \ne 170\ \text{cm}` (two-sided alternative) or :math:`H_a: \mu > 170\ \text{cm}` (one-sided alternative).
+
+Once we form the pair of null and alternative hypotheses, we can assume that if :math:`H_0` is true, under this condition, we calculate the test statistic, such as the z-score from the sample mean.
+
+If it is a two-sided test, then we will look at the areas at the two tails based on z and :math:`-z` values. If it is a one-sided test, we will look at the area at one of the tails depending on the z value and the direction of the inequality sign of :math:`H_a`. This area is also called the p-value.
+
+.. image:: /images/0605.png
+
+**Example 6.12 and Example 6.14**
+
+.. image:: /images/0606.png
+
+.. note::
+
+   The p-value is not the probability that the null hypothesis is true.
+
+Once we have the p-value, we can say we can reject the null at :math:`\alpha` level, or we do not have evidence to reject the null at :math:`\alpha` level. Here, :math:`\alpha` is a small number, and the p-value is the smallest :math:`\alpha` at which you would reject :math:`H_0`.
+
+**Use and Abuse of Tests**
+
+.. image:: /images/0607.png
+
+`Video on p-values <https://www.youtube.com/watch?v=i60wwZDA1CI>`_
+
+**Inference as a Decision**
+
+From previous sections, we know that the test statistic is random. So there is the probability that we make the wrong conclusion. If we use the test to make a decision, we could end up with errors. The first error we encounter is Type I error, which means :math:`H_0` is right, but we reject it. There is another type of error, which is the Type II error, where :math:`H_0` is wrong (:math:`H_a` is right), but we fail to reject it.
+
+.. image:: /images/0609.png
+
+.. image:: /images/0608.png
+
+.. image:: /images/0611.png
+
+.. image:: /images/0612.png
+
+.. image:: /images/0613.png
+
+We cannot make both Type I and Type II errors small.
+
+.. image:: /images/0610.png
+
+**Example: A Judge Sentencing a Defendant**
+
+In the context of a judge sentencing a defendant, the concepts of Type I and Type II errors can be illustrated using the analogy of the judicial decision-making process:
+
+**Type I Error**
+
+- **Definition**: Incorrectly rejecting the null hypothesis when it is true.
+- **Judicial Context**: Convicting an innocent person. Here, the null hypothesis (:math:`H_0`) is that the defendant is innocent ("innocent until proven guilty"). A Type I error occurs when the judge (or jury) incorrectly rejects this hypothesis and concludes that the defendant is guilty, despite their innocence.
+
+**Type II Error**
+
+- **Definition**: Failing to reject the null hypothesis when it is false.
+- **Judicial Context**: Acquitting a guilty person. In this scenario, the null hypothesis is that the defendant is innocent, and a Type II error occurs when this hypothesis is not rejected despite it being false, meaning the guilty defendant is wrongly found not guilty and is acquitted.
+
+**Implications in Legal Settings**
+
+- **Priority of Errors**: In many legal systems, especially in criminal law, there is a strong emphasis on minimizing Type I errors. The principle "it is better that ten guilty persons escape than that one innocent suffer" (often attributed to English jurist William Blackstone) highlights the preference for avoiding wrongful convictions (Type I errors) even at the risk of increasing wrongful acquittals (Type II errors).
+- **Balancing Risks**: However, minimizing Type I errors may increase Type II errors, depending on the standards of evidence required to convict (e.g., "beyond a reasonable doubt" in the United States). The legal system must balance these risks to protect the innocent while also ensuring that the guilty are appropriately convicted.
+
+.. image:: /images/0614.png
+
 
 Week 05: Ch5.3 Sampling Distributions for Counts and Proportions
 ----------------------------------------------------------------
