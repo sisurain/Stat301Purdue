@@ -50,14 +50,14 @@ This means:
 
    \mu - 9 < \bar{x} < \mu + 9
 
-**Step 1: Subtract :math:`\mu` from all parts of the inequality.**
+**Step 1:** Subtract :math:`\mu` from all parts of the inequality.
 
 .. math::
 
    (\mu - 9) - \mu < \bar{x} - \mu < (\mu + 9) - \mu \\
    -9 < \bar{x} - \mu < 9
 
-**Step 2: Multiply all parts by :math:`-1` to switch the direction of the inequalities.**
+**Step 2:** Multiply all parts by :math:`-1` to switch the direction of the inequalities.
 
 .. math::
 
@@ -70,7 +70,7 @@ This simplifies to:
 
    -9 < \mu - \bar{x} < 9
 
-**Step 3: Add :math:`\bar{x}` to all parts of the inequality.**
+**Step 3:** Add :math:`\bar{x}` to all parts of the inequality.
 
 .. math::
 
