@@ -11,6 +11,128 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Week 07: Inference for Means
+----------------------------
+
+**Student's** :math:`t` **distribution**
+
+.. image:: /images/0701.png
+
+In real applications, we usually don't know the value of :math:`\sigma`, hence we cannot calculate the :math:`z` statistics directly.
+
+.. image:: /images/0705.png
+
+We need to replace the standard deviation :math:`\sigma` with standard error :math:`s`.
+
+.. image:: /images/0703.png
+
+Hence, we derive our one-sample :math:`t` statistic:
+
+.. image:: /images/0704.png
+
+We then establish the one-sample :math:`t` confidence interval:
+
+.. image:: /images/0706.png
+
+**Comparing with** :math:`t`
+
+.. image:: /images/0702.png
+
+**Example 7.1: Delivery Time for Robot Service**
+
+Additionally, we apply our one-sample :math:`t` test:
+
+.. image:: /images/0707.png
+
+**Examples 7.2 and 7.3: Robot Delivery Service**
+
+**Matched Pairs** :math:`t` **Procedures**
+
+The robot delivery problem in Example 7.1 concerns only a single population. Comparative studies are usually preferred over single-sample investigations because they offer protection against confounding. Therefore, inference about a parameter of a single distribution is less common than comparative inference.
+
+One common comparative design makes use of single-sample procedures. In a matched pairs study, subjects are matched in pairs, and their outcomes are compared within each matched pair.
+
+- **Paired Data:** This arises when the data are naturally paired, such as in studies where the same subjects are measured twice under different conditions (before-and-after studies), or when subjects are matched in pairs based on similar characteristics (e.g., age, baseline characteristics).
+
+- **Before-and-After Studies:** Common in medical, psychological, or social research where the interest lies in observing the effect of a treatment or intervention over time on the same group of subjects.
+
+**Some examples:**
+
+- Pre-test/Post-test Design: Measuring students' math scores before and after attending a tutoring program.
+
+- Medical Intervention: Testing blood pressure levels before and after administering a new medication to the same patients.
+
+- Productivity Study: Measuring employees' productivity before and after implementing new office software for the same group of employees.
+
+**Example 7.7: The Effect of Altering a Software Parameter**
+
+.. note::
+
+   A lack of statistical significance does not prove the null hypothesis is true.
+
+**Example 7.8**
+
+.. image:: /images/0708.png
+
+**Robustness and Non-Normal Populations**
+
+.. image:: /images/0709.png
+
+.. image:: /images/0710.png
+
+.. image:: /images/0711.png
+
+**Comparing Two Means**
+
+Used when comparing two independent groups. Each sample is collected independently from the other, typically from two distinct populations. Two independent samples assess the same response variable.
+
+**Some examples:**
+
+- Comparing Two Diet Plans: Comparing the average weight loss between two groups, one following Diet A and the other following Diet B.
+
+- Marketing Strategy Comparison: Comparing sales performance between two regions where different advertising campaigns were conducted.
+
+- Comparing Two Schools’ Performances: Comparing average SAT scores between students from two different high schools.
+
+- Comparing Male and Female Incomes: Comparing the average incomes for male and female workers across different occupations.
+
+.. image:: /images/0712.png
+
+**Example 7.13: Heights of 10-Year-Old Girls and Boys**
+
+.. image:: /images/0713.png
+
+.. image:: /images/0714.png
+
+**Example 7.16: Is There an Improvement?**
+
+.. image:: /images/0715.png
+
+**The Pooled Two-Sample** :math:`t` **Procedures**
+
+Two normal populations whose means we want to compare are assumed to have the same standard deviation.
+
+.. image:: /images/0716.png
+
+- **Increased Precision**: The pooled two-sample t-test uses a combined estimate of variability (standard deviation), which provides a more precise estimate of the population standard deviation when the two groups are assumed to have the same variance. This pooled variance is a weighted average of the two sample variances, where the weights are the degrees of freedom of each sample.
+
+- **Greater Power**: Because the pooled t-test uses this more precise estimate of variability, it typically offers greater statistical power. This means there is a higher chance of correctly rejecting the null hypothesis when it is false (i.e., detecting a true difference between the group means when one exists).
+
+.. image:: /images/0717.png
+
+**Sample Size Calculations**
+
+Usually, we prefer narrow confidence intervals because they provide a better indication of the range of the parameter value. Therefore, we start with a fixed value of margin of error. We know that we can adjust :math:`n` to increase or decrease the margin of error. Thus, we establish a procedure to find the desired :math:`n` that will give us the desired width of confidence intervals at a specific significance level :math:`\alpha`.
+
+.. image:: /images/0718.png
+
+**Calculating Power**
+
+First, we calculate the probability of a Type II error, which is the probability that we fail to reject :math:`H_0` when :math:`H_a` is true. The power is then 1 minus this probability.
+
+`Example: <https://online.stat.psu.edu/stat415/book/export/html/845>`_
+
+
 Week 06: Intro to Inference
 ---------------------------
 
