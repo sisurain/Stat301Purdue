@@ -11,6 +11,107 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Week 08: Mid-term Exam Review
+=============================
+
+**Probability Statements Related Questions**
+
+In Example 6.15, we see probability statements such as :math:`P(Z \geq 1.05)` and :math:`P(Z \leq -1.05)`. For a two-sided alternative hypothesis test, the P-value is calculated as :math:`2 \times P(Z \geq 1.05)` or :math:`2 \times P(Z \leq -1.05)` because we know that :math:`P(Z \geq 1.05)` and :math:`P(Z \leq -1.05)` give us the same values. This happens because the areas under the left and right tails of the standard normal density curve are identical, as it is symmetric around zero.
+
+Later, you will encounter probability statements like :math:`P(T \geq \text{test statistic})` or :math:`P(F \geq \text{test statistic})`. The uppercase :math:`P` indicates probability, which in this context is equivalent to the area under the density curve. The variables :math:`Z`, :math:`T`, and :math:`F` represent random variables that follow the standard normal, Student’s t, and F distributions, respectively.
+
+Why do we use these random variables? When we draw different samples and calculate sample statistics such as the sample mean (:math:`\bar{x}`), the values will vary across samples. These sample means are realizations (draws) from a random variable with a particular distribution. If the population standard deviation is known, the sample mean follows a normal distribution. To denote this sample mean as a random variable, we use the notation :math:`\bar{X}`. We can then ask the probability that :math:`\bar{X}` is greater than or equal to some number, usually the test statistic calculated in the hypothesis testing context. In Example 6.15, :math:`\bar{x} = 14.3`. 
+
+However, we cannot directly compute :math:`P(\bar{X} \geq 14.3)` because there is no table for this specific distribution. So, we transform both sides of the inequality. The random variable :math:`\bar{X}` becomes :math:`\left(\frac{\bar{X} - \mu_0}{\sigma/\sqrt{n}}\right)`, which follows the standard normal distribution :math:`Z`. The right-hand side becomes :math:`\left(\frac{14.3 - \mu_0}{\sigma/\sqrt{n}}\right) = 1.05`, leading to the calculation of the Z-statistic.
+
+Now, the probability statement becomes :math:`P(Z \geq 1.05)`, meaning you are comparing the observed test statistic (the value you calculated from the sample) to the random variable :math:`Z`, which represents the entire Z-distribution. This represents the probability of observing a value from the Z-distribution greater than your test statistic, given that the null hypothesis is true. This is the meaning of the P-value. For two-sided testing, we use :math:`2 \times P(Z \geq 1.05)` to account for the two extremes in both tails.
+
+**Using the Last Row of the T Table**
+-------------------------------------
+
+When using the T-distribution, be aware that the last row of the T table corresponds to large degrees of freedom and approaches the values of the standard normal distribution.
+
+**Box Plot, Modified Box Plot, and Side-by-Side Boxplot**
+---------------------------------------------------------
+
+Refer to Chapter 1.3, Example 1.26 and 1.27 for examples. Box plots are graphical representations of the distribution of data, showing the median, quartiles, and potential outliers. Modified box plots highlight potential outliers distinctly.
+
+**Density Curves and Skewness**
+-------------------------------
+
+Skewness is easily identified by checking the mean and median. If the mean is larger than the median, the distribution is right-skewed. If the mean is smaller than the median, the distribution is left-skewed.
+
+**Observational Study vs. Experimental Study**
+----------------------------------------------
+
+In an **observational study**, researchers simply observe subjects and measure variables of interest without manipulating conditions. They gather data based on naturally occurring variables.
+
+In an **experimental study**, researchers impose a treatment or condition on subjects to study its effects. They control the explanatory variable and observe the response. Experiments allow researchers to determine cause-and-effect relationships by isolating the treatment's effect.
+
+**Design of Experiments and Sampling Design**
+---------------------------------------------
+
+- **Experimental Design**: Refers to how subjects are assigned to different treatment groups in an experiment. It involves how we allocate subjects to treatments, ensure randomization, and control variables.
+  
+- **Sampling Design**: Refers to how the sample is selected from the population. It deals with drawing the sample that will be used in the study, not how treatments are assigned.
+
+**Terms Associated with Experimental Design**:
+  
+- **Experimental Units**: The individuals, animals, or objects involved in an experiment.
+  
+- **Subjects**: Human experimental units.
+  
+- **Treatments**: Conditions applied to the experimental units.
+  
+- **Outcomes**: Results or measurements observed to compare treatments.
+  
+- **Factors**: Explanatory variables manipulated to observe their causal effects.
+  
+- **Blocking Variables**: Variables that are not manipulated, used to control existing variation. They represent characteristics or conditions that experimental units already possess.
+  
+- **Levels of a Factor**: Specific values or categories of a factor.
+  
+- **Control Group**: Group receiving no treatment or a standard treatment, used as a baseline.
+  
+- **Treatment Group**: Group receiving the experimental condition.
+  
+- **Randomization**: Using chance to assign subjects to treatments, avoiding bias.
+  
+- **Placebo Effect**: Perceived improvement due to receiving a dummy treatment.
+  
+- **Comparative Experiment**: Experiment comparing multiple treatments, often including a control group.
+  
+- **Matched Pairs Design**: Design where subjects are paired based on characteristics and each pair is assigned different treatments.
+  
+- **Block Design**: Experimental units are grouped into blocks, and randomization occurs within blocks.
+  
+- **Completely Randomized Design**: All experimental units are randomly assigned to treatments without restriction.
+
+**Terms Associated with Sampling Design**:
+  
+- **Population**: The entire group being studied.
+  
+- **Sample**: A subset of the population used to draw conclusions about the whole.
+  
+- **Simple Random Sample (SRS)**: A sampling method where each individual has an equal chance of selection.
+  
+- **Stratified Random Sample**: Population divided into strata, and an SRS is taken from each stratum.
+  
+- **Multistage Random Sample**: Selection happens in stages, often used for large populations.
+  
+- **Sampling Frame**: List or set of items from which the sample is drawn.
+  
+- **Undercoverage**: Sampling bias due to missing groups in the population.
+  
+- **Nonresponse**: When individuals in the sample cannot be contacted or refuse to participate.
+  
+- **Response Bias**: Bias due to the behavior of respondents or interviewers.
+  
+- **Voluntary Response Sample**: Participants choose themselves, leading to bias.
+  
+- **Systematic Random Sample**: Every nth item is chosen after a random starting point.
+
+
 Week 07: Inference for Means
 ----------------------------
 
