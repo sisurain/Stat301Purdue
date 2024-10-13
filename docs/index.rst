@@ -11,6 +11,576 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Week 09: Ch12: One-Way Analysis of Variance
+===========================================
+
+In week 07, we talked about how to compare two means from two independent groups. But what if we have more than two independent groups, and we want to see if the means are different from each other? A natural extension is to perform multiple :math:`t`-tests for each pair of two independent samples. However, this approach presents two major problems:
+
+1. The number of tests grows quickly with the number of groups, :math:`k`. Specifically, we need :math:`k(k-1)/2` such tests, which becomes impractical for large :math:`k`.
+2. With many tests, the chance of a **Type I error** increases, meaning that we are more likely to incorrectly reject a null hypothesis just by chance.
+
+Thus, we need another approach to solve this problem. This leads us to the **One-Way Analysis of Variance (ANOVA)** and the :math:`F` statistic/test.
+
+There are two types of ANOVA:
+
+One-Way ANOVA
+-------------
+
+One-way ANOVA is used when there is **one way (one factor)** to classify the populations of interest. For example, if we want to compare the average exam scores of students from three different classrooms (the factor being "Classroom" with three levels), one-way ANOVA is appropriate.
+
+Two-Way ANOVA
+-------------
+
+Two-way ANOVA is used when there are **two factors**. For example, we might assess the effects of two factors: **teaching method** (online or in-person) and **classroom type** (regular or honors) on student performance. The goal is to determine not only the individual effects of each factor but also whether there is an **interaction effect** between them.
+
+**We will focus on one-way ANOVA first.**
+
+Setting for One-Way ANOVA
+--------------------------
+
+The data for one-way ANOVA are collected similarly to the two-sample case. Either:
+- We draw a random sample from each population, or
+- We randomly assign subjects to different treatments.
+
+The resulting data are used to test the **null hypothesis** that the means are all equal. That is, are the observed differences in sample means due to chance, or do they provide strong evidence of significant differences among the group means?
+
+**Example 12.1 and 12.2**
+
+In one-way ANOVA, we consider both **Between-Group Variation** and **Within-Group Variation**.
+
+.. image:: /images/0901.png
+
+Between-Group Variation: Identifying Differences in Means (Signal)
+------------------------------------------------------------------
+
+Between-group variation captures how much the group means differ from the overall mean. If the group means are far apart, it suggests meaningful differences among the groups. However, large between-group variation alone isn’t enough unless it is large relative to the within-group variation.
+
+*Example:* If you have three groups with means 10, 30, and 50, the between-group variation is large. However, these differences may not be statistically significant unless the within-group variation is small.
+
+Within-Group Variation: Accounting for Noise
+--------------------------------------------
+
+Within-group variation measures how much individual observations deviate from their own group mean. It reflects the natural variability or random noise within the groups.
+
+*Example:* If each group has highly variable observations (e.g., values 5, 50, 100 in a group), the within-group variation will be large. This makes it harder to confidently conclude that the groups differ, even if their means are different.
+
+Let’s illustrate this concept further using the pooled two-sample :math:`t`-statistic.
+
+.. image:: /images/0902.png
+
+Balancing Signal and Noise: The F-Ratio
+---------------------------------------
+
+The **F-ratio** in ANOVA compares the **between-group variation (signal)** with the **within-group variation (noise)**:
+
+.. math:: 
+   F = \frac{MSB}{MSW}
+
+where:
+- **MSB (Mean Square Between)**: Captures the variation between the group means.
+- **MSW (Mean Square Within)**: Captures the variation within the groups (noise).
+
+A **large F-ratio** suggests that the group means are significantly different. A **small F-ratio** suggests that any differences in group means are likely due to random chance.
+
+Why Both Types of Variation Matter
+----------------------------------
+
+If we only look at between-group variation, we might falsely conclude that the groups differ. However, if the within-group variation is large, these differences may not be statistically significant. Conversely, if the within-group variation is small, even small differences in group means can be significant.
+
+Example:
+
+1. **Case 1**: Group means are 10, 20, 30, with low within-group variation. The F-ratio will be high, suggesting significant differences.
+2. **Case 2**: Group means are 10, 20, 30, but with high within-group variation. The F-ratio will be small, making it harder to detect differences.
+
+Statistical Intuition: When to Reject the Null Hypothesis
+---------------------------------------------------------
+
+The null hypothesis in one-way ANOVA assumes that all group means are equal. To reject it, the between-group variation must be significantly larger than the within-group variation (i.e., the F-ratio must be large).
+
+Summary: Balancing Signal and Noise
+-----------------------------------
+
+- **Between-group variation**: Reflects the signal (how much the group means differ).
+- **Within-group variation**: Reflects the noise (random variability within each group).
+
+Both types of variation are needed to determine if the differences are statistically significant. A large F-ratio indicates that the signal outweighs the noise.
+
+Introducing Regression: Data = Fit + Residual
+---------------------------------------------
+
+Once we understand the intuition, we need to delve into the details of how to calculate the F-test statistic, also known as the F-ratio. Before proceeding, let’s take a brief detour into regression. Regression is a statistical technique that uses a model to make predictions about the data by finding the best fit. The model divides the data into two components:
+
+**Data = Fit + Residual**
+
+- **Fit**: The part of the data explained by the model.
+- **Residual**: The leftover part, which the model couldn’t explain.
+
+In our ANOVA setting, the ANOVA model assumes that every observation can be written as:
+
+.. math::
+
+   x_{ij} = \mu_i + \epsilon_{ij}
+
+Where:
+
+- :math:`x_{ij}` is the data point for the j-th observation in the i-th group.
+- :math:`\mu_i` is the mean of the i-th group (this is the FIT part).
+- :math:`\epsilon_{ij}` is the residual for that observation, representing how far it is from the group mean (this is the RESIDUAL part).
+
+This breakdown means that each observation is made up of:
+
+- A systematic component (the group mean, :math:`\mu_i`).
+- A random component (the residual, :math:`\epsilon_{ij}`, which accounts for the natural variability within the group).
+
+.. image:: /images/0903.png
+
+There are two unknown parameters in this statistical model: :math:`\mu` and :math:`\sigma`. 
+We estimate :math:`\mu` by :math:`\bar{x}`, the sample mean, and :math:`\sigma` by :math:`s`, the sample standard deviation. 
+The differences :math:`e_j = x_j - \bar{x}` are the *residuals* and correspond to the :math:`\epsilon_j` in the statistical model. 
+
+Errors (:math:`\epsilon_j`) refer to the deviations from the true population mean or model. They are part of the underlying population model.  
+Residuals (:math:`e_j`) are based on the observed sample data, and they measure the deviation of the sample observations from the sample mean or the fitted model.
+
+Let's go through the math for calculating the **Mean Square Between (MSB)** and the **Mean Square Within (MSW)**, both of which are central to the F-ratio in **one-way ANOVA**.
+
+Suppose:
+-------
+
+- We have :math:`k` groups (treatments or categories).
+- Each group has a certain number of observations, denoted by :math:`n_i` for group :math:`i` (where :math:`i = 1, 2, \dots, k`).
+- The total number of observations across all groups is :math:`N = n_1 + n_2 + \dots + n_k`.
+
+1. **Calculating the Mean Square Between (MSB)**:
+--------------------------------------------------
+
+**MSB** measures the variation **between** the group means and the overall mean.
+
+- **Step 1**: Calculate the **group means**:
+  For each group :math:`i`, calculate the sample mean :math:`\bar{X}_i`:
+
+  .. math::
+     \bar{X}_i = \frac{1}{n_i} \sum_{j=1}^{n_i} X_{ij}
+
+  where :math:`X_{ij}` represents the :math:`j`-th observation in group :math:`i`.
+
+- **Step 2**: Calculate the **overall mean** (:math:`\bar{X}_{\text{overall}}`), which is the mean of all observations across all groups:
+
+  .. math::
+     \bar{X}_{\text{overall}} = \frac{1}{N} \sum_{i=1}^{k} \sum_{j=1}^{n_i} X_{ij}
+
+  This is simply the weighted average of all the data points.
+
+- **Step 3**: Compute the **Sum of Squares Between (SSB)**, which measures how much the group means deviate from the overall mean:
+
+  .. math::
+     SSB = \sum_{i=1}^{k} n_i (\bar{X}_i - \bar{X}_{\text{overall}})^2
+
+  Here, :math:`n_i` is the number of observations in group :math:`i`, and :math:`(\bar{X}_i - \bar{X}_{\text{overall}})^2` represents the squared difference between the group mean and the overall mean.
+
+- **Step 4**: Calculate the **Mean Square Between (MSB)** by dividing the **SSB** by the **degrees of freedom** between groups:
+
+  .. math::
+     MSB = \frac{SSB}{k - 1}
+
+2. **Calculating the Mean Square Within (MSW)**:
+-------------------------------------------------
+
+**MSW** measures the variation **within** each group, i.e., the variability of observations around their respective group means.
+
+- **Step 1**: Compute the **Sum of Squares Within (SSW)**:
+
+  .. math::
+     SSW = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (X_{ij} - \bar{X}_i)^2
+
+- **Step 2**: Calculate the **Mean Square Within (MSW)** by dividing the **SSW** by the **degrees of freedom** within groups:
+
+  .. math::
+     MSW = \frac{SSW}{N - k}
+
+3. **Summarizing the Formulas**:
+---------------------------------
+
+- **Mean Square Between (MSB)**:
+
+  .. math::
+     MSB = \frac{\sum_{i=1}^{k} n_i (\bar{X}_i - \bar{X}_{\text{overall}})^2}{k - 1}
+
+- **Mean Square Within (MSW)**:
+
+  .. math::
+     MSW = \frac{\sum_{i=1}^{k} \sum_{j=1}^{n_i} (X_{ij} - \bar{X}_i)^2}{N - k}
+
+4. **F-Ratio**:
+---------------
+
+Finally, the **F-ratio** is the ratio of these two mean squares:
+
+.. math::
+   F = \frac{MSB}{MSW}
+
+This F-ratio tells us whether the variation between the groups is significantly greater than the variation within the groups.
+
+Example:
+--------
+
+Suppose we have 3 groups with the following data:
+
+- Group 1: :math:`X_1 = \{ 5, 6, 7 \}`
+- Group 2: :math:`X_2 = \{ 10, 11, 12 \}`
+- Group 3: :math:`X_3 = \{ 20, 21, 22 \}`
+
+1. **Group Means**:
+   - :math:`\bar{X}_1 = 6`
+   - :math:`\bar{X}_2 = 11`
+   - :math:`\bar{X}_3 = 21`
+
+2. **Overall Mean**:
+
+   .. math::
+      \bar{X}_{\text{overall}} = \frac{(5 + 6 + 7 + 10 + 11 + 12 + 20 + 21 + 22)}{9} = 13
+
+3. **Calculate SSB**:
+
+   .. math::
+      SSB = 3(6 - 13)^2 + 3(11 - 13)^2 + 3(21 - 13)^2 = 3(49) + 3(4) + 3(64) = 351
+
+4. **Calculate MSB** (with 2 degrees of freedom, :math:`k - 1 = 3 - 1`):
+
+   .. math::
+      MSB = \frac{351}{2} = 175.5
+
+5. **Calculate SSW**:
+
+   .. math::
+      SSW = (5 - 6)^2 + (6 - 6)^2 + (7 - 6)^2 + (10 - 11)^2 + (11 - 11)^2 + (12 - 11)^2 + (20 - 21)^2 + (21 - 21)^2 + (22 - 21)^2 = 6
+
+6. **Calculate MSW** (with 6 degrees of freedom, :math:`N - k = 9 - 3`):
+
+   .. math::
+      MSW = \frac{6}{6} = 1
+
+7. **Calculate the F-ratio**:
+
+   .. math::
+      F = \frac{MSB}{MSW} = \frac{175.5}{1} = 175.5
+
+Interpretation:
+---------------
+
+A large F-ratio like 175.5 indicates that the between-group variation is much larger than the within-group variation, suggesting that the group means are significantly different.
+
+This is how you calculate **MSB** and **MSW**, which leads to the F-ratio used in the one-way ANOVA test to evaluate whether the group means are statistically significantly different.
+
+You can also find an example here: `https://online.stat.psu.edu/stat200/lesson/10/10.2 <https://online.stat.psu.edu/stat200/lesson/10/10.2>`_.
+
+Examing Standard Deviation
+--------------------------
+
+.. image:: /images/0904.png
+
+Pooled Estimator
+----------------
+
+.. image:: /images/0905.png
+
+Hypothesis Testing
+------------------
+
+.. image:: /images/0906.png
+
+.. image:: /images/0907.png
+
+.. image:: /images/0908.png
+
+Assumptions for One-Way ANOVA
+-----------------------------
+
+One-way ANOVA compares the means of three or more independent groups to determine if there is a statistically significant difference between them. For the results of the ANOVA to be valid, several key assumptions must be met.
+
+Independence of Observations
+----------------------------
+
+- The observations within each group and between groups must be independent of each other.  
+- This means that **one observation should not influence another**.  
+- Independence ensures that each data point contributes uniquely to the analysis, avoiding biases.
+
+Normality of Residuals (or Data)
+-------------------------------
+
+- The residuals (the differences between observed values and group means) should be **normally distributed**.
+- This assumption ensures that any deviations from the group means follow a **bell-shaped (normal) distribution**. 
+
+**How to check:**
+- Use **visual tools** such as a **Q-Q plot (quantile-quantile plot)** to assess whether the residuals follow a straight line.
+- Perform a **Shapiro-Wilk test** for normality. If the p-value is large, the normality assumption is not violated.
+
+Homogeneity of Variances (Homoscedasticity)
+-------------------------------------------
+
+- The variances (or standard deviations) across all groups must be **equal or approximately equal**.  
+- This assumption ensures that the **spread of the data is similar** across groups, making the F-test valid.
+
+**How to check:**
+- Use **Levene's test** or **Bartlett's test** to test for equality of variances.
+  - If the p-value is large, the variances are approximately equal.
+  - If the assumption is violated, consider using **Welch’s ANOVA**, which doesn’t assume equal variances.
+
+Random Sampling
+---------------
+
+- Each group should consist of a **random sample** from the population.  
+- Random sampling ensures that the results are **generalizable** to the broader population.
+
+Follow-Up Inference Procedures After One-Way ANOVA
+--------------------------------------------------
+
+After performing a **one-way ANOVA F-test**, we know whether there are significant differences between the group means. However, the ANOVA F-test only tells us that **at least one group mean differs** but does not indicate **which specific means differ** or provide more nuanced insights.
+
+To gain a deeper understanding, we conduct two common follow-up procedures:
+1. **Contrasts (Planned Comparisons)**
+2. **Multiple Comparisons (Post-Hoc Tests)**
+
+These procedures allow us to:
+- **Contrasts**: Test **specific hypotheses** about the differences between groups.
+- **Post-hoc tests**: Explore **all possible pairwise comparisons** when we do not have pre-defined hypotheses, while controlling for Type I error.
+
+
+1. **Contrasts (Planned Comparisons)**
+--------------------------------------
+
+Contrasts are used to test **specific hypotheses** that we develop **before conducting ANOVA**. Each contrast is a **linear combination of group means**, comparing the means in a focused way.
+
+.. image:: /images/0909.png
+
+### Example: Planned Comparison
+
+Consider three groups with the following sample means and sizes:
+
+- Group 1: :math:`\bar{X}_1 = 10`, :math:`n_1 = 5`  
+- Group 2: :math:`\bar{X}_2 = 12`, :math:`n_2 = 5`  
+- Group 3: :math:`\bar{X}_3 = 15`, :math:`n_3 = 5`  
+
+We are interested in testing the following contrast:
+
+.. math::
+   \psi = -2 \mu_1 + \mu_2 + \mu_3
+
+This tests whether Group 1’s mean is significantly lower than the combined means of Groups 2 and 3.
+
+### Step-by-Step Calculation
+
+#### Step 1: Compute the Sample Contrast Value
+
+.. math::
+   \hat{\psi} = -2(10) + 12 + 15 = -20 + 27 = 7
+
+#### Step 2: Calculate the Pooled Standard Deviation
+
+The **Mean Square Within (MSW)** from the ANOVA is given as 4. The **pooled standard deviation** is:
+
+.. math::
+   s_p = \sqrt{MSW} = \sqrt{4} = 2
+
+#### Step 3: Calculate the Standard Error (SE) for the Contrast
+
+.. math::
+   SE_{\hat{\psi}} = s_p \sqrt{\frac{(-2)^2}{5} + \frac{1^2}{5} + \frac{1^2}{5}}
+   = 2 \sqrt{\frac{4}{5} + \frac{1}{5} + \frac{1}{5}}
+   = 2 \sqrt{\frac{6}{5}} = 2 \times 1.095 = 2.19
+
+#### Step 4: Calculate the t-Statistic
+
+.. math::
+   t = \frac{\hat{\psi}}{SE_{\hat{\psi}}} = \frac{7}{2.19} \approx 3.2
+
+#### Step 5: Conclusion
+
+If the critical value of :math:`t` at 12 degrees of freedom (for :math:`N - k = 15 - 3 = 12`) is 2.18 for :math:`\alpha = 0.05`, the calculated :math:`t`-statistic (3.2) exceeds the critical value. 
+
+Thus, we **reject the null hypothesis** and conclude that Group 1’s mean is significantly lower than the combined means of Groups 2 and 3.
+
+2. **Multiple Comparisons (Post-Hoc Tests)**
+--------------------------------------------
+
+When no specific hypotheses are made before the analysis, **post-hoc tests** are used to compare **all pairs of group means**. These comparisons must control for the **Type I error rate** since many pairwise comparisons increase the chance of false positives.
+
+.. image:: /images/0910.png
+
+### Example: Pairwise Comparisons Using Bonferroni Correction
+
+Let’s use the same three groups:
+
+- Group 1: :math:`\bar{X}_1 = 10`, :math:`n_1 = 5`  
+- Group 2: :math:`\bar{X}_2 = 12`, :math:`n_2 = 5`  
+- Group 3: :math:`\bar{X}_3 = 15`, :math:`n_3 = 5`  
+
+#### Step 1: Compute Pairwise Differences
+
+1. Group 1 vs. Group 2:
+
+   .. math::
+      \bar{X}_1 - \bar{X}_2 = 10 - 12 = -2
+
+2. Group 1 vs. Group 3:
+
+   .. math::
+      \bar{X}_1 - \bar{X}_3 = 10 - 15 = -5
+
+3. Group 2 vs. Group 3:
+
+   .. math::
+      \bar{X}_2 - \bar{X}_3 = 12 - 15 = -3
+
+#### Step 2: Calculate the Standard Error (SE) for Each Pair
+
+.. math::
+   SE = s_p \sqrt{\frac{2}{n}} = 2 \sqrt{\frac{2}{5}} = 2 \times 0.632 = 1.26
+
+#### Step 3: Compute t-Statistics for Each Pair
+
+1. Group 1 vs. Group 2:
+
+   .. math::
+      t = \frac{-2}{1.26} \approx -1.59
+
+2. Group 1 vs. Group 3:
+
+   .. math::
+      t = \frac{-5}{1.26} \approx -3.97
+
+3. Group 2 vs. Group 3:
+
+   .. math::
+      t = \frac{-3}{1.26} \approx -2.38
+
+#### Step 4: Apply Bonferroni Correction
+
+- **Bonferroni adjusted significance level**:
+
+  .. math::
+     \alpha_{\text{adjusted}} = \frac{0.05}{3} \approx 0.0167
+
+#### Step 5: Conclusion
+
+- Compare each :math:`t`-statistic to the critical value for :math:`\alpha = 0.0167` with 12 degrees of freedom.
+- If a :math:`t`-statistic exceeds the critical value, the corresponding pair of group means is **significantly different**.
+
+---
+
+## Why Conduct Follow-Up Procedures?
+
+After an ANOVA F-test, we know that at least one group mean differs from the others, but:
+
+- **Contrasts** help test specific, pre-planned hypotheses that are most relevant to our research questions. They are more **powerful** because they focus only on selected comparisons.
+- **Post-hoc tests** allow us to explore **all pairwise comparisons** when we have no prior hypotheses. They provide a comprehensive understanding of the group differences while controlling for **Type I error**.
+
+Both procedures can provide valuable insights that the ANOVA F-test alone cannot offer.
+
+.. image:: /images/0911.png
+
+Key Concepts of the LSD Method
+------------------------------
+
+- **Purpose**:  
+  The **LSD method** identifies which pairs of means are significantly different after an ANOVA test shows that at least one group mean differs from the others.
+
+- **No Adjustment for Multiple Comparisons**:  
+  Unlike other post-hoc tests (e.g., Bonferroni correction or Tukey’s HSD), LSD **does not control for Type I error** when making many pairwise comparisons. This makes it **more liberal** (i.e., more likely to find differences) but at the cost of increased Type I error risk.
+
+---
+
+Steps of the LSD Method (Optional)
+----------------------------------
+
+1. **Conduct ANOVA**:
+   - Perform a one-way ANOVA to determine if there is a significant overall difference between the group means.
+   - If the ANOVA is significant (p-value < 0.05), proceed to the LSD pairwise comparisons.
+
+2. **Calculate the LSD Value for Each Pair of Means**:
+   The LSD test uses the **pooled standard deviation** (or the square root of the **Mean Square Within (MSW)**) from the ANOVA.
+
+   The formula for the **LSD value** is:
+
+   .. math::
+      LSD = t_{\alpha, df_{\text{within}}} \times \sqrt{MSW \left(\frac{1}{n_1} + \frac{1}{n_2}\right)}
+
+   where:
+   - :math:`t_{\alpha, df_{\text{within}}}` is the critical value of the **t-distribution** at the chosen significance level :math:`\alpha` with the **within-group degrees of freedom** from ANOVA.
+   - :math:`MSW` is the **Mean Square Within** from the ANOVA.
+   - :math:`n_1` and :math:`n_2` are the sample sizes of the two groups being compared.
+
+3. **Compute the Difference Between Each Pair of Group Means**:
+   For each pair of group means, calculate:
+
+   .. math::
+      \Delta \bar{X} = \bar{X}_1 - \bar{X}_2
+
+4. **Compare the Absolute Difference to the LSD Value**:
+   - If :math:`|\Delta \bar{X}| > LSD`, the difference between the two means is **statistically significant**.
+   - If :math:`|\Delta \bar{X}| \leq LSD`, the difference is **not significant**.
+
+---
+
+Example of LSD Calculation
+---------------------------
+
+Let’s use the following data:
+
++-------+------------------+---------------+
+| Group | Mean (:math:`\bar{X}`) | Size (:math:`n`) |
++-------+------------------+---------------+
+| 1     | 10               | 5             |
+| 2     | 13               | 5             |
+| 3     | 17               | 5             |
++-------+------------------+---------------+
+
+From ANOVA:
+- **MSW** = 2.5
+- **Degrees of freedom** (within) = 12
+
+### Step 1: Calculate the LSD Value
+
+For a 5% significance level (:math:`\alpha = 0.05`) and 12 degrees of freedom, the critical value from the t-distribution is approximately :math:`t_{0.05, 12} = 2.18`.
+
+.. math::
+   LSD = 2.18 \times \sqrt{2.5 \left(\frac{1}{5} + \frac{1}{5}\right)}
+   = 2.18 \times \sqrt{2.5 \times 0.4}
+   = 2.18 \times \sqrt{1.0} = 2.18
+
+### Step 2: Compute Pairwise Differences
+
+1. **Group 1 vs Group 2**:
+
+   .. math::
+      \Delta \bar{X} = 10 - 13 = -3
+
+   :math:`|-3| = 3 > 2.18`, so the difference is **significant**.
+
+2. **Group 1 vs Group 3**:
+
+   .. math::
+      \Delta \bar{X} = 10 - 17 = -7
+
+   :math:`|-7| = 7 > 2.18`, so the difference is **significant**.
+
+3. **Group 2 vs Group 3**:
+
+   .. math::
+      \Delta \bar{X} = 13 - 17 = -4
+
+   :math:`|-4| = 4 > 2.18`, so the difference is **significant**.
+
+---
+
+Conclusion and Limitations of LSD
+---------------------------------
+
+The **LSD method** is easy to use and provides quick insights into which groups differ significantly. However, because it performs multiple pairwise t-tests without adjusting the significance level, it **does not control for Type I error** inflation when many comparisons are made.
+
+If you expect to make many comparisons or want stricter control of Type I error, consider using other post-hoc tests such as **Tukey’s HSD** or **Bonferroni correction**.
+
+
+
 Week 08: Mid-term Exam Review
 =============================
 
