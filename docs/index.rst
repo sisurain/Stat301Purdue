@@ -252,7 +252,12 @@ Suppose we have 3 groups with the following data:
 5. **Calculate SSW**:
 
    .. math::
-      SSW = (5 - 6)^2 + (6 - 6)^2 + (7 - 6)^2 + (10 - 11)^2 + (11 - 11)^2 + (12 - 11)^2 + (20 - 21)^2 + (21 - 21)^2 + (22 - 21)^2 = 6
+
+   SSW = (5 - 6)^2 + (6 - 6)^2 + (7 - 6)^2 
+       + (10 - 11)^2 + (11 - 11)^2 + (12 - 11)^2 
+       + (20 - 21)^2 + (21 - 21)^2 + (22 - 21)^2 
+       = 6
+
 
 6. **Calculate MSW** (with 6 degrees of freedom, :math:`N - k = 9 - 3`):
 
@@ -352,7 +357,7 @@ Contrasts are used to test **specific hypotheses** that we develop **before cond
 
 .. image:: /images/0909.png
 
-### Example: Planned Comparison
+**Example: Planned Comparison**
 
 Consider three groups with the following sample means and sizes:
 
@@ -367,33 +372,33 @@ We are interested in testing the following contrast:
 
 This tests whether Group 1’s mean is significantly lower than the combined means of Groups 2 and 3.
 
-### Step-by-Step Calculation
+**Step-by-Step Calculation**
 
-#### Step 1: Compute the Sample Contrast Value
+**Step 1: Compute the Sample Contrast Value**
 
 .. math::
    \hat{\psi} = -2(10) + 12 + 15 = -20 + 27 = 7
 
-#### Step 2: Calculate the Pooled Standard Deviation
+**Step 2: Calculate the Pooled Standard Deviation**
 
 The **Mean Square Within (MSW)** from the ANOVA is given as 4. The **pooled standard deviation** is:
 
 .. math::
    s_p = \sqrt{MSW} = \sqrt{4} = 2
 
-#### Step 3: Calculate the Standard Error (SE) for the Contrast
+**Step 3: Calculate the Standard Error (SE) for the Contrast**
 
 .. math::
    SE_{\hat{\psi}} = s_p \sqrt{\frac{(-2)^2}{5} + \frac{1^2}{5} + \frac{1^2}{5}}
    = 2 \sqrt{\frac{4}{5} + \frac{1}{5} + \frac{1}{5}}
    = 2 \sqrt{\frac{6}{5}} = 2 \times 1.095 = 2.19
 
-#### Step 4: Calculate the t-Statistic
+**Step 4: Calculate the t-Statistic**
 
 .. math::
    t = \frac{\hat{\psi}}{SE_{\hat{\psi}}} = \frac{7}{2.19} \approx 3.2
 
-#### Step 5: Conclusion
+**Step 5: Conclusion**
 
 If the critical value of :math:`t` at 12 degrees of freedom (for :math:`N - k = 15 - 3 = 12`) is 2.18 for :math:`\alpha = 0.05`, the calculated :math:`t`-statistic (3.2) exceeds the critical value. 
 
@@ -406,7 +411,7 @@ When no specific hypotheses are made before the analysis, **post-hoc tests** are
 
 .. image:: /images/0910.png
 
-### Example: Pairwise Comparisons Using Bonferroni Correction
+**Example: Pairwise Comparisons Using Bonferroni Correction**
 
 Let’s use the same three groups:
 
@@ -414,7 +419,7 @@ Let’s use the same three groups:
 - Group 2: :math:`\bar{X}_2 = 12`, :math:`n_2 = 5`  
 - Group 3: :math:`\bar{X}_3 = 15`, :math:`n_3 = 5`  
 
-#### Step 1: Compute Pairwise Differences
+**Step 1: Compute Pairwise Differences**
 
 1. Group 1 vs. Group 2:
 
@@ -431,12 +436,12 @@ Let’s use the same three groups:
    .. math::
       \bar{X}_2 - \bar{X}_3 = 12 - 15 = -3
 
-#### Step 2: Calculate the Standard Error (SE) for Each Pair
+**Step 2: Calculate the Standard Error (SE) for Each Pair**
 
 .. math::
    SE = s_p \sqrt{\frac{2}{n}} = 2 \sqrt{\frac{2}{5}} = 2 \times 0.632 = 1.26
 
-#### Step 3: Compute t-Statistics for Each Pair
+**Step 3: Compute t-Statistics for Each Pair**
 
 1. Group 1 vs. Group 2:
 
@@ -453,21 +458,20 @@ Let’s use the same three groups:
    .. math::
       t = \frac{-3}{1.26} \approx -2.38
 
-#### Step 4: Apply Bonferroni Correction
+**Step 4: Apply Bonferroni Correction**
 
 - **Bonferroni adjusted significance level**:
 
   .. math::
      \alpha_{\text{adjusted}} = \frac{0.05}{3} \approx 0.0167
 
-#### Step 5: Conclusion
+**Step 5: Conclusion**
 
 - Compare each :math:`t`-statistic to the critical value for :math:`\alpha = 0.0167` with 12 degrees of freedom.
 - If a :math:`t`-statistic exceeds the critical value, the corresponding pair of group means is **significantly different**.
 
----
-
-## Why Conduct Follow-Up Procedures?
+Why Conduct Follow-Up Procedures?
+---------------------------------
 
 After an ANOVA F-test, we know that at least one group mean differs from the others, but:
 
@@ -486,8 +490,6 @@ Key Concepts of the LSD Method
 
 - **No Adjustment for Multiple Comparisons**:  
   Unlike other post-hoc tests (e.g., Bonferroni correction or Tukey’s HSD), LSD **does not control for Type I error** when making many pairwise comparisons. This makes it **more liberal** (i.e., more likely to find differences) but at the cost of increased Type I error risk.
-
----
 
 Steps of the LSD Method (Optional)
 ----------------------------------
@@ -519,26 +521,34 @@ Steps of the LSD Method (Optional)
    - If :math:`|\Delta \bar{X}| > LSD`, the difference between the two means is **statistically significant**.
    - If :math:`|\Delta \bar{X}| \leq LSD`, the difference is **not significant**.
 
----
-
 Example of LSD Calculation
 ---------------------------
 
 Let’s use the following data:
 
-+-------+------------------+---------------+
-| Group | Mean (:math:`\bar{X}`) | Size (:math:`n`) |
-+-------+------------------+---------------+
-| 1     | 10               | 5             |
-| 2     | 13               | 5             |
-| 3     | 17               | 5             |
-+-------+------------------+---------------+
+.. list-table:: Group Data for LSD Example
+   :widths: 10 20 10
+   :header-rows: 1
+
+   * - Group
+     - Mean (:math:`\bar{X}`)
+     - Size (:math:`n`)
+   * - 1
+     - 10
+     - 5
+   * - 2
+     - 13
+     - 5
+   * - 3
+     - 17
+     - 5
+
 
 From ANOVA:
 - **MSW** = 2.5
 - **Degrees of freedom** (within) = 12
 
-### Step 1: Calculate the LSD Value
+**Step 1: Calculate the LSD Value**
 
 For a 5% significance level (:math:`\alpha = 0.05`) and 12 degrees of freedom, the critical value from the t-distribution is approximately :math:`t_{0.05, 12} = 2.18`.
 
@@ -547,7 +557,7 @@ For a 5% significance level (:math:`\alpha = 0.05`) and 12 degrees of freedom, t
    = 2.18 \times \sqrt{2.5 \times 0.4}
    = 2.18 \times \sqrt{1.0} = 2.18
 
-### Step 2: Compute Pairwise Differences
+**Step 2: Compute Pairwise Differences**
 
 1. **Group 1 vs Group 2**:
 
@@ -570,7 +580,6 @@ For a 5% significance level (:math:`\alpha = 0.05`) and 12 degrees of freedom, t
 
    :math:`|-4| = 4 > 2.18`, so the difference is **significant**.
 
----
 
 Conclusion and Limitations of LSD
 ---------------------------------
