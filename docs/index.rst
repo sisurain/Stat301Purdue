@@ -806,6 +806,8 @@ Usually, we prefer narrow confidence intervals because they provide a better ind
 
 .. image:: /images/0718.png
 
+.. image:: /images/0719.png
+
 **Calculating Power**
 
 First, we calculate the probability of a Type II error, which is the probability that we fail to reject :math:`H_0` when :math:`H_a` is true. The power is then 1 minus this probability.
