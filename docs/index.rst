@@ -11,6 +11,430 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Week 10: Ch13 Two-Way ANOVA  
+============================
+
+When there is more than one way to classify the populations, and when you want to assess the effects of two categorical factors and determine whether there is an interaction effect between them, we use **two-way ANOVA**. 
+
+For example:  
+- **Factor 1 (Teaching Method)**: Online vs. In-person  
+- **Factor 2 (Classroom Type)**: Regular vs. Honors  
+- **Dependent Variable**: Test Scores
+
+In two-way ANOVA, there are two factors, each with its own number of levels. For one-way ANOVA, we study the effect of a factor by changing the levels. In two-way ANOVA, we study the effects of two factors, known as **main effects** (the average values for the effects of the two factors). 
+
+However, we are also interested in the **interaction effect**, which occurs when the effectiveness of one factor depends on another factor. One-way designs that vary a single factor and hold other factors fixed cannot detect these interaction effects. If we ignore the interaction, our conclusions might be misleading, even if we follow the correct procedure.
+
+Interaction Effect in Two-Way ANOVA  
+-----------------------------------
+
+The interaction effect occurs when the effect of one factor on the response variable depends on the level of the other factor. In other words, the combined influence of the two factors is different from their individual main effects. Ignoring interaction effects can lead to biased results and incorrect conclusions.
+
+If we ignore interaction, the model becomes misspecified, introducing omitted variable bias and missing out on crucial combined effects that explain variability in the response variable.
+
+**Understanding Multiplication as Interaction**  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In a linear regression model with two predictors (without interaction), the relationship between the predictors and the response \(Y\) is:
+
+.. math::  
+   Y = \beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \epsilon
+
+- \( \beta_1 \): Measures the effect of \( X_1 \) on \( Y \) when \( X_2 \) is held constant.  
+- \( \beta_2 \): Measures the effect of \( X_2 \) on \( Y \) when \( X_1 \) is held constant.
+
+This model assumes that the effect of \( X_1 \) on \( Y \) is the same no matter the value of \( X_2 \), and vice versa. However, if the impact of \( X_1 \) on \( Y \) changes depending on the value of \( X_2 \), there is an **interaction effect**.
+
+To capture this dependency, we introduce a product term \( X_1 \times X_2 \). The full model with interaction becomes:
+
+.. math::  
+   Y = \beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \beta_3 \cdot (X_1 \times X_2) + \epsilon
+
+- **Without interaction** (\( \beta_3 = 0 \)):  
+  - The effect of \( X_1 \) on \( Y \) is fixed at \( \beta_1 \), regardless of the value of \( X_2 \).  
+  - Similarly, the effect of \( X_2 \) on \( Y \) is \( \beta_2 \), no matter the value of \( X_1 \).
+
+- **With interaction** (\( \beta_3 \neq 0 \)):  
+  - The effect of \( X_1 \) on \( Y \) changes depending on the value of \( X_2 \).  
+  - Similarly, the effect of \( X_2 \) on \( Y \) depends on the value of \( X_1 \).
+
+The interaction term \( X_1 \times X_2 \) allows us to model this dependency between the two predictors.
+
+Advantages of Two-Way ANOVA  
+---------------------------
+
+There are other advantages to using two-way ANOVA over one-way ANOVA.
+
+.. image:: /images/1001.png
+
+Example 13.1, 2, and 3  
+----------------------
+
+These considerations also apply to study designs with more than two factors. The statistical analysis in such cases is broadly called **higher-way ANOVA**. Although the details become more complex, the key ideas are already present in two-way ANOVA settings.
+
+The Two-Way ANOVA Model  
+-----------------------
+
+.. image:: /images/1002.png
+
+Much as in the one-way model, the **FIT** part is the group means :math:`\mu_{ij}`, and the **RESIDUAL (Error Term)** part is the deviations :math:`\epsilon_{ijk}` of the individual observations from their group means.
+
+To estimate a group mean :math:`\mu_{ij}`, we use the sample mean of the observations in the samples from this group:
+
+.. math::
+
+   \bar{x}_{ij} = \frac{1}{n_{ij}} \sum_k x_{ijk}
+
+The :math:`k` below the summation sign indicates that we sum the :math:`n_{ij}` observations that belong to the :math:`(i, j)`-th sample.
+
+The RESIDUAL part of the model is represented by the unknown :math:`\sigma`. First, we calculate the sample variances for each SRS. Provided that it is reasonable to assume a common standard deviation (see the rule on page 608), we pool the sample variances to estimate :math:`\sigma^2`:
+
+.. math::
+
+   s_p^2 = \frac{\sum (n_{ij} - 1) s_{ij}^2}{\sum (n_{ij} - 1)}
+
+In this formula:
+- The numerator is the **SSE** (Sum of Squares for Error).
+- The denominator is the **DFE** (Degrees of Freedom for Error).  
+- **DFE** is the total number of observations minus the number of groups:
+
+.. math::
+
+   \text{DFE} = N - IJ
+
+The estimator of :math:`\sigma` is the **pooled standard deviation** :math:`s_p`.
+
+Sum of Squares (SS) Terms and Degrees of Freedom (DF) Terms  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+### Sum of Squares (SS) Terms  
+
+1. **Total Sum of Squares (SST)**
+
+   .. math::
+
+      SST = \sum_{i,j,k} (x_{ijk} - \bar{x}_{..})^2
+
+   - **SST** measures the total variability from the grand mean.  
+   - :math:`x_{ijk}` is the \(k\)-th observation for the group with Factor A at level \(i\) and Factor B at level \(j\).  
+   - :math:`\bar{x}_{..}` is the grand mean (mean of all observations).
+
+2. **Sum of Squares for Factor A (SSA)**
+
+   .. math::
+
+      SSA = \sum_{i} n_{i\cdot} (\bar{x}_{i\cdot} - \bar{x}_{..})^2
+
+   - **SSA** measures the variability between the levels of Factor A.  
+   - :math:`n_{i\cdot}`: Total number of observations for level \(i\) of Factor A.  
+   - :math:`\bar{x}_{i\cdot}`: Mean for level \(i\) of Factor A.
+
+3. **Sum of Squares for Factor B (SSB)**
+
+   .. math::
+
+      SSB = \sum_{j} n_{\cdot j} (\bar{x}_{\cdot j} - \bar{x}_{..})^2
+
+   - **SSB** measures the variability between the levels of Factor B.  
+   - :math:`n_{\cdot j}`: Total number of observations for level \(j\) of Factor B.  
+   - :math:`\bar{x}_{\cdot j}`: Mean for level \(j\) of Factor B.
+
+4. **Sum of Squares for Interaction (SSAB)**
+
+   .. math::
+
+      SSAB = \sum_{i,j} n_{ij} \left( \bar{x}_{ij} - \bar{x}_{i\cdot} - \bar{x}_{\cdot j} + \bar{x}_{..} \right)^2
+
+   - **SSAB** measures the interaction effect between Factors A and B.
+
+5. **Sum of Squares for Residuals/Error (SSE)**
+
+   .. math::
+
+      SSE = \sum_{i,j,k} (x_{ijk} - \bar{x}_{ij})^2
+
+   - **SSE** measures the unexplained variability within groups.  
+   - :math:`\bar{x}_{ij}`: Mean for the group with Factor A at level \(i\) and Factor B at level \(j\).
+
+### Relationship Between SS Terms  
+
+.. math::
+
+   SST = SSA + SSB + SSAB + SSE
+
+SSG (Sum of Squares for Groups) is the sum of SSA, SSB, and SSAB.
+
+### Degrees of Freedom (DF) Terms  
+
+1. **Total Degrees of Freedom (DFT)**
+
+   .. math::
+
+      DFT = N - 1
+
+   - \(N\): Total number of observations.
+
+2. **Degrees of Freedom for Factor A (DFA)**
+
+   .. math::
+
+      DFA = I - 1
+
+   - \(I\): Number of levels of Factor A.
+
+3. **Degrees of Freedom for Factor B (DFB)**
+
+   .. math::
+
+      DFB = J - 1
+
+   - \(J\): Number of levels of Factor B.
+
+4. **Degrees of Freedom for Interaction (DFAB)**
+
+   .. math::
+
+      DFAB = (I - 1)(J - 1)
+
+5. **Degrees of Freedom for Residuals (DFE)**
+
+   .. math::
+
+      DFE = N - IJ
+
+### Relationship Between DF Terms  
+
+.. math::
+
+   DFT = DFA + DFB + DFAB + DFE
+
+SSAB: Breaking Down the Formula  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. **\(\bar{x}_{ij}\)** – Mean for the group at **level \(i\) of Factor A** and **level \(j\) of Factor B**.  
+   - Represents the **observed group mean** for the specific combination of two factor levels.
+
+2. **\(\bar{x}_{i\cdot}\)** – Marginal mean for **level \(i\) of Factor A**, averaged across all levels of Factor B.  
+   - Represents the **main effect of Factor A**, assuming no interaction with Factor B.
+
+3. **\(\bar{x}_{\cdot j}\)** – Marginal mean for **level \(j\) of Factor B**, averaged across all levels of Factor A.  
+   - Represents the **main effect of Factor B**, assuming no interaction with Factor A.
+
+4. **\(\bar{x}_{..}\)** – Grand mean of all observations in the dataset.  
+   - Used to adjust for the subtraction of marginal means.
+
+### How the Formula Captures Interaction Effect  
+
+The expression inside the parentheses:
+
+.. math::
+
+   \left( \bar{x}_{ij} - \bar{x}_{i\cdot} - \bar{x}_{\cdot j} + \bar{x}_{..} \right)
+
+captures the **additional variability** that cannot be explained by the main effects of Factor A and Factor B alone.
+
+1. **Subtract \(\bar{x}_{i\cdot}\)**:  
+   - Removes the portion of the group mean \(\bar{x}_{ij}\) explained by Factor A.
+
+2. **Subtract \(\bar{x}_{\cdot j}\)**:  
+   - Removes the portion of the group mean \(\bar{x}_{ij}\) explained by Factor B.
+
+3. **Add \(\bar{x}_{..}\)**:  
+   - Adjusts for subtracting the grand mean twice.
+
+.. image:: /images/1003.png
+.. image:: /images/1004.png
+
+Example 13.6 and 7: **Repeated-Measures Design**
+
+Example from the Document (Example 13.7)  
+----------------------------------------
+
+In this example, the study investigated how well subjects synchronized with music from different cultures. French and Tunisian nationals listened to both French and Tunisian music and were asked to tap in time with the beat.
+
+**Repeated Measurements**:  
+Each subject provided data for both types of music (French and Tunisian).
+
+**Dependent Observations**:  
+The two synchronization scores for each subject are not independent because they come from the same individual. This design allows researchers to compare synchronization performance for the same subjects under both conditions (French and Tunisian music), helping to control for individual differences.
+
+Advantages of Repeated-Measures Design  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Reduces variability**:  
+  By using the same subjects across conditions, variability due to individual differences is minimized.
+
+- **Fewer participants needed**:  
+  Since each subject provides multiple measurements, fewer participants are required compared to designs with independent groups.
+
+- **Increases statistical power**:  
+  The design improves the ability to detect significant differences.
+
+Disadvantages of Repeated-Measures Design  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **Order Effects**:  
+  The order in which treatments are administered may affect the results (e.g., fatigue or practice effects).
+
+  **Solution**: Counterbalance the order of conditions.
+
+- **Carryover Effects**:  
+  A treatment may have lasting effects that influence the outcome in later conditions.
+
+  **Solution**: Include a washout period between treatments.
+
+Why Dependent Observations Violate the Assumptions  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Dependency Between Observations** creates correlated data, meaning the observations are no longer independent. In a standard two-way ANOVA, we assume that each observation provides independent information about the group it belongs to. When observations are dependent (e.g., repeated measures), this assumption is violated.
+
+This dependency inflates **Type I error rates**, making the ANOVA model unreliable because it assumes more independent information than what is truly present.
+
+Inference for Two-Way ANOVA  
+---------------------------
+
+.. image:: /images/1005.png
+.. image:: /images/1006.png
+.. image:: /images/1007.png
+
+Proof: Pooled Variance Formula Equivalent to SSE / DFE  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The pooled sample variance \(s_p^2\) is given by:
+
+.. math::
+
+   s_p^2 = \frac{\sum (n_{ij} - 1) s_{ij}^2}{\sum (n_{ij} - 1)}
+
+We will show that this formula is equivalent to:
+
+.. math::
+
+   s_p^2 = \frac{SSE}{DFE}
+
+where **SSE** is the Sum of Squares for Residuals, and **DFE** is the Degrees of Freedom for Error.
+
+### Step 1: Define the Terms  
+
+1. **Sample Variance for Group \( (i, j) \)**:
+
+   .. math::
+
+      s_{ij}^2 = \frac{1}{n_{ij} - 1} \sum_{k=1}^{n_{ij}} \left( x_{ijk} - \bar{x}_{ij} \right)^2
+
+   where:
+
+   - \(x_{ijk}\) is the \(k\)-th observation in the group \( (i, j) \).  
+   - \( \bar{x}_{ij} \) is the mean of the group \( (i, j) \).  
+   - \(n_{ij}\) is the number of observations in group \( (i, j) \).
+
+2. **Sum of Squares for Group \( (i, j) \)**:
+
+   .. math::
+
+      SS_{ij} = \sum_{k=1}^{n_{ij}} \left( x_{ijk} - \bar{x}_{ij} \right)^2
+
+3. **Degrees of Freedom for Group \( (i, j) \)**:
+
+   .. math::
+
+      DF_{ij} = n_{ij} - 1
+
+### Step 2: Rewrite the Pooled Variance Formula  
+
+Substitute the formula for \( s_{ij}^2 \) into the pooled variance equation:
+
+.. math::
+
+   s_p^2 = \frac{\sum (n_{ij} - 1) \cdot \frac{1}{n_{ij} - 1} \sum_{k=1}^{n_{ij}} \left( x_{ijk} - \bar{x}_{ij} \right)^2}{\sum (n_{ij} - 1)}
+
+The \( (n_{ij} - 1) \) terms cancel out:
+
+.. math::
+
+   s_p^2 = \frac{\sum \sum_{k=1}^{n_{ij}} \left( x_{ijk} - \bar{x}_{ij} \right)^2}{\sum (n_{ij} - 1)}
+
+### Step 3: Express the Numerator as SSE  
+
+The numerator represents the **Sum of Squares for Residuals (SSE)**:
+
+.. math::
+
+   SSE = \sum_{i,j} \sum_{k=1}^{n_{ij}} \left( x_{ijk} - \bar{x}_{ij} \right)^2
+
+Thus, the pooled variance formula becomes:
+
+.. math::
+
+   s_p^2 = \frac{SSE}{\sum (n_{ij} - 1)}
+
+### Step 4: Define Degrees of Freedom for Error (DFE)  
+
+The **Degrees of Freedom for Error (DFE)** is the sum of the degrees of freedom for all groups:
+
+.. math::
+
+   DFE = \sum_{i,j} (n_{ij} - 1)
+
+### Step 5: Substitute DFE into the Pooled Variance Formula  
+
+Now, substitute the expression for **DFE** into the pooled variance formula:
+
+.. math::
+
+   s_p^2 = \frac{SSE}{DFE}
+
+We have shown that the pooled variance formula:
+
+.. math::
+
+   s_p^2 = \frac{\sum (n_{ij} - 1) s_{ij}^2}{\sum (n_{ij} - 1)}
+
+is equivalent to:
+
+.. math::
+
+   s_p^2 = \frac{SSE}{DFE}
+
+This completes the proof. The pooled variance \( s_p^2 \) is simply the **mean squared error (MSE)**, which is the residual sum of squares (SSE) divided by the degrees of freedom for error (DFE).
+
+Assumptions for Two-Way ANOVA  
+-----------------------------
+
+Two-way ANOVA analyzes the effects of two categorical independent variables (factors) on a dependent variable, along with the interaction between the two factors. The assumptions are similar to those for one-way ANOVA, but with some additional considerations.
+
+### Independence of Observations  
+
+- As with one-way ANOVA, observations within and between groups must be independent.
+
+### Normality of Residuals  
+
+- The residuals from the two-way ANOVA should be normally distributed.  
+- This assumption applies to the residuals of the model, not necessarily the raw data.
+
+### Homogeneity of Variances  
+
+- The variances across all groups (combinations of the two factors) should be equal.  
+- This assumption ensures that the spread of the data is consistent across all factor levels.
+
+**How to check:**
+- Use **Levene’s** or **Bartlett’s test**.  
+- If violated, consider transforming the data or using a **robust ANOVA method**.
+
+### Additivity  
+
+- The effects of the two independent variables on the dependent variable should be **additive**, unless an interaction term is included in the model.  
+- If there is an interaction between the two factors, the interpretation of the main effects changes.
+
+### Balanced Design (Optional but Recommended)  
+
+- While not a strict assumption, a **balanced design** (equal sample sizes in all groups) helps ensure the results are more reliable.  
+- Unequal group sizes can reduce the power of the test and complicate the interpretation of interactions.
+
+
+
+
+
 Week 09: Ch12: One-Way Analysis of Variance
 ===========================================
 
