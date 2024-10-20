@@ -219,16 +219,20 @@ SSG (Sum of Squares for Groups) is the sum of SSA, SSB, and SSAB.
 SSAB: Breaking Down the Formula  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **\(\bar{x}_{ij}\)** – Mean for the group at **level \(i\) of Factor A** and **level \(j\) of Factor B**.  
+1. **:math:`\bar{x}_{ij}`** – Mean for the group at **level :math:`i` of Factor A** and **level :math:`j` of Factor B**.  
+
    - Represents the **observed group mean** for the specific combination of two factor levels.
 
-2. **\(\bar{x}_{i\cdot}\)** – Marginal mean for **level \(i\) of Factor A**, averaged across all levels of Factor B.  
+2. **:math:`\bar{x}_{i\cdot}`** – Marginal mean for **level :math:`i` of Factor A**, averaged across all levels of Factor B.  
+
    - Represents the **main effect of Factor A**, assuming no interaction with Factor B.
 
-3. **\(\bar{x}_{\cdot j}\)** – Marginal mean for **level \(j\) of Factor B**, averaged across all levels of Factor A.  
+3. **:math:`\bar{x}_{\cdot j}`** – Marginal mean for **level :math:`j` of Factor B**, averaged across all levels of Factor A.  
+
    - Represents the **main effect of Factor B**, assuming no interaction with Factor A.
 
-4. **\(\bar{x}_{..}\)** – Grand mean of all observations in the dataset.  
+4. **:math:`\bar{x}_{..}`** – Grand mean of all observations in the dataset.  
+
    - Used to adjust for the subtraction of marginal means.
 
 ### How the Formula Captures Interaction Effect  
@@ -241,13 +245,16 @@ The expression inside the parentheses:
 
 captures the **additional variability** that cannot be explained by the main effects of Factor A and Factor B alone.
 
-1. **Subtract \(\bar{x}_{i\cdot}\)**:  
-   - Removes the portion of the group mean \(\bar{x}_{ij}\) explained by Factor A.
+1. **Subtract :math:`\bar{x}_{i\cdot}`**:  
 
-2. **Subtract \(\bar{x}_{\cdot j}\)**:  
-   - Removes the portion of the group mean \(\bar{x}_{ij}\) explained by Factor B.
+   - Removes the portion of the group mean :math:`\bar{x}_{ij}` explained by Factor A.
 
-3. **Add \(\bar{x}_{..}\)**:  
+2. **Subtract :math:`\bar{x}_{\cdot j}`**:  
+
+   - Removes the portion of the group mean :math:`\bar{x}_{ij}` explained by Factor B.
+
+3. **Add :math:`\bar{x}_{..}`**:  
+
    - Adjusts for subtracting the grand mean twice.
 
 .. image:: /images/1003.png
@@ -308,7 +315,7 @@ Inference for Two-Way ANOVA
 Proof: Pooled Variance Formula Equivalent to SSE / DFE  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The pooled sample variance \(s_p^2\) is given by:
+The pooled sample variance :math:`s_p^2` is given by:
 
 .. math::
 
@@ -324,7 +331,7 @@ where **SSE** is the Sum of Squares for Residuals, and **DFE** is the Degrees of
 
 ### Step 1: Define the Terms  
 
-1. **Sample Variance for Group \( (i, j) \)**:
+1. **Sample Variance for Group :math:`(i, j)`**:
 
    .. math::
 
@@ -332,17 +339,19 @@ where **SSE** is the Sum of Squares for Residuals, and **DFE** is the Degrees of
 
    where:
 
-   - \(x_{ijk}\) is the \(k\)-th observation in the group \( (i, j) \).  
-   - \( \bar{x}_{ij} \) is the mean of the group \( (i, j) \).  
-   - \(n_{ij}\) is the number of observations in group \( (i, j) \).
+   - :math:`x_{ijk}` is the :math:`k`-th observation in the group :math:`(i, j)`. 
 
-2. **Sum of Squares for Group \( (i, j) \)**:
+   - :math:`\bar{x}_{ij}` is the mean of the group :math:`(i, j)`.  
+
+   - :math:`n_{ij}` is the number of observations in group :math:`(i, j)`.
+
+2. **Sum of Squares for Group :math:`(i, j)`**:
 
    .. math::
 
       SS_{ij} = \sum_{k=1}^{n_{ij}} \left( x_{ijk} - \bar{x}_{ij} \right)^2
 
-3. **Degrees of Freedom for Group \( (i, j) \)**:
+3. **Degrees of Freedom for Group :math:`(i, j)`**:
 
    .. math::
 
@@ -350,13 +359,13 @@ where **SSE** is the Sum of Squares for Residuals, and **DFE** is the Degrees of
 
 ### Step 2: Rewrite the Pooled Variance Formula  
 
-Substitute the formula for \( s_{ij}^2 \) into the pooled variance equation:
+Substitute the formula for :math:`s_{ij}^2` into the pooled variance equation:
 
 .. math::
 
    s_p^2 = \frac{\sum (n_{ij} - 1) \cdot \frac{1}{n_{ij} - 1} \sum_{k=1}^{n_{ij}} \left( x_{ijk} - \bar{x}_{ij} \right)^2}{\sum (n_{ij} - 1)}
 
-The \( (n_{ij} - 1) \) terms cancel out:
+The :math:`(n_{ij} - 1)` terms cancel out:
 
 .. math::
 
@@ -404,7 +413,7 @@ is equivalent to:
 
    s_p^2 = \frac{SSE}{DFE}
 
-This completes the proof. The pooled variance \( s_p^2 \) is simply the **mean squared error (MSE)**, which is the residual sum of squares (SSE) divided by the degrees of freedom for error (DFE).
+This completes the proof. The pooled variance :math:`s_p^2` is simply the **mean squared error (MSE)**, which is the residual sum of squares (SSE) divided by the degrees of freedom for error (DFE).
 
 Assumptions for Two-Way ANOVA  
 -----------------------------
