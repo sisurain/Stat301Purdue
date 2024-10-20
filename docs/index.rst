@@ -16,9 +16,12 @@ Week 10: Ch13 Two-Way ANOVA
 
 When there is more than one way to classify the populations, and when you want to assess the effects of two categorical factors and determine whether there is an interaction effect between them, we use **two-way ANOVA**. 
 
-For example:  
+For example: 
+
 - **Factor 1 (Teaching Method)**: Online vs. In-person  
+
 - **Factor 2 (Classroom Type)**: Regular vs. Honors  
+
 - **Dependent Variable**: Test Scores
 
 In two-way ANOVA, there are two factors, each with its own number of levels. For one-way ANOVA, we study the effect of a factor by changing the levels. In two-way ANOVA, we study the effects of two factors, known as **main effects** (the average values for the effects of the two factors). 
@@ -35,13 +38,14 @@ If we ignore interaction, the model becomes misspecified, introducing omitted va
 **Understanding Multiplication as Interaction**  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In a linear regression model with two predictors (without interaction), the relationship between the predictors and the response \(Y\) is:
+In a linear regression model with two predictors (without interaction), the relationship between the predictors and the response :math:`Y` is:
 
 .. math::  
    Y = \beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \epsilon
 
-- \( \beta_1 \): Measures the effect of \( X_1 \) on \( Y \) when \( X_2 \) is held constant.  
-- \( \beta_2 \): Measures the effect of \( X_2 \) on \( Y \) when \( X_1 \) is held constant.
+- :math:`\beta_1`: Measures the effect of :math:`X_1` on :math:`Y` when :math:`X_2` is held constant.  
+
+- :math:`\beta_2`: Measures the effect of :math:`X_2` on :math:`Y` when :math:`X_1` is held constant.
 
 This model assumes that the effect of \( X_1 \) on \( Y \) is the same no matter the value of \( X_2 \), and vice versa. However, if the impact of \( X_1 \) on \( Y \) changes depending on the value of \( X_2 \), there is an **interaction effect**.
 
@@ -50,15 +54,19 @@ To capture this dependency, we introduce a product term \( X_1 \times X_2 \). Th
 .. math::  
    Y = \beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \beta_3 \cdot (X_1 \times X_2) + \epsilon
 
-- **Without interaction** (\( \beta_3 = 0 \)):  
-  - The effect of \( X_1 \) on \( Y \) is fixed at \( \beta_1 \), regardless of the value of \( X_2 \).  
-  - Similarly, the effect of \( X_2 \) on \( Y \) is \( \beta_2 \), no matter the value of \( X_1 \).
+- **Without interaction** (:math:`\beta_3 = 0`):  
 
-- **With interaction** (\( \beta_3 \neq 0 \)):  
-  - The effect of \( X_1 \) on \( Y \) changes depending on the value of \( X_2 \).  
-  - Similarly, the effect of \( X_2 \) on \( Y \) depends on the value of \( X_1 \).
+  - The effect of :math:`X_1` on :math:`Y` is fixed at :math:`\beta_1`, regardless of the value of :math:`X_2`.  
 
-The interaction term \( X_1 \times X_2 \) allows us to model this dependency between the two predictors.
+  - Similarly, the effect of \:math:`X_2` on :math:`Y` is :math:`\beta_2`, no matter the value of :math:`X_1`.
+
+- **With interaction** (:math:`\beta_3 \neq 0`):  
+
+  - The effect of :math:`X_1` on :math:`Y` changes depending on the value of :math:`X_2`. 
+
+  - Similarly, the effect of :math:`X_2` on :math:`Y` depends on the value of :math:`X_1`.
+
+The interaction term :math:`X_1 \times X_2` allows us to model this dependency between the two predictors.
 
 Advantages of Two-Way ANOVA  
 ---------------------------
