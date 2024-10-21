@@ -49,7 +49,7 @@ In a linear regression model with two predictors (without interaction), the rela
 
 This model assumes that the effect of :math:`X_1` on :math:`Y` is the same no matter the value of :math:`X_2`, and vice versa. However, if the impact of :math:`X_1` on :math:`Y` changes depending on the value of :math:`X_2`, there is an **interaction effect**.
 
-To capture this dependency, we introduce a product term \( X_1 \times X_2 \). The full model with interaction becomes:
+To capture this dependency, we introduce a product term :math:`X_1 \times X_2`. The full model with interaction becomes:
 
 .. math::  
    Y = \beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \beta_3 \cdot (X_1 \times X_2) + \epsilon
