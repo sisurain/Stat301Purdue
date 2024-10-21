@@ -162,6 +162,7 @@ Sum of Squares (SS) Terms and Degrees of Freedom (DF) Terms
       SSE = \sum_{i,j,k} (x_{ijk} - \bar{x}_{ij})^2
 
    - **SSE** measures the unexplained variability within groups.  
+   
    - :math:`\bar{x}_{ij}`: Mean for the group with Factor A at level \(i\) and Factor B at level \(j\).
 
 ### Relationship Between SS Terms  
@@ -219,19 +220,27 @@ SSG (Sum of Squares for Groups) is the sum of SSA, SSB, and SSAB.
 SSAB: Breaking Down the Formula  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **:math:`\bar{x}_{ij}`** – Mean for the group at **level :math:`i` of Factor A** and **level :math:`j` of Factor B**.  
+1. :math:`\bar{x}_{ij}` 
+
+   – Mean for the group at **level :math:`i` of Factor A** and **level :math:`j` of Factor B**.  
 
    - Represents the **observed group mean** for the specific combination of two factor levels.
 
-2. **:math:`\bar{x}_{i\cdot}`** – Marginal mean for **level :math:`i` of Factor A**, averaged across all levels of Factor B.  
+2. :math:`\bar{x}_{i\cdot}` 
+   
+   – Marginal mean for **level :math:`i` of Factor A**, averaged across all levels of Factor B.  
 
    - Represents the **main effect of Factor A**, assuming no interaction with Factor B.
 
-3. **:math:`\bar{x}_{\cdot j}`** – Marginal mean for **level :math:`j` of Factor B**, averaged across all levels of Factor A.  
+3. :math:`\bar{x}_{\cdot j}`
+
+   – Marginal mean for **level :math:`j` of Factor B**, averaged across all levels of Factor A.  
 
    - Represents the **main effect of Factor B**, assuming no interaction with Factor A.
 
-4. **:math:`\bar{x}_{..}`** – Grand mean of all observations in the dataset.  
+4. :math:`\bar{x}_{..}`
+   
+   – Grand mean of all observations in the dataset.  
 
    - Used to adjust for the subtraction of marginal means.
 
@@ -245,15 +254,15 @@ The expression inside the parentheses:
 
 captures the **additional variability** that cannot be explained by the main effects of Factor A and Factor B alone.
 
-1. **Subtract :math:`\bar{x}_{i\cdot}`**:  
+1. **Subtract** :math:`\bar{x}_{i\cdot}`:  
 
    - Removes the portion of the group mean :math:`\bar{x}_{ij}` explained by Factor A.
 
-2. **Subtract :math:`\bar{x}_{\cdot j}`**:  
+2. **Subtract** :math:`\bar{x}_{\cdot j}`:  
 
    - Removes the portion of the group mean :math:`\bar{x}_{ij}` explained by Factor B.
 
-3. **Add :math:`\bar{x}_{..}`**:  
+3. **Add** :math:`\bar{x}_{..}`:  
 
    - Adjusts for subtracting the grand mean twice.
 
@@ -331,7 +340,7 @@ where **SSE** is the Sum of Squares for Residuals, and **DFE** is the Degrees of
 
 ### Step 1: Define the Terms  
 
-1. **Sample Variance for Group :math:`(i, j)`**:
+1. **Sample Variance for Group** :math:`(i, j)`:
 
    .. math::
 
@@ -351,7 +360,7 @@ where **SSE** is the Sum of Squares for Residuals, and **DFE** is the Degrees of
 
       SS_{ij} = \sum_{k=1}^{n_{ij}} \left( x_{ijk} - \bar{x}_{ij} \right)^2
 
-3. **Degrees of Freedom for Group :math:`(i, j)`**:
+3. **Degrees of Freedom for Group** :math:`(i, j)`:
 
    .. math::
 
