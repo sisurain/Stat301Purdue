@@ -162,7 +162,7 @@ Sum of Squares (SS) Terms and Degrees of Freedom (DF) Terms
       SSE = \sum_{i,j,k} (x_{ijk} - \bar{x}_{ij})^2
 
    - **SSE** measures the unexplained variability within groups.  
-   
+
    - :math:`\bar{x}_{ij}`: Mean for the group with Factor A at level \(i\) and Factor B at level \(j\).
 
 ### Relationship Between SS Terms  
@@ -222,19 +222,19 @@ SSAB: Breaking Down the Formula
 
 1. :math:`\bar{x}_{ij}` 
 
-   – Mean for the group at **level :math:`i` of Factor A** and **level :math:`j` of Factor B**.  
+   – Mean for the group at **level** :math:`i` **of Factor A** and **level** :math:`j` **of Factor B**.  
 
    - Represents the **observed group mean** for the specific combination of two factor levels.
 
 2. :math:`\bar{x}_{i\cdot}` 
    
-   – Marginal mean for **level :math:`i` of Factor A**, averaged across all levels of Factor B.  
+   – Marginal mean for **level** :math:`i` **of Factor A**, averaged across all levels of Factor B.  
 
    - Represents the **main effect of Factor A**, assuming no interaction with Factor B.
 
 3. :math:`\bar{x}_{\cdot j}`
 
-   – Marginal mean for **level :math:`j` of Factor B**, averaged across all levels of Factor A.  
+   – Marginal mean for **level** :math:`j` **of Factor B**, averaged across all levels of Factor A.  
 
    - Represents the **main effect of Factor B**, assuming no interaction with Factor A.
 
@@ -354,7 +354,7 @@ where **SSE** is the Sum of Squares for Residuals, and **DFE** is the Degrees of
 
    - :math:`n_{ij}` is the number of observations in group :math:`(i, j)`.
 
-2. **Sum of Squares for Group :math:`(i, j)`**:
+2. **Sum of Squares for Group** :math:`(i, j)`:
 
    .. math::
 
