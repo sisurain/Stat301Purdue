@@ -47,7 +47,7 @@ In a linear regression model with two predictors (without interaction), the rela
 
 - :math:`\beta_2`: Measures the effect of :math:`X_2` on :math:`Y` when :math:`X_1` is held constant.
 
-This model assumes that the effect of \( X_1 \) on \( Y \) is the same no matter the value of \( X_2 \), and vice versa. However, if the impact of \( X_1 \) on \( Y \) changes depending on the value of \( X_2 \), there is an **interaction effect**.
+This model assumes that the effect of :math:`X_1` on :math:`Y` is the same no matter the value of :math:`X_2`, and vice versa. However, if the impact of :math:`X_1` on :math:`Y` changes depending on the value of :math:`X_2`, there is an **interaction effect**.
 
 To capture this dependency, we introduce a product term \( X_1 \times X_2 \). The full model with interaction becomes:
 
