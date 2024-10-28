@@ -95,7 +95,7 @@ Interpreting Correlation from a Scatter Plot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: Interpreting Correlation from a Scatter Plot
-   :widths: 15 40 45
+   :widths: 15 30 30
    :header-rows: 1
 
    * - Value of r
@@ -142,27 +142,32 @@ We can draw various lines to explore the relationship.
 .. image:: /images/1107.png
 
 1. First, a simple straight line:
-   .. image:: /images/1108.png
+
+.. image:: /images/1108.png
 
 2. Next, we examine the distances between data points and the line to find a **special line** that minimizes these distances:
-   .. image:: /images/1109.png
 
-3. Additional examples:
-   .. image:: /images/1110.png
-   .. image:: /images/1111.png
-   .. image:: /images/1112.png
+.. image:: /images/1109.png
+
+3. Additional:
+
+.. image:: /images/1110.png
+
+.. image:: /images/1111.png
+
+.. image:: /images/1112.png
 
 Interpreting the Slope Coefficient Formula
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **:math:`r`**: The correlation coefficient measures the **strength and direction** of the linear relationship between :math:`X` and :math:`Y`.
+- :math:`r`: The correlation coefficient measures the **strength and direction** of the linear relationship between :math:`X` and :math:`Y`.
 
-- **:math:`\frac{s_y}{s_x}`**: This ratio of the standard deviations of :math:`Y` and :math:`X` accounts for the **units** of the variables, ensuring the slope reflects how much :math:`Y` changes for a one-unit change in :math:`X`.
+- :math:`\frac{s_y}{s_x}`: This ratio of the standard deviations of :math:`Y` and :math:`X` accounts for the **units** of the variables, ensuring the slope reflects how much :math:`Y` changes for a one-unit change in :math:`X`.
 
 Understanding :math:`R^2` and Its Relationship to Correlation
 -------------------------------------------------------------
 
-1. **What is :math:`R^2`?**
+1. **What is** :math:`R^2`?
 
 :math:`R^2` is the **coefficient of determination**, measuring how well the regression line fits the data. It quantifies the proportion of the variance in the dependent variable :math:`Y` explained by the independent variable(s) :math:`X`.
 
@@ -207,7 +212,7 @@ The ratio measures how much better the regression model performs compared to usi
 
     R^2 = \frac{\text{Explained Variation}}{\text{Total Variation}} = \frac{\sum (\hat{y} - \bar{y})^2}{\sum (y - \bar{y})^2}
 
-3. **Relationship Between :math:`R^2` and Correlation :math:`r`**
+3. **Relationship Between** :math:`R^2` **and Correlation** :math:`r`
 
 In **simple linear regression** with one predictor, :math:`R^2` equals the **square of the Pearson correlation coefficient** :math:`r`:
 
@@ -217,19 +222,24 @@ In **simple linear regression** with one predictor, :math:`R^2` equals the **squ
 
 This shows how much of the variation in :math:`Y` is explained by the linear relationship with :math:`X`.
 
-4. **Range of :math:`R^2`**
+4. **Range of** :math:`R^2`
 
 - **Typical Range:** :math:`0 \leq R^2 \leq 1`
+
   - :math:`R^2 = 0`: The model explains none of the variability in :math:`Y`.
+
   - :math:`R^2 = 1`: The model explains all the variability in :math:`Y`.
 
-- **Can :math:`R^2` be negative?**  
+- **Can** :math:`R^2` **be negative?**  
+
   Yes. When the model performs worse than simply using the mean of :math:`Y` for predictions, the **residual sum of squares** exceeds the **total sum of squares**, resulting in a negative :math:`R^2`.
 
-  **Intuition of Negative :math:`R^2`:**  
+  **Intuition of Negative** :math:`R^2`:
+
   A negative :math:`R^2` suggests a poor fit, worse than using the mean as the prediction for all observations.
 
-- **Can :math:`R^2` exceed 1?**  
+- **Can** :math:`R^2` **exceed 1?**
+
   In properly defined least-squares regression, :math:`R^2` cannot exceed 1. However, in cases of **non-linear models** or **overfitting**, values greater than 1 can occur, signaling potential issues with the model or metric usage.
 
 .. image:: /images/1113.png
@@ -237,8 +247,8 @@ This shows how much of the variation in :math:`Y` is explained by the linear rel
 Key Differences Between Linear Regression and Correlation
 ---------------------------------------------------------
 
-.. list-table:: Key Differences Between Linear Regression and Correlation
-   :widths: 20 40 40
+.. list-table::
+   :widths: 20 20 20
    :header-rows: 1
 
    * - **Aspect**
@@ -277,10 +287,13 @@ Looking closely at the initial plot, we see that fixing the x-values results in 
 ### Simple Linear Regression Model
 
 1. **Model Assumptions**:
+
    - For each value of the explanatory variable :math:`x`, the response variable :math:`y` is **normally distributed** with a mean that depends on :math:`x`.
+
    - The **mean of the response** is represented by :math:`\mu_y`. In simple linear regression, these means form a **straight line** when plotted against :math:`x`.
 
 2. **Linear Model Components**:
+
    - **Mean Response Line**:
 
      .. math::
@@ -290,18 +303,24 @@ Looking closely at the initial plot, we see that fixing the x-values results in 
      This equation represents the **population regression line**, indicating how the mean response :math:`\mu_y` changes with :math:`x`.
 
    - **Distribution Around the Mean**:
+
      - For each subpopulation defined by :math:`x`, the response values :math:`y` are normally distributed around the mean response :math:`\mu_y`.
+
      - The spread around the mean is measured by the **standard deviation** :math:`\sigma`, which remains constant across all values of :math:`x`.
 
 3. **Visualization Explanation**:
+
    - The figure displays several **Normal distributions** for different values of :math:`x`.
+
    - Each curve is centered at the corresponding **mean response** :math:`\mu_y` for the given :math:`x`.
+
    - All curves have the **same spread**, measured by the standard deviation :math:`\sigma`.
 
 Statistical Model for Linear Regression
 ---------------------------------------
 
 1. **Model Assumptions**:
+
    - The response variable (e.g., BMI) follows a **normal distribution** with a mean that changes **linearly** with the explanatory variable :math:`x`:
 
      .. math::
@@ -311,6 +330,7 @@ Statistical Model for Linear Regression
    - This equation represents the **population regression line**, showing the expected response (e.g., average BMI) for a given value of :math:`x`.
 
 2. **Data = Fit + Residual**:
+
    - The linear regression model decomposes the data as:
 
      .. math::
@@ -318,15 +338,21 @@ Statistical Model for Linear Regression
         \text{DATA} = \text{FIT} + \text{RESIDUAL}
 
    - **FIT**: Represents the predicted mean response, :math:`\beta_0 + \beta_1 x`.
+
    - **RESIDUAL**: Represents the random deviations from the mean, captured by :math:`\varepsilon`.
 
 3. **Residuals/Error**:
+
    - Residuals :math:`\varepsilon_i` account for unexplained variability in the response variable.
+
    - Key assumptions about residuals:
+
      - Residuals are **independent**.
+
      - They follow a **normal distribution** with mean 0 and standard deviation :math:`\sigma`.
 
 4. **Linear Regression Model**:
+
    - For each observation :math:`(x_i, y_i)`, the relationship is expressed as:
 
      .. math::
@@ -334,8 +360,11 @@ Statistical Model for Linear Regression
         y_i = \beta_0 + \beta_1 x_i + \varepsilon_i
 
    - **Parameters**:
+
      - **Intercept**: :math:`\beta_0`
+
      - **Slope**: :math:`\beta_1`
+
      - **Standard deviation of residuals**: :math:`\sigma`
 
 .. image:: /images/1115.png
@@ -344,11 +373,15 @@ Estimating the Standard Deviation of Residuals (:math:`\sigma`)
 ---------------------------------------------------------------
 
 1. **What is :math:`\sigma`?**
+
    - :math:`\sigma` measures the **spread of the response variable** :math:`y` around the population regression line.
+
    - It represents the **standard deviation of the residuals** :math:`\varepsilon_i`.
+
    - Since residuals are not directly observable, we estimate :math:`\sigma` using the residuals :math:`e_i`.
 
 2. **Definition of Residuals**:
+
    - For the :math:`i`-th observation, the residual :math:`e_i` is:
 
      .. math::
@@ -356,10 +389,13 @@ Estimating the Standard Deviation of Residuals (:math:`\sigma`)
         e_i = y_i - \hat{y}_i = y_i - (b_0 + b_1 x_i)
 
 3. **Using Residuals to Estimate Model Deviations**:
+
    - Residuals :math:`e_i` estimate the deviations :math:`\varepsilon_i`.
+
    - The sum of residuals is 0, and they are assumed to have a mean of 0.
 
 4. **Estimating Variance and Standard Deviation**:
+
    - The variance :math:`\sigma^2` is estimated by averaging the squared residuals, divided by :math:`n - 2` degrees of freedom:
 
      .. math::
@@ -369,6 +405,7 @@ Estimating the Standard Deviation of Residuals (:math:`\sigma`)
    - Dividing by :math:`n - 2` ensures the estimate is **unbiased**.
 
 5. **Model Standard Deviation (Regression Standard Error)**:
+
    - The regression standard error :math:`s` is:
 
      .. math::
@@ -376,6 +413,7 @@ Estimating the Standard Deviation of Residuals (:math:`\sigma`)
         s = \sqrt{s^2}
 
 .. image:: /images/1116.png
+
 .. image:: /images/1117.png
 
 Confidence Intervals and Significance Tests
@@ -387,16 +425,23 @@ Confidence Intervals and Hypothesis Tests for Intercept
 -------------------------------------------------------
 
 1. **Confidence Intervals and Significance Tests for the Intercept**:
+
    - Confidence intervals and significance tests for the **intercept** :math:`\beta_0` are computed similarly to those for the slope :math:`\beta_1`, but with :math:`b_0` and :math:`SE_{b_0}` replacing :math:`b_1` and :math:`SE_{b_1}`.
+
    - Testing the hypothesis :math:`H_0: \beta_0 = 0` is often **not practically useful** since the intercept represents the **mean response when** :math:`x = 0`.
+
    - In many cases, the subpopulation where :math:`x = 0` may not exist or be relevant to the study.
 
 2. **Interpretation of the Intercept**:
+
    - The intercept :math:`\beta_0` represents the **mean response** when the explanatory variable :math:`x` equals 0.
+
    - In some contexts, such as studies on physical activity, the intercept may provide meaningful insights. In others, it might not hold practical value.
 
 3. **Testing the Slope**:
+
    - The hypothesis test :math:`H_0: \beta_1 = 0` is generally more useful.
+
    - If the hypothesis is true, the slope term :math:`\beta_1` drops out, leaving:
 
      .. math::
@@ -406,12 +451,14 @@ Confidence Intervals and Hypothesis Tests for Intercept
    - This indicates that the **mean of** :math:`y` does **not vary with** :math:`x`, meaning there is no **linear relationship** between the two variables.
 
 4. **Key Insight**:
+
    - If :math:`H_0: \beta_1 = 0` is true, the regression model provides **no meaningful predictive value** for :math:`y`. There would be no significant relationship between the predictor :math:`x` and the response :math:`y`.
 
 Confidence Intervals and Prediction Intervals in Linear Regression
 ------------------------------------------------------------------
 
 1. **Confidence Intervals for Mean Response**:
+
    A **confidence interval for the mean response** estimates the range in which the **true mean** of the response variable is likely to fall for a specific value of the predictor variable :math:`x`.
 
    - **Formula for Mean Response**:
@@ -435,9 +482,11 @@ Confidence Intervals and Prediction Intervals in Linear Regression
      where :math:`t^*` is the critical value from the :math:`t`-distribution with :math:`n - 2` degrees of freedom.
 
    - **Interpretation**:
+
      This confidence interval provides the likely range for the **mean response** at a given value of :math:`x^*`, indicating the uncertainty in predicting the average outcome for a subpopulation.
 
 2. **Prediction Intervals**:
+
    A **prediction interval** estimates the range in which an **individual future observation** of :math:`y` is likely to fall for a given value of :math:`x`.
 
    - **Formula for Predicted Response**:
@@ -455,34 +504,45 @@ Confidence Intervals and Prediction Intervals in Linear Regression
      where :math:`t^*` is the critical value from the :math:`t`-distribution with :math:`n - 2` degrees of freedom.
 
    - **Difference Between Prediction and Confidence Intervals**:
+
      Prediction intervals are **wider** than confidence intervals because they account for:
      
      1. The variability of individual observations around the mean.
+
      2. The uncertainty in the estimated regression line.
 
    - **Interpretation**:
      If the process is repeated many times, 95% of the prediction intervals will contain the new observation's value.
 
 .. image:: /images/1119.png
+
 .. image:: /images/1120.png
 
 Difference Between Confidence Interval and Prediction Interval
 --------------------------------------------------------------
 
 1. **What They Estimate**:
+
    - **Confidence Interval (CI)**: Estimates the **range where the true mean response** (:math:`\mu_y`) is likely to fall for a given value of the predictor :math:`x`.
+
    - **Prediction Interval (PI)**: Estimates the **range where a single future observation** of :math:`y` is likely to fall for the same value of :math:`x`.
 
 2. **Scope of Uncertainty**:
+
    - **CI**: Accounts for the **uncertainty in estimating the mean** response.
+
    - **PI**: Accounts for both:
+
      1. Uncertainty in estimating the mean response.
+
      2. **Random variation of individual observations** around the mean.
 
 3. **Width**:
+
    - **PI** is always **wider** than the CI because it includes both **model uncertainty** and **random variability** of individual observations.
 
 4. **Formulas**:
+
    - **Confidence Interval for Mean Response**:
 
      .. math::
@@ -498,17 +558,22 @@ Difference Between Confidence Interval and Prediction Interval
    - Both intervals rely on the :math:`t`-distribution with :math:`n - 2` degrees of freedom. However, :math:`SE_{\hat{y}}` in the prediction interval accounts for more sources of variability.
 
 5. **Interpretation**:
+
    - **CI**: Provides a range where the **average response** is likely to fall for a given value of :math:`x`.
+
    - **PI**: Provides a range where a **new individual observation** is likely to fall for the same value of :math:`x`.
 
 6. **Example**:
+
    - **CI**: If the CI for mean BMI at 9000 steps/day is :math:`23.7 \pm 0.5`, the **average BMI** for individuals with this habit is likely between 23.2 and 24.2.
+
    - **PI**: If the PI for an individual's BMI at 9000 steps/day is :math:`23.7 \pm 2.0`, a **single person’s BMI** with this habit could fall between 21.7 and 25.7.
 
 Analysis of Variance for Regression (ANOVA)
 -------------------------------------------
 
 1. **Concept of ANOVA for Regression**:
+
    ANOVA decomposes the **variation in the data** into two components: the **fit** (variation explained by the model) and the **residuals** (unexplained variation). This follows the conceptual equation:
 
    .. math::
@@ -516,9 +581,13 @@ Analysis of Variance for Regression (ANOVA)
       \text{DATA} = \text{FIT} + \text{RESIDUAL}
 
 2. **Decomposing Total Variation**:
+
    - The total variation in the response variable :math:`y` is measured by deviations from the mean :math:`y_i - \bar{y}`.
+
    - This total variation is partitioned into:
+
      1. **Explained Variation (SSM)**: Variation due to changes in the predictor variable :math:`x`.
+
      2. **Unexplained Variation (SSE)**: Scatter of individual observations around the fitted values.
 
    - Mathematically:
@@ -528,6 +597,7 @@ Analysis of Variance for Regression (ANOVA)
         (y_i - \bar{y}) = (\hat{y}_i - \bar{y}) + (y_i - \hat{y}_i)
 
 3. **Sum of Squares (SS) Decomposition**:
+
    The total sum of squared deviations (SST) can be decomposed as:
 
    .. math::
@@ -541,14 +611,21 @@ Analysis of Variance for Regression (ANOVA)
       SST = SSM + SSE
 
    where:
+
    - **SST**: Total Sum of Squares (total variation),
+
    - **SSM**: Model Sum of Squares (explained variation),
+
    - **SSE**: Error Sum of Squares (unexplained variation).
 
 4. **Degrees of Freedom and Mean Squares**:
+
    - The **degrees of freedom** are divided as follows:
+
      - **DFT** (Total): :math:`n - 1`,
+
      - **DFM** (Model): 1 (for estimating the slope :math:`\beta_1`),
+
      - **DFE** (Error): :math:`n - 2` (one for the intercept, one for the slope).
 
    - The **mean square** (MS) is calculated as the ratio of the sum of squares to the corresponding degrees of freedom:
@@ -558,6 +635,7 @@ Analysis of Variance for Regression (ANOVA)
         MS = \frac{\text{Sum of Squares}}{\text{Degrees of Freedom}}
 
 5. **Mean Square Error (MSE)**:
+
    - **MSE** is the average squared deviation of the observed values from the fitted values, providing an estimate of the variance of the errors:
 
      .. math::
@@ -567,7 +645,9 @@ Analysis of Variance for Regression (ANOVA)
    - MSE estimates the variance of the residuals, :math:`\sigma^2`.
 
 6. **Special Cases**:
+
    - If the slope :math:`b_1 = 0`, the model explains no variation (SSM = 0), and all the variation is due to error (SSE = SST).
+
    - If all observations lie perfectly on the regression line, SSE = 0, and SST = SSM.
 
 .. image:: /images/1121.png
@@ -576,9 +656,11 @@ Interpretation of :math:`r^2`
 -----------------------------
 
 1. **Definition of :math:`r^2`**:
+
    - :math:`r^2` is the **fraction of the total variation** in the response variable :math:`y` that is explained by the **least-squares regression** of :math:`y` on :math:`x`.
 
 2. **Sum of Squares Relationship**:
+
    - The relationship between the **total variation (SST)** and the **explained variation (SSM)** offers a precise way to interpret :math:`r^2`:
 
      .. math::
@@ -586,20 +668,26 @@ Interpretation of :math:`r^2`
         r^2 = \frac{SSM}{SST} = \frac{\sum (\hat{y}_i - \bar{y})^2}{\sum (y_i - \bar{y})^2}
 
 3. **Meaning of SST and SSM**:
+
    - **SST** (Total Sum of Squares): Measures the total variation in the response variable :math:`y`.
+
    - **SSM** (Model Sum of Squares): Measures the variation in :math:`y` that is explained by the regression model.
 
 4. **Interpretation**:
+
    - :math:`r^2` quantifies the **proportion of the total variation** in :math:`y` that is explained by the predictor variable :math:`x` in the linear regression model.
 
 The ANOVA F-Test for Regression
 -------------------------------
 
 1. **Purpose of the F-Test**:
+
    - The F-test examines the null hypothesis :math:`H_0: \beta_1 = 0`, indicating that the response variable :math:`y` is **not linearly related** to the predictor :math:`x`.
+
    - If the null hypothesis holds, the predictor :math:`x` does not explain any variation in :math:`y`.
 
 2. **F-Statistic Formula**:
+
    - The F-statistic compares the **explained variance** (Mean Square Model, MSM) to the **unexplained variance** (Mean Square Error, MSE):
 
      .. math::
@@ -607,19 +695,27 @@ The ANOVA F-Test for Regression
         F = \frac{MSM}{MSE}
 
 3. **Degrees of Freedom**:
+
    - The F-statistic follows an **F-distribution** with:
+
      - **Numerator degrees of freedom**: 1 (for the slope).
+
      - **Denominator degrees of freedom**: :math:`n - 2` (for the error term).
 
 4. **Interpretation of the F-Statistic**:
+
    - If :math:`H_0` is true, the F-statistic follows the F-distribution.
+
    - If :math:`H_0` is false (:math:`\beta_1 \neq 0`), MSM tends to be larger than MSE, resulting in a larger F-statistic. A large F-value provides evidence against :math:`H_0`.
 
 5. **The F-Distribution**:
+
    - The F-distribution is **right-skewed** and takes only positive values.
+
    - It is defined by two parameters: the degrees of freedom for the **numerator** (MSM) and the **denominator** (MSE).
 
 6. **Comparison with t-Tests**:
+
    - In simple linear regression, the F-test for :math:`H_0: \beta_1 = 0` is equivalent to the square of the t-statistic:
 
      .. math::
@@ -629,6 +725,7 @@ The ANOVA F-Test for Regression
    - The t-test is preferred for testing one-sided hypotheses and constructing confidence intervals for :math:`\beta_1`.
 
 7. **ANOVA Table Structure**:
+
    The results of ANOVA for regression are summarized in the following table:
 
    .. list-table:: ANOVA Table for Simple Linear Regression
@@ -657,11 +754,15 @@ The ANOVA F-Test for Regression
         - 
 
 8. **Using F-Tables**:
+
    - F-tables provide **critical values** for the F-distribution, which are used when software cannot compute p-values directly.
+
    - The tables display critical values for typical significance levels (e.g., 0.10, 0.05, 0.01) based on the degrees of freedom in the numerator and the denominator.
 
 9. **Conclusion**:
+
    - The F-test determines if the predictor :math:`x` explains a **significant amount of variation** in the response variable :math:`y`.
+
    - If the p-value for the F-statistic is small, we reject the null hypothesis :math:`H_0: \beta_1 = 0` and conclude that a linear relationship exists between :math:`x` and :math:`y`.
 
 .. image:: /images/1122.png
@@ -670,9 +771,11 @@ Inference for Slope and Intercept
 -------------------------------------------
 
 1. **Purpose of Standard Errors**:
+
    - Confidence intervals and significance tests for the **slope** (:math:`\beta_1`) and **intercept** (:math:`\beta_0`) use the estimated coefficients :math:`b_1` and :math:`b_0` along with their **standard errors**.
 
 2. **Standard Deviations of Slope and Intercept**:
+
    - **Standard Deviation of the Slope**:
 
      .. math::
@@ -688,6 +791,7 @@ Inference for Slope and Intercept
    - In practice, the population standard deviation :math:`\sigma` is replaced by its estimate :math:`s`.
 
 3. **Standard Errors of Estimated Coefficients**:
+
    - **Standard Error of the Slope**:
 
      .. math::
@@ -701,12 +805,14 @@ Inference for Slope and Intercept
         SE_{b_0} = s \sqrt{\frac{1}{n} + \frac{\bar{x}^2}{\sum (x_i - \bar{x})^2}}
 
 4. **Inference Using Small Samples**:
+
    - With small samples, the regression line might suggest a strong relationship. **Significance testing** for the slope helps determine whether the relationship is statistically significant.
 
 Derivation of Standard Errors for Slope and Intercept (Optional)
-------------------------------------------------------------------------------------
+----------------------------------------------------------------
 
 1. **Standard Error of the Slope**:
+
    The slope estimator :math:`b_1` is calculated as:
 
    .. math::
@@ -726,6 +832,7 @@ Derivation of Standard Errors for Slope and Intercept (Optional)
       SE_{b_1} = \frac{s}{\sqrt{\sum (x_i - \bar{x})^2}}
 
 2. **Standard Error of the Intercept**:
+
    The intercept estimator :math:`b_0` is given by:
 
    .. math::
@@ -750,17 +857,25 @@ Confidence Intervals vs. Prediction Intervals
 ---------------------------------------------
 
 1. **Two Uses of the Estimated Response**:
+
    - **Mean Response** (:math:`\mu_y`): Estimates the mean value of the response variable for a given predictor value :math:`x^*`.
+
    - **Prediction for a New Observation** (:math:`\hat{y}`): Predicts the response for a new individual observation at :math:`x^*`.
 
 2. **Differences Between Confidence and Prediction Intervals**:
+
    - **Confidence Intervals**:
+
      - Estimate the **mean response**.
+
      - Typically **narrower** than prediction intervals.
+
    - **Prediction Intervals**:
+
      - Account for individual-level variability, making them **wider** than confidence intervals.
 
 3. **Standard Errors**:
+
    - **Standard Error for the Mean Response**:
 
      .. math::
@@ -774,19 +889,26 @@ Confidence Intervals vs. Prediction Intervals
         SE_{\hat{y}} = s \sqrt{1 + \frac{1}{n} + \frac{(x^* - \bar{x})^2}{\sum (x_i - \bar{x})^2}}
 
 4. **Key Difference in Formulas**:
+
    - The prediction interval formula includes an **extra "1" under the square root**, reflecting the additional variability in individual predictions.
+
    - This makes **prediction intervals wider** than confidence intervals.
 
 5. **Illustrative Example**:
+
    - **Gestational Age Prediction**:
+
      - A **confidence interval** provides the likely range for the **average gestational age** based on predictor variables.
+
      - A **prediction interval** gives the range for a **new fetus**, accounting for individual deviations.
 
 Role of :math:`x^*` in Confidence and Prediction Intervals
-----------------------------------------------------------------------------
+------------------------------------------------------------
 
 1. **Confidence Interval for the Mean Response**:
+
    - **Purpose**: To estimate the **mean response** :math:`\mu_y` at a given value :math:`x^*`.
+
    - **When Used**: :math:`x^*` can be one of the **observed data points** or any value within the range of the predictor variable.
 
    .. math::
@@ -794,7 +916,9 @@ Role of :math:`x^*` in Confidence and Prediction Intervals
       SE_{\hat{\mu}_y} = s \sqrt{\frac{1}{n} + \frac{(x^* - \bar{x})^2}{\sum (x_i - \bar{x})^2}}
 
 2. **Prediction Interval for a New Observation**:
+
    - **Purpose**: To predict the response :math:`y` for a **new observation** with the same value :math:`x^*`.
+
    - **When Used**: :math:`x^*` may refer to a **new data point** outside the original sample.
 
    .. math::
@@ -802,19 +926,24 @@ Role of :math:`x^*` in Confidence and Prediction Intervals
       SE_{\hat{y}} = s \sqrt{1 + \frac{1}{n} + \frac{(x^* - \bar{x})^2}{\sum (x_i - \bar{x})^2}}
 
 3. **Key Difference**:
+
    - Prediction intervals include an additional **1** under the square root, capturing the randomness of individual observations.
+
    - **Prediction intervals** are **wider** than confidence intervals due to this extra variability.
 
 .. image:: /images/1124.png
 
 Inference for Correlation
-------------------------------------
+--------------------------
 
 1. **Population vs. Sample Correlation**:
+
    - **Population Correlation** (:math:`\rho`): Measures the strength and direction of a linear association between two variables.
+
    - **Sample Correlation** (:math:`r`): An estimate of the population correlation based on the sample data.
 
 2. **Inference About Population Correlation**:
+
    - We use the sample correlation to test hypotheses about the population correlation.
 
 3. **Null Hypothesis**:
@@ -834,18 +963,25 @@ Inference for Correlation
       t = \frac{r \sqrt{n - 2}}{\sqrt{1 - r^2}}
 
    - Where:
+
      - :math:`n` = sample size
+
      - :math:`r` = sample correlation
 
 5. **Distribution of the t-Statistic**:
+
    - The t-statistic follows a **t-distribution** with :math:`n - 2` degrees of freedom.
+
    - The **P-value** is determined based on the alternative hypothesis:
 
      - :math:`H_a: \rho > 0 \Rightarrow P(T \geq t)`
+
      - :math:`H_a: \rho < 0 \Rightarrow P(T \leq t)`
+
      - :math:`H_a: \rho \neq 0 \Rightarrow 2P(T \geq |t|)`
 
 6. **Conclusion**:
+
    - If the **P-value** is small, we reject the null hypothesis, indicating a significant linear relationship between :math:`x` and :math:`y`.
 
 .. image:: /images/1125.png
