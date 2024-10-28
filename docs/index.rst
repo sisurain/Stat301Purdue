@@ -95,7 +95,7 @@ Interpreting Correlation from a Scatter Plot
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: Interpreting Correlation from a Scatter Plot
-   :widths: 15 30 30
+   :widths: 15 40 45
    :header-rows: 1
 
    * - Value of r
@@ -248,7 +248,7 @@ Key Differences Between Linear Regression and Correlation
 ---------------------------------------------------------
 
 .. list-table::
-   :widths: 20 20 20
+   :widths: 20 40 40
    :header-rows: 1
 
    * - **Aspect**
