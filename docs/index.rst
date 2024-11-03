@@ -142,15 +142,17 @@ Similar to simple linear regression, we use the method of *least squares* to obt
 
 denote the estimators of the parameters :math:`\beta_0, \beta_1, \beta_2, \ldots, \beta_p`.
 
-For the :math:`i`th observation, the predicted response is:
+For the :math:`i` th observation, the predicted response is:
 
 .. math::
    \hat{y}_i = b_0 + b_1 x_{i1} + b_2 x_{i2} + \cdots + b_p x_{ip}
 
-The :math:`i`th residual, the difference between the observed and predicted response, is:
+The :math:`i` th residual, the difference between the observed and predicted response, is:
 
 .. math::
-   e_i = \text{observed response} - \text{predicted response} = y_i - \hat{y}_i = y_i - (b_0 + b_1 x_{i1} + b_2 x_{i2} + \cdots + b_p x_{ip})
+   e_i = \text{observed response} - \text{predicted response} 
+
+   = y_i - \hat{y}_i = y_i - (b_0 + b_1 x_{i1} + b_2 x_{i2} + \cdots + b_p x_{ip})
 
 Least Squares Criterion
 -----------------------
@@ -236,6 +238,7 @@ In simple linear regression, the :math:`F` test from the ANOVA table is equivale
      -
 
 where:
+
 - :math:`SST = SSM + SSE`
 
 - :math:`DFT = DFM + DFE`
@@ -315,7 +318,7 @@ The first model uses only high school grades to predict GPA.
 **Model Fit Statistics**
 - **Root MSE**: 0.726, an estimate of the standard deviation :math:`\sigma` of GPA about the regression line.
 
-- **:math:`R^2`**: 0.23, meaning 23% of the variation in GPA is explained by high school grades.
+- :math:`R^2`: 0.23, meaning 23% of the variation in GPA is explained by high school grades.
 
 **Regression Equation**
 - The fitted regression equation is:
@@ -331,6 +334,7 @@ The first model uses only high school grades to predict GPA.
        \hat{\text{GPA}} = 0.069 + 0.123(9) + 0.136(8) + 0.058(7) = 2.67
 
 **Significance of Individual Predictors**
+
 - **HSM** is significant (p = 0.0262), meaning high school math grade has a unique predictive contribution to GPA.
 
 - **HSS** and **HSE** are not significant at the 0.05 level, suggesting they do not independently predict GPA when HSM is in the model.
@@ -341,6 +345,7 @@ Interpretation of Results
 The significance tests for individual regression coefficients may appear contradictory to initial correlation analysis.
 
 **Key Observations**
+
 - **Correlation Analysis**:
 
   - GPA correlations with HSS and HSE are 0.44 and 0.36, respectively, both with p < 0.0005.
@@ -348,6 +353,7 @@ The significance tests for individual regression coefficients may appear contrad
   - Using HSS or HSE alone could yield significant regression coefficients.
 
 **Multicollinearity**
+
 - **Collinearity**: High correlation among explanatory variables, particularly HSM, HSS, and HSE, leads to **multicollinearity**.
 
   - Correlation coefficients:
@@ -359,6 +365,7 @@ The significance tests for individual regression coefficients may appear contrad
 - Multicollinearity can obscure individual predictors’ contributions due to shared predictive information among correlated variables.
 
 **Implications of Multicollinearity**
+
 - Each predictor’s significance depends on the other predictors in the model.
 
 - Including HSM with HSS and HSE reduces the individual significance of HSS and HSE.
@@ -366,6 +373,7 @@ The significance tests for individual regression coefficients may appear contrad
 - Despite not being significant alone, HSS and HSE together may add value to the model, but determining their exact contribution requires further analysis.
 
 **Summary**
+
 - Multicollinearity is a major challenge in multiple regression, complicating interpretation of individual coefficients. HSM remains the most significant predictor of GPA when considered alongside other high school grades.
 
 Mean of Response and Adjusted :math:`R^2`
@@ -407,9 +415,10 @@ The *Mean of Response* is the average value of the dependent (response) variable
 - **Interpretation**: A higher :math:`R^2_{\text{adj}}` indicates a better balance between model complexity and explanatory power, whereas an increase in standard :math:`R^2` without an increase in adjusted :math:`R^2` suggests that the additional predictors may not be meaningful.
 
 **Summary**
+
 - *Mean of Response* provides the average value of the response variable, giving a central value around which the model tries to explain variance.
 
-- *Adjusted :math:`R^2`* offers a refined measure of model fit that accounts for the number of predictors, providing a more reliable metric for comparing models, especially in multiple regression.
+- *Adjusted* :math:`R^2` offers a refined measure of model fit that accounts for the number of predictors, providing a more reliable metric for comparing models, especially in multiple regression.
 
 Model Selection
 ---------------
@@ -429,6 +438,7 @@ Another approach to model selection involves choosing models based on *Adjusted 
 Adjusted :math:`R^2` differs from regular :math:`R^2` by taking into account the number of parameters in the model. In an example list from software, the models with :math:`p = 3` and :math:`p = 4` have the two smallest MSEs, making them the best refined models according to this criterion.
 
 **Summary**
+
 - Model selection is essential in regression analysis to refine models and improve interpretability.
 
 - Software can provide summaries of potential models, helping to reduce the number of candidate models.
@@ -447,11 +457,13 @@ Many studies involve yes/no or success/failure response variables. For instance,
 **Example: Tipping Behavior in Canada**
 
 The Consumer Report on Eating Share Trends (CREST) dataset includes data on away-from-home food purchases by approximately 4000 households across Canada per quarter. From this dataset of 73,822 observations, researchers created “high” and “low” tipping variables:
+
 - **High Tip**: Defined as tip rates above 20%.
 
 - **Low Tip**: Defined as tip rates below 10%.
 
 Logistic regression was used to identify explanatory variables associated with either high or low tips. The model included over 25 explanatory variables, categorized as either “control” variables or “stereotype-related” variables. Examples of stereotype-related variables include:
+
 - :math:`x_1`: A variable equal to 1 if the diner was older than 65, 0 otherwise.
 
 - :math:`x_2`: Equal to 1 if the meal occurred on a Sunday, 0 otherwise.
@@ -483,11 +495,13 @@ Chi-Square Test in Multiple Logistic Regression
 In multiple logistic regression, the chi-square test is used to test whether the coefficients of the explanatory variables are significantly different from zero. This helps determine if the predictors contribute meaningfully to the model.
 
 The chi-square test in logistic regression can be used in two main ways:
+
 1. **Overall Model Test**: Tests the null hypothesis that *all* coefficients are zero, meaning none of the predictors have a statistically significant relationship with the response variable.
 
 2. **Individual Coefficient Test**: Tests each predictor’s coefficient to assess whether individual variables contribute to the model.
 
 **Steps to Conduct the Chi-Square Test**
+
 1. **Set Up Hypotheses**:
 
    - **Overall Test**:
@@ -503,6 +517,7 @@ The chi-square test in logistic regression can be used in two main ways:
      - Alternative Hypothesis (:math:`H_a`): :math:`\beta_j \neq 0`, meaning the predictor significantly affects the log-odds.
 
 2. **Calculate the Test Statistic**:
+
    - The chi-square test statistic for the overall model is based on the *likelihood-ratio test*. This statistic is calculated as:
 
      .. math::
@@ -515,16 +530,19 @@ The chi-square test in logistic regression can be used in two main ways:
    - For each individual coefficient, the chi-square statistic with 1 degree of freedom is used. This value can be obtained directly from the logistic regression output in most statistical software.
 
 3. **Determine Degrees of Freedom**:
+
    - For the overall test, the degrees of freedom are equal to the number of predictors, :math:`p`.
 
    - For individual tests, the degrees of freedom are 1, as each test is evaluating a single coefficient.
 
 4. **Find the p-value**:
+
    - Compare the calculated chi-square statistic to a chi-square distribution with the appropriate degrees of freedom to find the p-value.
 
    - If the p-value is less than the significance level (typically 0.05), reject the null hypothesis.
 
 5. **Interpret Results**:
+
    - **Overall Test**:
 
      - A significant result (small p-value) indicates that the model with predictors fits significantly better than the null model, meaning that at least one predictor is important.
@@ -534,6 +552,7 @@ The chi-square test in logistic regression can be used in two main ways:
      - A significant p-value for a predictor’s chi-square statistic indicates that the predictor contributes to the model, suggesting it affects the log-odds of the outcome variable.
 
 **Example: Applying the Chi-Square Test in Logistic Regression**
+
 - In the tipping behavior study, suppose we want to test whether the predictors (e.g., age over 65, meal on Sunday) are associated with high tipping.
 
 - The overall chi-square test assesses if any of the stereotype-related variables contribute to predicting high tips.
@@ -541,7 +560,9 @@ The chi-square test in logistic regression can be used in two main ways:
 - Each individual chi-square test evaluates if a specific variable, like whether the diner was alone, is statistically significant in predicting high tips.
 
 **Software Note**
+
 Most statistical software, such as R, SAS, and SPSS, provides the chi-square statistics and p-values directly in the output for logistic regression. For example:
+
 - In R, the `anova()` function can be used on a logistic model to perform the chi-square test.
 
 - In SAS, the `Wald Chi-Square` values are given in the regression output.
