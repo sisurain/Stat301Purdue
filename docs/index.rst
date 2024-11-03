@@ -11,6 +11,546 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Week 12: Multiple Regression
+============================
+
+Population Multiple Regression Equation
+---------------------------------------
+
+The simple linear regression model assumes that the mean of the response variable :math:`y` depends on the explanatory variable :math:`x` according to a linear equation:
+
+.. math::
+   \mu_y = \beta_0 + \beta_1 x
+
+For any fixed value of :math:`x`, the response :math:`y` varies normally around this mean and has a standard deviation :math:`\sigma` that is the same for all values of :math:`x`.
+
+In the multiple regression setting, the response variable :math:`y` depends on :math:`p` explanatory variables, denoted by :math:`x_1, x_2, \ldots, x_p`. The mean response depends on these explanatory variables according to a linear function:
+
+.. math::
+   \mu_y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p
+
+Similar to simple linear regression, this expression is the *population regression equation*, and the observed values of :math:`y` vary about their means given by this equation.
+
+Subpopulations and Variability
+------------------------------
+
+As in simple linear regression, this model can be understood in terms of *subpopulations* of responses. Each subpopulation corresponds to a particular set of values for all explanatory variables :math:`x_1, x_2, \ldots, x_p`. In each subpopulation, :math:`y` varies normally with a mean given by the population regression equation. The regression model assumes that the standard deviation :math:`\sigma` of the responses is the same in all subpopulations.
+
+Example: Predicting Early Success in College
+--------------------------------------------
+
+This case study is based on data collected on science majors at a large university. The goal of the study was to develop a model to predict early university success. Success was measured using the cumulative grade point average (GPA) after three semesters. The explanatory variables were achievement scores at the time of enrollment, including average high school grades in mathematics (HSM), science (HSS), and English (HSE).
+
+We use high school grades to predict the response variable GPA, with the following explanatory variables:
+
+* :math:`x_1 = \text{HSM}`
+
+* :math:`x_2 = \text{HSS}`
+
+* :math:`x_3 = \text{HSE}`
+
+These grades are coded on a scale from 1 to 10, defining various subpopulations. For example, the straight-C students are the subpopulation with :math:`\text{HSM} = 4`, :math:`\text{HSS} = 4`, and :math:`\text{HSE} = 4`.
+
+The population multiple regression equation for the mean GPAs is:
+
+.. math::
+   \mu_{\text{GPA}} = \beta_0 + \beta_1 \text{HSM} + \beta_2 \text{HSS} + \beta_3 \text{HSE}
+
+For the straight-C subpopulation of students, the equation gives the mean as:
+
+.. math::
+   \mu_{\text{GPA}} = \beta_0 + \beta_1 \cdot 4 + \beta_2 \cdot 4 + \beta_3 \cdot 4
+
+Data for Multiple Regression
+----------------------------
+
+The data for a simple linear regression problem consist of :math:`n` pairs of a response variable :math:`y` and an explanatory variable :math:`x`. In multiple regression, where there are several explanatory variables, more elaborate notation is needed to describe the data. Each observation (or case) consists of a value for the response variable and for each of the explanatory variables. Let :math:`x_{ij}` represent the value of the :math:`j`th explanatory variable for the :math:`i`th case. The data are then represented as:
+
+- **Case 1:** :math:`(y_1, x_{11}, x_{12}, \ldots, x_{1p})`
+
+- **Case 2:** :math:`(y_2, x_{21}, x_{22}, \ldots, x_{2p})`
+
+- **...**
+
+- **Case n:** :math:`(y_n, x_{n1}, x_{n2}, \ldots, x_{np})`
+
+Here, :math:`n` is the number of cases, and :math:`p` is the number of explanatory variables. Data are often entered into computer regression programs in this format, where each row corresponds to a case, and each column corresponds to a different variable.
+
+Multiple Linear Regression Model
+--------------------------------
+
+Similar to simple linear regression, we combine the population regression equation and assumptions about how the observed values of :math:`y` vary around their means to construct the *multiple linear regression model*. The subpopulation means describe the **FIT** part of our conceptual model:
+
+.. math::
+   \text{DATA} = \text{FIT} + \text{RESIDUAL}
+
+The **RESIDUAL** part represents the variation of observed :math:`y` about their means.
+
+Residuals and Assumptions
+-------------------------
+
+We use the same notation for the residuals as in the simple linear regression model. The symbol :math:`\epsilon` represents the deviation of an individual observation from its subpopulation mean. These deviations are assumed to be:
+
+- Normally distributed with mean 0.
+- Have an unknown standard deviation :math:`\sigma`, which is the same for all values of the explanatory variables :math:`x`.
+
+These conditions allow us to examine the residuals similarly to simple linear regression.
+
+Multiple Linear Regression Model Equation
+-----------------------------------------
+
+The **multiple linear regression model** is given by:
+
+.. math::
+   y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + \cdots + \beta_p x_{ip} + \epsilon_i
+
+for :math:`i = 1, 2, \ldots, n`.
+
+The mean response :math:`\mu_y` is a linear function of the explanatory variables:
+
+.. math::
+   \mu_y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p
+
+This is called the *population regression equation*.
+
+The deviations :math:`\epsilon_i` are assumed to be independent and normally distributed with mean 0 and standard deviation :math:`\sigma`.
+
+The parameters of the model are:
+
+- Regression coefficients :math:`\beta_0, \beta_1, \beta_2, \ldots, \beta_p`
+
+- Regression standard deviation :math:`\sigma`
+
+Interpretation of Regression Coefficients
+-----------------------------------------
+
+The assumption that the subpopulation means are related to the regression coefficients :math:`\beta` implies that we can estimate *all* subpopulation means from these estimates, not just those associated with the cases. However, caution is necessary when interpreting the coefficients:
+
+1. The :math:`\beta_0` coefficient represents the mean of :math:`y` when all :math:`x` variables are zero. This subpopulation is often not of interest.
+
+2. The interpretation of each regression coefficient is similar to the slope in simple linear regression but only when *all other explanatory variables are held constant*. This is important because changes in one :math:`x` variable may influence others, affecting the overall change in :math:`y` in ways that one coefficient alone cannot describe.
+
+.. image:: /images/1201.png
+
+Estimation of the Multiple Regression Parameters
+------------------------------------------------
+
+Similar to simple linear regression, we use the method of *least squares* to obtain estimators of the regression coefficients :math:`\beta`. Let:
+
+.. math::
+   b_0, b_1, b_2, \ldots, b_p
+
+denote the estimators of the parameters :math:`\beta_0, \beta_1, \beta_2, \ldots, \beta_p`.
+
+For the :math:`i`th observation, the predicted response is:
+
+.. math::
+   \hat{y}_i = b_0 + b_1 x_{i1} + b_2 x_{i2} + \cdots + b_p x_{ip}
+
+The :math:`i`th residual, the difference between the observed and predicted response, is:
+
+.. math::
+   e_i = \text{observed response} - \text{predicted response} = y_i - \hat{y}_i = y_i - (b_0 + b_1 x_{i1} + b_2 x_{i2} + \cdots + b_p x_{ip})
+
+Least Squares Criterion
+-----------------------
+
+The method of least squares chooses the values of the :math:`b`'s that minimize the sum of squared residuals. In other words, the parameter estimates :math:`b_0, b_1, b_2, \ldots, b_p` minimize the quantity:
+
+.. math::
+   \sum (y_i - b_0 - b_1 x_{i1} - b_2 x_{i2} - \cdots - b_p x_{ip})^2
+
+.. warning::
+   The formula for the least-squares estimates in multiple regression is complicated. We focus on understanding the principle and rely on software for the computations.
+
+Estimating Variability
+----------------------
+
+The parameter :math:`\sigma^2` measures the variability of the responses about the population regression equation. Like in simple linear regression, we estimate :math:`\sigma^2` by averaging the squared residuals. The estimator is:
+
+.. math::
+   s^2 = \frac{\sum e_i^2}{n - p - 1} = \frac{\sum (y_i - \hat{y}_i)^2}{n - p - 1}
+
+where :math:`n - p - 1` represents the **degrees of freedom**. The degrees of freedom are calculated as the sample size :math:`n`, minus :math:`(p + 1)`, which accounts for the number of :math:`\beta` parameters estimated in the model. In simple linear regression (where :math:`p = 1`), the degrees of freedom are :math:`n - 2`.
+
+To estimate the regression standard deviation :math:`\sigma`, we use:
+
+.. math::
+   s = \sqrt{s^2}
+
+.. image:: /images/1202.png
+
+Confidence Intervals and Significance Tests for Regression Coefficients
+-----------------------------------------------------------------------
+
+We can obtain confidence intervals and perform significance tests for each of the regression coefficients :math:`\beta_j` as in simple linear regression. The standard errors of the estimates :math:`b_j` have more complex formulas, but they are all multiples of the estimated model standard deviation :math:`s`. We rely on statistical software to perform these calculations.
+
+.. warning::
+   Be cautious when interpreting the t-tests and confidence intervals for individual regression coefficients.
+
+   In simple linear regression, the model states that:
+
+   .. math::
+      \mu_y = \beta_0 + \beta_1 x.
+
+   The null hypothesis :math:`H_0: \beta_1 = 0` suggests that the explanatory variable :math:`x` has no predictive value for the response :math:`y`, meaning there is no linear relationship between :math:`x` and :math:`y`.
+
+   In multiple regression, the null hypothesis for a coefficient, such as :math:`H_0: \beta_1 = 0`, indicates that :math:`x_1` provides no additional predictive information about :math:`y` beyond what is already accounted for by the other explanatory variables :math:`x_2, x_3, \ldots, x_p`. This distinction reflects the conditional contribution of each predictor when others are included in the model.
+
+.. image:: /images/1203.png
+
+Confidence Intervals for Mean Response and Prediction
+-----------------------------------------------------
+
+Regression is often used for prediction, and multiple regression models can construct confidence intervals for a mean response and prediction intervals for a future observation. The fundamental principles are similar to those in simple linear regression.
+
+In most software, the same commands that generate confidence and prediction intervals for simple linear regression apply to multiple regression. The difference is that, in multiple regression, we specify a list of explanatory variables instead of a single variable, allowing software to handle complex calculations efficiently.
+
+ANOVA Table for Multiple Regression
+-----------------------------------
+
+In simple linear regression, the :math:`F` test from the ANOVA table is equivalent to the two-sided :math:`t` test for the hypothesis that the slope of the regression line is zero. For multiple regression, the ANOVA :math:`F` test evaluates the hypothesis that all the regression coefficients (except the intercept) are zero. Here is the general form of the ANOVA table for multiple regression:
+
+.. list-table:: ANOVA Table for Multiple Regression
+   :header-rows: 1
+
+   * - Source
+     - Degrees of Freedom
+     - Sum of Squares
+     - Mean Square
+     - :math:`F`
+   * - Model
+     - :math:`p`
+     - :math:`\sum (\hat{y}_i - \bar{y})^2`
+     - :math:`\text{SSM} / \text{DFM}`
+     - :math:`\text{MSM} / \text{MSE}`
+   * - Error
+     - :math:`n - p - 1`
+     - :math:`\sum (y_i - \hat{y}_i)^2`
+     - :math:`\text{SSE} / \text{DFE}`
+     -
+   * - Total
+     - :math:`n - 1`
+     - :math:`\sum (y_i - \bar{y})^2`
+     -
+     -
+
+where:
+- :math:`SST = SSM + SSE`
+
+- :math:`DFT = DFM + DFE`
+
+The estimate of the variance :math:`\sigma^2` is given by :math:`\text{MSE}`, the mean square error in the ANOVA table. The ratio :math:`\text{MSM} / \text{MSE}` is the :math:`F` statistic for testing the null hypothesis:
+
+.. math::
+   H_0: \beta_1 = \beta_2 = \cdots = \beta_p = 0
+
+against the alternative hypothesis:
+
+.. math::
+   H_a: \text{at least one of the } \beta_j \text{ is not zero.}
+
+The null hypothesis indicates that none of the explanatory variables predict the response variable, while the alternative suggests that at least one explanatory variable is a predictor.
+
+The :math:`F` statistic has an :math:`F(p, n - p - 1)` distribution under :math:`H_0`. Large values of :math:`F` indicate evidence against :math:`H_0`.
+
+.. image:: /images/1204.png
+
+.. warning::
+   A common error in multiple regression analysis is assuming that all regression coefficients are statistically different from zero whenever the :math:`F` statistic is significant. Remember, the :math:`F` test assesses the overall model's significance, while individual :math:`t` tests evaluate each variable's contribution, accounting for the presence of other variables.
+
+   The :math:`F` test handles collinearity better than individual :math:`t` tests, especially when two or more explanatory variables are highly correlated.
+
+Squared Multiple Correlation :math:`R^2`
+----------------------------------------
+
+In simple linear regression, the square of the sample correlation can be written as the ratio of the sum of squares for the model (SSM) to the total sum of squares (SST). This ratio represents the proportion of variation in :math:`y` explained by :math:`x`. In multiple regression, the ratio :math:`\text{SSM} / \text{SST}` represents the proportion of explained variation in :math:`y`, now relating to the collection of explanatory variables in the model.
+
+.. admonition:: Squared multiple correlation
+
+   **The statistic**
+
+   .. math::
+      R^2 = \frac{\text{SSM}}{\text{SST}} = \frac{\sum (\hat{y}_i - \bar{y})^2}{\sum (y_i - \bar{y})^2}
+
+   :math:`R^2` is the proportion of the variation in the response variable :math:`y` that is explained by the explanatory variables :math:`x_1, x_2, \ldots, x_p` in a multiple linear regression.
+
+The capital letter :math:`R` indicates that this statistic depends on a collection of explanatory variables. Often, :math:`R^2` is multiplied by 100 and expressed as a percentage. The square root of :math:`R^2`, called the *multiple correlation coefficient*, represents the correlation between the observations :math:`y_i` and the predicted values :math:`\hat{y}_i`. Some software provides a scatterplot of this relationship to help visualize the model's predictive strength.
+
+.. image:: /images/1205.png
+
+11.2: A Case Study
+===================
+
+Regression on High School Grades
+-------------------------------
+
+To explore the relationship between explanatory variables and the response variable GPA, several multiple regression models are run. The explanatory variables fall into three categories:
+- **High School Grades**: HSM (Math), HSS (Science), HSE (English)
+
+- **Standardized Test Scores**: Three SAT scores (Math, Critical Reading, Writing)
+
+- **Sex**: Represented by the variable `SEX`
+
+The first model uses only high school grades to predict GPA.
+
+**ANOVA Output**
+- The ANOVA table and parameter estimates are obtained with 150 cases.
+
+- **Degrees of Freedom**:
+
+  - Model (DFM): :math:`p = 3`
+
+  - Error (DFE): :math:`n - p - 1 = 150 - 3 - 1 = 146`
+
+  - Total (DFT): :math:`n - 1 = 149`
+
+**F-Test Results**
+- The ANOVA :math:`F` statistic is 14.35, with a very small :math:`P`-value (<0.0001), indicating the model is significant.
+
+- Null hypothesis: :math:`H_0: \beta_1 = \beta_2 = \beta_3 = 0`.
+
+- Given the :math:`F(3, 146)` distribution, this :math:`F` value strongly suggests that at least one of the regression coefficients for high school grades differs from zero.
+
+**Model Fit Statistics**
+- **Root MSE**: 0.726, an estimate of the standard deviation :math:`\sigma` of GPA about the regression line.
+
+- **:math:`R^2`**: 0.23, meaning 23% of the variation in GPA is explained by high school grades.
+
+**Regression Equation**
+- The fitted regression equation is:
+ 
+  .. math::
+     \hat{\text{GPA}} = 0.069 + 0.123\text{HSM} + 0.136\text{HSS} + 0.058\text{HSE}
+
+- Example prediction:
+
+  - For a student with HSM = 9, HSS = 8, and HSE = 7, the predicted GPA is:
+   
+    .. math::
+       \hat{\text{GPA}} = 0.069 + 0.123(9) + 0.136(8) + 0.058(7) = 2.67
+
+**Significance of Individual Predictors**
+- **HSM** is significant (p = 0.0262), meaning high school math grade has a unique predictive contribution to GPA.
+
+- **HSS** and **HSE** are not significant at the 0.05 level, suggesting they do not independently predict GPA when HSM is in the model.
+
+Interpretation of Results
+-------------------------
+
+The significance tests for individual regression coefficients may appear contradictory to initial correlation analysis.
+
+**Key Observations**
+- **Correlation Analysis**:
+
+  - GPA correlations with HSS and HSE are 0.44 and 0.36, respectively, both with p < 0.0005.
+
+  - Using HSS or HSE alone could yield significant regression coefficients.
+
+**Multicollinearity**
+- **Collinearity**: High correlation among explanatory variables, particularly HSM, HSS, and HSE, leads to **multicollinearity**.
+
+  - Correlation coefficients:
+
+    - HSM and HSS: 0.67
+
+    - HSM and HSE: 0.49
+
+- Multicollinearity can obscure individual predictors’ contributions due to shared predictive information among correlated variables.
+
+**Implications of Multicollinearity**
+- Each predictor’s significance depends on the other predictors in the model.
+
+- Including HSM with HSS and HSE reduces the individual significance of HSS and HSE.
+
+- Despite not being significant alone, HSS and HSE together may add value to the model, but determining their exact contribution requires further analysis.
+
+**Summary**
+- Multicollinearity is a major challenge in multiple regression, complicating interpretation of individual coefficients. HSM remains the most significant predictor of GPA when considered alongside other high school grades.
+
+Mean of Response and Adjusted :math:`R^2`
+-----------------------------------------
+
+**Mean of Response**
+
+The *Mean of Response* is the average value of the dependent (response) variable, :math:`y`, across all observations in the dataset.
+
+- It serves as a baseline for understanding the central tendency of the response variable.
+
+- For example, if GPA is the response variable, the mean of response would be the average GPA of all students in the dataset.
+
+- In regression analysis, the model’s goal is to explain or predict the variability around this mean. The mean of the response is sometimes used as a benchmark for interpreting the model’s :math:`R^2`, as :math:`R^2` indicates how much of the variation around this mean is explained by the model.
+
+**Adjusted** :math:`R^2` (:math:`R^2_{\text{adj}}`)
+
+*Adjusted* :math:`R^2`, denoted :math:`R^2_{\text{adj}}`, is a modified version of the regular :math:`R^2` (coefficient of determination) that accounts for the number of predictors in the model.
+
+- **Standard** :math:`R^2` measures the proportion of variance in the response variable that is explained by the model. It ranges from 0 to 1, with higher values indicating better model fit. However, :math:`R^2` tends to increase as more predictors are added to the model, even if those predictors are not actually useful.
+ 
+- **Adjusted** :math:`R^2` adjusts for the number of predictors and the sample size, providing a more accurate measure of model fit when multiple predictors are included. It’s calculated as follows:
+
+  .. math::
+      R^2_{\text{adj}} = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - p - 1} \right)
+
+  where:
+ 
+  - :math:`n` = number of observations
+
+  - :math:`p` = number of predictors (excluding the intercept)
+
+- **Why Use Adjusted** :math:`R^2`?
+ 
+  - Adjusted :math:`R^2` increases only if the new predictor improves the model fit more than would be expected by chance.
+
+  - It penalizes the addition of unnecessary predictors, making it useful for model selection when comparing models with different numbers of predictors.
+ 
+- **Interpretation**: A higher :math:`R^2_{\text{adj}}` indicates a better balance between model complexity and explanatory power, whereas an increase in standard :math:`R^2` without an increase in adjusted :math:`R^2` suggests that the additional predictors may not be meaningful.
+
+**Summary**
+- *Mean of Response* provides the average value of the response variable, giving a central value around which the model tries to explain variance.
+
+- *Adjusted :math:`R^2`* offers a refined measure of model fit that accounts for the number of predictors, providing a more reliable metric for comparing models, especially in multiple regression.
+
+Model Selection
+---------------
+
+When a model contains a large number of insignificant variables, it is common to refine the model through a process called *model selection*. We generally prefer smaller models over larger ones because they are easier to interpret and work with. However, multiple regression can be complex, and there is no universal "best" approach to refine a model. Additionally, there is no guarantee that only one acceptable refined model exists.
+
+**Statistical Software for Model Selection**
+
+Many statistical software packages can summarize all possible models from a set of :math:`p` variables. This capability allows for reducing the number of candidate models. For example, if there are 6 variables (:math:`p = 6`), the total number of possible models is 63. By examining a list of possible models, we can identify the best or a set of best models to consider further. Consulting an expert is recommended if in doubt.
+
+For instance, the output of model selection software might show the two best models in terms of highest :math:`R^2` values for models with different numbers of predictors (from :math:`p = 1` to :math:`p = 6`). Such lists help reduce the number of models to review. If the :math:`R^2` values show little difference once the model includes at least three explanatory variables, we may focus on models with :math:`p = 3` or :math:`p = 4`.
+
+**Adjusted** :math:`R^2`
+
+Another approach to model selection involves choosing models based on *Adjusted :math:`R^2`* or *Mean Squared Error (MSE)*. Finding a model that minimizes MSE or maximizes adjusted :math:`R^2` penalizes larger models, thus favoring more parsimonious options.
+
+Adjusted :math:`R^2` differs from regular :math:`R^2` by taking into account the number of parameters in the model. In an example list from software, the models with :math:`p = 3` and :math:`p = 4` have the two smallest MSEs, making them the best refined models according to this criterion.
+
+**Summary**
+- Model selection is essential in regression analysis to refine models and improve interpretability.
+
+- Software can provide summaries of potential models, helping to reduce the number of candidate models.
+
+- Both adjusted :math:`R^2` and MSE are useful metrics in model selection, as they account for model complexity.
+
+Multiple Logistic Regression
+----------------------------
+
+Many studies involve yes/no or success/failure response variables. For instance, a surgery patient either lives or dies; a consumer either does or does not purchase a product after seeing an advertisement. In multiple regression, the response variable is typically assumed to follow a Normal distribution, making standard regression unsuitable for predicting binary outcomes. However, models like *logistic regression* apply the ideas of regression to response variables with only two possible outcomes.
+
+**Logistic Regression**
+
+*Logistic regression* is a model that applies to binary outcome variables by using one or more explanatory variables to explain the probability of success. This model is based on a binomial framework. Although logistic regression is more complex than multiple linear regression, the fundamental ideas remain similar. The details of multiple logistic regression are further explained in Chapter 14.
+
+**Example: Tipping Behavior in Canada**
+
+The Consumer Report on Eating Share Trends (CREST) dataset includes data on away-from-home food purchases by approximately 4000 households across Canada per quarter. From this dataset of 73,822 observations, researchers created “high” and “low” tipping variables:
+- **High Tip**: Defined as tip rates above 20%.
+
+- **Low Tip**: Defined as tip rates below 10%.
+
+Logistic regression was used to identify explanatory variables associated with either high or low tips. The model included over 25 explanatory variables, categorized as either “control” variables or “stereotype-related” variables. Examples of stereotype-related variables include:
+- :math:`x_1`: A variable equal to 1 if the diner was older than 65, 0 otherwise.
+
+- :math:`x_2`: Equal to 1 if the meal occurred on a Sunday, 0 otherwise.
+
+- :math:`x_3`: Equal to 1 if English was the diner’s second language, 0 otherwise.
+
+- :math:`x_4`: Equal to 1 if the diner was a French-speaking Canadian, 0 otherwise.
+
+- :math:`x_5`: Equal to 1 if alcoholic drinks were served with the meal, 0 otherwise.
+
+- :math:`x_6`: Equal to 1 if the meal involved a lone male, 0 otherwise.
+
+**Chi-Square Test**
+
+In logistic regression, a chi-square test is used to test the null hypothesis that *all* coefficients of the explanatory variables are zero, similar to the :math:`F` test in multiple regression. Individual coefficients are tested using chi-square tests with 1 degree of freedom to assess whether they are significantly different from zero. In this example, most variables in the model had p-values below 0.01, indicating significance.
+
+**Logistic Regression Model for High Tips**
+
+The logistic regression model for predicting high tips using stereotype-related variables is expressed as:
+
+.. math::
+   \log\left(\frac{p}{1 - p}\right) = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_6 x_6
+
+where :math:`p` is the probability of a high tip. The interpretation of coefficients in logistic regression can be challenging due to the logarithmic transformation, but each coefficient represents the effect of a predictor on the log odds of the outcome.
+
+Chi-Square Test in Multiple Logistic Regression
+----------------------------------------------
+
+In multiple logistic regression, the chi-square test is used to test whether the coefficients of the explanatory variables are significantly different from zero. This helps determine if the predictors contribute meaningfully to the model.
+
+The chi-square test in logistic regression can be used in two main ways:
+1. **Overall Model Test**: Tests the null hypothesis that *all* coefficients are zero, meaning none of the predictors have a statistically significant relationship with the response variable.
+
+2. **Individual Coefficient Test**: Tests each predictor’s coefficient to assess whether individual variables contribute to the model.
+
+**Steps to Conduct the Chi-Square Test**
+1. **Set Up Hypotheses**:
+
+   - **Overall Test**:
+
+     - Null Hypothesis (:math:`H_0`): All coefficients, except the intercept, are equal to zero. Mathematically, :math:`\beta_1 = \beta_2 = \cdots = \beta_k = 0`.
+
+     - Alternative Hypothesis (:math:`H_a`): At least one coefficient is not zero, indicating that at least one predictor contributes to the model.
+
+   - **Individual Test** (for each coefficient :math:`\beta_j`):
+
+     - Null Hypothesis (:math:`H_0`): :math:`\beta_j = 0`, meaning the predictor has no effect on the log-odds of the outcome.
+
+     - Alternative Hypothesis (:math:`H_a`): :math:`\beta_j \neq 0`, meaning the predictor significantly affects the log-odds.
+
+2. **Calculate the Test Statistic**:
+   - The chi-square test statistic for the overall model is based on the *likelihood-ratio test*. This statistic is calculated as:
+
+     .. math::
+        \chi^2 = -2 \left( \text{log-likelihood of the null model} - \text{log-likelihood of the fitted model} \right)
+
+   - **Null Model**: The model without any predictors (only the intercept).
+
+   - **Fitted Model**: The full logistic regression model with all predictors included.
+
+   - For each individual coefficient, the chi-square statistic with 1 degree of freedom is used. This value can be obtained directly from the logistic regression output in most statistical software.
+
+3. **Determine Degrees of Freedom**:
+   - For the overall test, the degrees of freedom are equal to the number of predictors, :math:`p`.
+
+   - For individual tests, the degrees of freedom are 1, as each test is evaluating a single coefficient.
+
+4. **Find the p-value**:
+   - Compare the calculated chi-square statistic to a chi-square distribution with the appropriate degrees of freedom to find the p-value.
+
+   - If the p-value is less than the significance level (typically 0.05), reject the null hypothesis.
+
+5. **Interpret Results**:
+   - **Overall Test**:
+
+     - A significant result (small p-value) indicates that the model with predictors fits significantly better than the null model, meaning that at least one predictor is important.
+
+   - **Individual Test**:
+
+     - A significant p-value for a predictor’s chi-square statistic indicates that the predictor contributes to the model, suggesting it affects the log-odds of the outcome variable.
+
+**Example: Applying the Chi-Square Test in Logistic Regression**
+- In the tipping behavior study, suppose we want to test whether the predictors (e.g., age over 65, meal on Sunday) are associated with high tipping.
+
+- The overall chi-square test assesses if any of the stereotype-related variables contribute to predicting high tips.
+
+- Each individual chi-square test evaluates if a specific variable, like whether the diner was alone, is statistically significant in predicting high tips.
+
+**Software Note**
+Most statistical software, such as R, SAS, and SPSS, provides the chi-square statistics and p-values directly in the output for logistic regression. For example:
+- In R, the `anova()` function can be used on a logistic model to perform the chi-square test.
+
+- In SAS, the `Wald Chi-Square` values are given in the regression output.
+
+By using these steps and software tools, you can conduct chi-square tests to evaluate the overall significance of the logistic regression model and the contribution of each predictor.
+
+
+
+
 Week 11: Ch2 & Ch10 Correlation and Simple Linear Regression
 ============================================================
 
@@ -65,7 +605,9 @@ The Pearson correlation coefficient :math:`r` between two variables :math:`X` an
 where:
 
 - :math:`X_i` and :math:`Y_i` are the individual data points.
+
 - :math:`\bar{X}` and :math:`\bar{Y}` represent the means of the variables :math:`X` and :math:`Y`.
+
 - :math:`n` is the sample size.
 
 The formula essentially **standardizes the covariance** between the variables :math:`X` and :math:`Y`.
