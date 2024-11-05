@@ -2681,8 +2681,7 @@ In an **experimental study**, researchers impose a treatment or condition on sub
 
 
 Week 07: Inference for Means
-----------------------------
-----------------------------
+============================
 
 **Student's** :math:`t` **distribution**
 
@@ -2806,8 +2805,7 @@ First, we calculate the probability of a Type II error, which is the probability
 
 
 Week 06: Intro to Inference
----------------------------
----------------------------
+=============================
 
 A lot of times, in real-world applications, we have a sample of data points, observations, outcomes, or cases. However, we don't know the values of parameters (e.g., :math:`\mu` and :math:`\sigma`) for the population. So, we need to use the information from the sample to *guess* the values of parameters. This procedure/process is statistical learning or statistical inference.
 
@@ -2973,8 +2971,7 @@ In the context of a judge sentencing a defendant, the concepts of Type I and Typ
 
 
 Week 05: Ch5.3 Sampling Distributions for Counts and Proportions
-----------------------------------------------------------------
-----------------------------------------------------------------
+================================================================
 
 **Introduction to Bernoulli and Binomial Random Variables**
 
@@ -3138,8 +3135,7 @@ This means there’s about a 14% chance that exactly 3 customers will arrive in 
 **Example 5.32**
 
 Week 05: Ch5.2 The Sampling Distribution of a Sample Mean
----------------------------------------------------------
----------------------------------------------------------
+=========================================================
 
 **Revisit the sampling distribution of sample mean example**
 
@@ -3229,7 +3225,7 @@ Draw an SRS of size :math:`n` from any population with mean :math:`\mu` and fini
 **Example 5.7, 5.8, and 5.11**
 
 Week 04: Ch1.4 Density Curves and Normal Distributions
-------------------------------------------------------
+======================================================
 
 **The normal distribution is fully defined by its mean 
 :math:`\mu` and variance :math:`\sigma^2` because:**
@@ -3336,8 +3332,7 @@ Suppose you want to be above the **90th percentile**. Here's how to calculate th
 .. image:: /images/0411.png
 
 Week 04: Ch1.3 Describing Distributions with Numbers
-----------------------------------------------------
-----------------------------------------------------
+====================================================
 
 The IQ dataset:
 5, 6, 16, 18, 18, 20, 24, 26, 27, 34, 42, 51, 54, 59, 64, 70, 72, 73, 78, 80
@@ -3486,7 +3481,7 @@ This method can be applied to any percentile by changing the value of \( P \). F
 
 
 Week 03: Ch5.1 Bias and Variability, Ch1: Graphing and Numerical Summaries
---------------------------------------------------------------------------
+==========================================================================
 
 Section 5.1 Toward Statistical Inference SUMMARY
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3579,7 +3574,7 @@ The two graphs below illustrate the different types of skewness. The solid-color
 
 
 Special Topic: Current Population Survey (CPS) sampling process
----------------------------------------------------------------
+===============================================================
 
 The CPS uses a multistage sampling design to select households across the United States. This process ensures that the survey is representative of the entire population while also being efficient and cost-effective. Below is a step-by-step breakdown of how the sampling works, along with hypothetical numbers to illustrate each stage.
 
@@ -3747,7 +3742,7 @@ Summary of the CPS Sampling Process
 
 
 Lecture 03 Ch3 Producing Data 08/25-08/31/2024
-----------------------------------------------
+==============================================
 
 We're building our terminology vocabulary so we can explore more interesting topics later on. Some of the definitions and concepts are straightforward, but others might be a bit challenging if you're encountering them for the first time. I suggest reading the examples in the textbook (Yes! I finally got the textbook). Once you have the context, the concepts become easier to understand. In class, I'll focus on explaining the key parts of these definitions and concepts. Most importantly, I'll do my best to connect them, so you can grasp the overall logic and see the big picture. This will help you remember the concepts more easily and understand why they exist. I believe this approach is crucial to the learning process.
 
@@ -4081,7 +4076,7 @@ The true population consists of 10,000 units. For the large sample experiment, w
 
 
 Lecture 02  Producing Data 08/18-08/24/2024
--------------------------------------------
+===========================================
 
 Sources of Data
 ^^^^^^^^^^^^^^^
