@@ -2682,6 +2682,7 @@ In an **experimental study**, researchers impose a treatment or condition on sub
 
 Week 07: Inference for Means
 ----------------------------
+----------------------------
 
 **Student's** :math:`t` **distribution**
 
@@ -2805,6 +2806,7 @@ First, we calculate the probability of a Type II error, which is the probability
 
 
 Week 06: Intro to Inference
+---------------------------
 ---------------------------
 
 A lot of times, in real-world applications, we have a sample of data points, observations, outcomes, or cases. However, we don't know the values of parameters (e.g., :math:`\mu` and :math:`\sigma`) for the population. So, we need to use the information from the sample to *guess* the values of parameters. This procedure/process is statistical learning or statistical inference.
@@ -2972,6 +2974,7 @@ In the context of a judge sentencing a defendant, the concepts of Type I and Typ
 
 Week 05: Ch5.3 Sampling Distributions for Counts and Proportions
 ----------------------------------------------------------------
+----------------------------------------------------------------
 
 **Introduction to Bernoulli and Binomial Random Variables**
 
@@ -3135,6 +3138,7 @@ This means there’s about a 14% chance that exactly 3 customers will arrive in 
 **Example 5.32**
 
 Week 05: Ch5.2 The Sampling Distribution of a Sample Mean
+---------------------------------------------------------
 ---------------------------------------------------------
 
 **Revisit the sampling distribution of sample mean example**
@@ -3333,6 +3337,7 @@ Suppose you want to be above the **90th percentile**. Here's how to calculate th
 
 Week 04: Ch1.3 Describing Distributions with Numbers
 ----------------------------------------------------
+----------------------------------------------------
 
 The IQ dataset:
 5, 6, 16, 18, 18, 20, 24, 26, 27, 34, 42, 51, 54, 59, 64, 70, 72, 73, 78, 80
@@ -3420,7 +3425,7 @@ The IQ dataset:
 
    Outliers are any values outside the range (-53.25, 138.75). There are no outliers in this dataset.
 
-9. **Variance (s^2)**:
+9. **Variance** (:math:`s^2`):
    
    .. math::
 
@@ -3435,23 +3440,30 @@ The IQ dataset:
 **In general, we can calculate the Pth percentile by following these steps:**
 
 1. **Find the Position**: 
+
    Use the following formula to determine the position in the sorted dataset:
 
    .. math::
       \text{Position} = \frac{P}{100} \times (n + 1)
 
    where:
-   - \( P \) is the desired percentile (e.g., 25th percentile for Q1, 50th percentile for the median), \
+
+   - \( P \) is the desired percentile (e.g., 25th percentile for Q1, 50th percentile for the median),
+
    - \( n \) is the number of data points in the dataset.
 
 2. **Whole Number Position**: 
+
    - If the position is a whole number, use the corresponding data point at that position directly.
 
 3. **Fractional Position**: 
-   - If the position is a fraction (i.e., not a whole number), find the two adjacent data points in the dataset. \
+
+   - If the position is a fraction (i.e., not a whole number), find the two adjacent data points in the dataset. 
+
    - Use the values at these adjacent positions and take their average to calculate the percentile.
 
 **Example**:
+
 To find the median (50th percentile) in a dataset with \( n = 8 \) data points, use the formula to find the position:
 
 .. math::
