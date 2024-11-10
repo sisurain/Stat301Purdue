@@ -235,10 +235,10 @@ Statistics from basketball games include percentages of field goals made. Here a
 
 - **Success Rate**:
 
-  - Team A: \( \frac{28}{60} = 46.7\% \)
+  - Team A: :math:`\frac{28}{60} = 46.7\%`
 
-  - Team B: \( \frac{26}{60} = 43.3\% \)
-
+  - Team B: :math:`\frac{26}{60} = 43.3\%`
+  
 - Initial observation suggests Team A had better shooters (46.7% vs. 43.3%).
 
 **Example 2.49: Detailed Breakdown of Shooting Data**
