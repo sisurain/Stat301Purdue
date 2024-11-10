@@ -238,7 +238,7 @@ Statistics from basketball games include percentages of field goals made. Here a
   - Team A: :math:`\frac{28}{60} = 46.7\%`
 
   - Team B: :math:`\frac{26}{60} = 43.3\%`
-  
+
 - Initial observation suggests Team A had better shooters (46.7% vs. 43.3%).
 
 **Example 2.49: Detailed Breakdown of Shooting Data**
@@ -273,15 +273,15 @@ When we break down the data by shot type (2-pointers vs. 3-pointers), we see a d
 
   - **2-pointers**:
 
-    - Team A: \( \frac{25}{50} = 50.0\% \)
+    - Team A: :math:`\frac{25}{50} = 50.0\%`
 
-    - Team B: \( \frac{16}{30} = 53.3\% \)
+    - Team B: :math:`\frac{16}{30} = 53.3\%`
 
   - **3-pointers**:
 
-    - Team A: \( \frac{3}{10} = 30.0\% \)
+    - Team A: :math:`\frac{3}{10} = 30.0\%`
 
-    - Team B: \( \frac{10}{30} = 33.3\% \)
+    - Team B: :math:`\frac{10}{30} = 33.3\%`
 
 - Although Team A had a higher overall success rate, Team B performed better for both 2-pointers and 3-pointers.
 
@@ -289,7 +289,7 @@ When we break down the data by shot type (2-pointers vs. 3-pointers), we see a d
 
 - The difference in results can be attributed to the type of shot (2-pointers vs. 3-pointers), which serves as a lurking variable.
 
-- Team A took more of the easier 2-pointers (\( \frac{50}{60} = 83.3\% \)), while Team B had fewer (\( \frac{30}{60} = 50.0\% \)).
+- Team A took more of the easier 2-pointers (:math:`\frac{50}{60} = 83.3\%`), while Team B had fewer (:math:`\frac{30}{60} = 50.0\%`).
 
 - This example illustrates **Simpson’s paradox**, where observed associations can be misleading when data are aggregated without considering important lurking variables.
 
@@ -366,9 +366,9 @@ Chi-Square Test of Independence
 
 The **Chi-Square Test of Independence** is used with contingency tables to determine if there is a significant association between two categorical variables.
 
-- **Null Hypothesis (\( H_0 \))**: The two variables are independent.
+- **Null Hypothesis** (:math:`H_0`): The two variables are independent.
 
-- **Alternative Hypothesis (\( H_a \))**: The two variables are not independent.
+- **Alternative Hypothesis** (:math:`H_a`)**: The two variables are not independent.
 
 Calculating Expected Counts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
