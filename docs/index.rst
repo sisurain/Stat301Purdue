@@ -11,6 +11,750 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Week 13: Ch2.6 Two-Way Tables and Ch9.1 Inference for Two-Way Tables
+====================================================================
+
+Objectives
+----------
+
+When you complete this section, you will be able to:
+
+* Identify the row variable, the column variable, and the cells in a two-way table.
+
+* Find and interpret the joint distribution in a two-way table.
+
+* Find and interpret the marginal distributions in a two-way table.
+
+* Use conditional distributions to describe the relationship in a two-way table.
+
+* Interpret Simpson’s paradox.
+
+Introduction
+------------
+
+When analyzing relationships between two variables, it's important to determine whether the variables are quantitative or categorical:
+
+- **Quantitative variables** are analyzed using scatterplots.
+
+- **Categorical variables** are analyzed using counts (frequencies) or percents (relative frequencies).
+
+The Two-Way Table
+-----------------
+
+A **two-way table** displays counts of observations for each combination of values of two categorical variables.
+
+**Example 2.40: Is the calcium intake adequate?**
+
+The table summarizes whether children met the calcium requirement based on their age group (5 to 10 years or 11 to 13 years):
+
+- There are 2,029 children in the study.
+
+- Each child’s calcium intake is classified as meeting or not meeting the requirement.
+
+.. list-table:: Two-way table for Met Requirement and Age
+   :header-rows: 1
+
+   * - Met Requirement
+     - 5 to 10
+     - 11 to 13
+   * - No
+     - 194
+     - 557
+   * - Yes
+     - 861
+     - 417
+
+The **row variable** is "Met Requirement," and the **column variable** is "Age Group."
+
+Adding Margins
+--------------
+
+Adding margins helps to summarize the data by showing totals for each row and column.
+
+**Example 2.41: Add the margins to the table**
+
+.. list-table:: Expanded Two-way Table with Margins
+   :header-rows: 1
+
+   * - Met Requirement
+     - 5 to 10
+     - 11 to 13
+     - Total
+   * - No
+     - 194
+     - 557
+     - 751
+   * - Yes
+     - 861
+     - 417
+     - 1,278
+   * - Total
+     - 1,055
+     - 974
+     - 2,029
+
+- There were 1,055 children aged 5 to 10 and 974 children aged 11 to 13.
+
+- The total number of children who did not meet the calcium requirement is 751.
+
+Row and Column Variables
+------------------------
+
+- The **row variable** indicates whether the requirement was met.
+
+- The **column variable** indicates the age group.
+
+- Each cell in the table corresponds to a specific combination of row and column variables.
+
+Joint Distribution
+------------------
+
+The **joint distribution** shows the proportion of each cell in relation to the total sample size.
+
+**Example 2.42: The Joint Distribution**
+
+.. list-table:: Joint Distribution of Met Requirement and Age
+   :header-rows: 1
+
+   * - Met Requirement
+     - 5 to 10
+     - 11 to 13
+   * - No
+     - 0.0956
+     - 0.2745
+   * - Yes
+     - 0.4243
+     - 0.2055
+
+- The sum of the joint distribution proportions is approximately 1 (0.9999 due to rounding).
+
+- This table helps determine targeted interventions based on age groups and calcium intake.
+
+Marginal Distributions
+----------------------
+
+A **marginal distribution** provides the distribution of one categorical variable in a two-way table.
+
+**Example 2.43: Marginal Distribution of Age**
+
+.. list-table:: Marginal Distribution of Age
+   :header-rows: 1
+
+   * - Age Group
+     - Proportion
+   * - 5 to 10
+     - 0.52
+   * - 11 to 13
+     - 0.48
+
+- In this sample, 52% of the children are aged 5 to 10, and 48% are aged 11 to 13.
+
+**Example 2.44: Marginal Distribution of Met Requirement**
+
+This table shows the distribution of whether children met the calcium requirement:
+
+.. list-table:: Marginal Distribution of Met Requirement
+   :header-rows: 1
+
+   * - Met Requirement
+     - Percent
+   * - No
+     - 37.01%
+   * - Yes
+     - 62.99%
+
+- The majority of children (63%) meet the recommended calcium intake.
+
+Graphical Representation
+------------------------
+
+Marginal distributions can be visualized using bar graphs or pie charts. These graphical displays are useful when summarizing more complex tables. For this example:
+
+- 52% of children are aged 5 to 10.
+
+- 37% of children do not meet the calcium requirement.
+
+Graphical displays help provide a clear and immediate summary of the data, especially when there are multiple rows or columns in the table.
+
+Conditional Distributions
+-------------------------
+
+In :ref:`Example 2.45 <example_2_45>`, we examined the conditional distribution of the Met Requirement variable for children aged 5 to 10. This analysis is an example of conditioning on the value of age to calculate the distribution of the Met Requirement.
+
+.. _example_2_46:
+
+**Example 2.46: Conditional Distribution of Met Requirement for Children Aged 5 to 10**
+
+For children aged 5 to 10 years, the conditional distribution of the Met Requirement variable is given as follows:
+
+.. list-table:: Conditional Distribution of Met Requirement for Children Aged 5 to 10
+   :header-rows: 1
+   :widths: 30 35 35
+
+   * - Met Requirement
+     - No
+     - Yes
+   * - Percent
+     - 18.39%
+     - 81.61%
+
+- These percentages sum to 100%. In this group, 81.61% met the requirement, while 18.39% did not.
+
+Bar Graphs and Interpretation
+-----------------------------
+
+Bar graphs are helpful in visualizing relationships between two categorical variables. They do not provide a single numerical summary like correlation but allow for flexible comparisons based on chosen categories.
+
+.. warning::
+   A two-way table contains a great deal of information in a compact form. Accurately interpreting this information often requires calculating appropriate percentages. It is advisable to use software for computations to ensure accuracy when interpreting joint, marginal, and conditional distributions.
+
+Simpson's Paradox
+-----------------
+
+An association or comparison that holds for several groups can sometimes reverse direction when the data are combined to form a single group. This reversal is known as **Simpson’s paradox**.
+
+**Example 2.48: Which Team Had Better Shooters?**
+
+Statistics from basketball games include percentages of field goals made. Here are the raw counts for a recent game between Team A and Team B:
+
+.. list-table:: Shooting Performance of Teams
+   :header-rows: 1
+
+   * - Outcome
+     - Team A
+     - Team B
+   * - Made
+     - 28
+     - 26
+   * - Missed
+     - 32
+     - 34
+   * - Total Shots
+     - 60
+     - 60
+
+- **Success Rate**:
+
+  - Team A: \( \frac{28}{60} = 46.7\% \)
+
+  - Team B: \( \frac{26}{60} = 43.3\% \)
+
+- Initial observation suggests Team A had better shooters (46.7% vs. 43.3%).
+
+**Example 2.49: Detailed Breakdown of Shooting Data**
+
+When we break down the data by shot type (2-pointers vs. 3-pointers), we see a different result:
+
+.. list-table:: Breakdown by Type of Shot
+   :header-rows: 1
+
+   * - Outcome
+     - 2-pointers (Team A)
+     - 2-pointers (Team B)
+     - 3-pointers (Team A)
+     - 3-pointers (Team B)
+   * - Made
+     - 25
+     - 16
+     - 3
+     - 10
+   * - Missed
+     - 25
+     - 14
+     - 7
+     - 20
+   * - Total Shots
+     - 50
+     - 30
+     - 10
+     - 30
+
+- **Success Rates**:
+
+  - **2-pointers**:
+
+    - Team A: \( \frac{25}{50} = 50.0\% \)
+
+    - Team B: \( \frac{16}{30} = 53.3\% \)
+
+  - **3-pointers**:
+
+    - Team A: \( \frac{3}{10} = 30.0\% \)
+
+    - Team B: \( \frac{10}{30} = 33.3\% \)
+
+- Although Team A had a higher overall success rate, Team B performed better for both 2-pointers and 3-pointers.
+
+**Analysis**:
+
+- The difference in results can be attributed to the type of shot (2-pointers vs. 3-pointers), which serves as a lurking variable.
+
+- Team A took more of the easier 2-pointers (\( \frac{50}{60} = 83.3\% \)), while Team B had fewer (\( \frac{30}{60} = 50.0\% \)).
+
+- This example illustrates **Simpson’s paradox**, where observed associations can be misleading when data are aggregated without considering important lurking variables.
+
+Conclusion
+----------
+
+Simpson’s paradox shows that conclusions drawn from aggregated data may differ from those drawn from the analysis of disaggregated data. Always consider the possibility of lurking variables when interpreting statistical results.
+
+**Additional Example Intuition**:
+
+Imagine two hospitals, A and B, where the success rate of a certain surgery appears higher for Hospital A when considering all surgeries together. However, if we separate the surgeries based on whether they were for high-risk or low-risk patients:
+
+- Hospital B might have better success rates for both high-risk and low-risk surgeries.
+
+- Hospital A may have treated a disproportionately higher number of low-risk patients (easier surgeries), inflating its overall success rate.
+
+Thus, the aggregation ignores the differences in patient risk, leading to a misleading conclusion.
+
+**Summary**:
+Simpson’s paradox reveals how misleading it can be to interpret aggregated data without considering the influence of lurking variables. It demonstrates the importance of:
+
+- Breaking down the data by relevant subgroups.
+
+- Accounting for confounding factors in the analysis.
+
+- Interpreting results carefully, especially when making decisions based on combined statistics.
+
+.. warning::
+   Always check for lurking variables or potential confounding factors when interpreting aggregated data. Simpson’s paradox serves as a reminder that aggregated statistics can be misleading without careful analysis of underlying subgroups.
+
+
+Week 13: Inference of Two-Way Tables
+====================================
+
+Crosstabs (Contingency Tables)
+------------------------------
+
+A **crosstab** or **contingency table** displays the frequency distribution of variables and is often used to analyze the relationship between two categorical variables. Each cell shows the count of occurrences for each combination of categories.
+
+**Example: Gender and Product Preference**
+
+Consider a study examining the relationship between **gender** and **product preference**:
+
+.. list-table:: Gender and Product Preference
+   :header-rows: 1
+
+   * - 
+     - **Product A**
+     - **Product B**
+     - **Total**
+   * - **Male**
+     - 40
+     - 20
+     - 60
+   * - **Female**
+     - 50
+     - 30
+     - 80
+   * - **Total**
+     - 90
+     - 50
+     - 140
+
+Here:
+
+- The rows represent **gender** (Male and Female).
+
+- The columns represent **product preference** (Product A and Product B).
+
+- Each cell contains the count of observations for each combination.
+
+Chi-Square Test of Independence
+-------------------------------
+
+The **Chi-Square Test of Independence** is used with contingency tables to determine if there is a significant association between two categorical variables.
+
+- **Null Hypothesis (\( H_0 \))**: The two variables are independent.
+
+- **Alternative Hypothesis (\( H_a \))**: The two variables are not independent.
+
+Calculating Expected Counts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **expected count** for each cell is calculated assuming that the two variables are independent. The formula for the expected count in each cell is:
+
+.. math::
+   E = \frac{(\text{Row Total} \times \text{Column Total})}{\text{Grand Total}}
+
+Using the table above:
+
+- **Row Totals**: Male = 60, Female = 80
+
+- **Column Totals**: Product A = 90, Product B = 50
+
+- **Grand Total**: 140
+
+Let's calculate the expected counts for each cell:
+
+- Expected Count for (Male, Product A):
+
+  .. math::
+     E_{\text{Male, Product A}} = \frac{(60 \times 90)}{140} = \frac{5400}{140} = 38.57
+
+- Expected Count for (Male, Product B):
+
+  .. math::
+     E_{\text{Male, Product B}} = \frac{(60 \times 50)}{140} = \frac{3000}{140} = 21.43
+
+- Expected Count for (Female, Product A):
+
+  .. math::
+     E_{\text{Female, Product A}} = \frac{(80 \times 90)}{140} = \frac{7200}{140} = 51.43
+
+- Expected Count for (Female, Product B):
+
+  .. math::
+     E_{\text{Female, Product B}} = \frac{(80 \times 50)}{140} = \frac{4000}{140} = 28.57
+
+Summary Table with Observed and Expected Counts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table:: Observed and Expected Counts
+   :header-rows: 1
+
+   * - 
+     - **Product A (O)**
+     - **Product A (E)**
+     - **Product B (O)**
+     - **Product B (E)**
+   * - **Male**
+     - 40
+     - 38.57
+     - 20
+     - 21.43
+   * - **Female**
+     - 50
+     - 51.43
+     - 30
+     - 28.57
+
+Calculating the Chi-Square Statistic
+------------------------------------
+
+The Chi-Square statistic is calculated using the formula:
+
+.. math::
+   \chi^2 = \sum \frac{(O - E)^2}{E}
+
+where:
+
+- \( O \) is the observed frequency in each cell.
+
+- \( E \) is the expected frequency in each cell.
+
+We calculate \( \frac{(O - E)^2}{E} \) for each cell:
+
+- For (Male, Product A):
+
+  .. math::
+     \frac{(O - E)^2}{E} = \frac{(40 - 38.57)^2}{38.57} = \frac{1.43^2}{38.57} \approx 0.053
+
+- For (Male, Product B):
+
+  .. math::
+     \frac{(O - E)^2}{E} = \frac{(20 - 21.43)^2}{21.43} = \frac{1.43^2}{21.43} \approx 0.095
+
+- For (Female, Product A):
+
+  .. math::
+     \frac{(O - E)^2}{E} = \frac{(50 - 51.43)^2}{51.43} = \frac{1.43^2}{51.43} \approx 0.040
+
+- For (Female, Product B):
+
+  .. math::
+     \frac{(O - E)^2}{E} = \frac{(30 - 28.57)^2}{28.57} = \frac{1.43^2}{28.57} \approx 0.072
+
+Adding these values together gives us the total Chi-Square statistic:
+
+.. math::
+   \chi^2 = 0.053 + 0.095 + 0.040 + 0.072 = 0.26
+
+Degrees of Freedom
+------------------
+
+The degrees of freedom for a Chi-Square test of independence is:
+
+.. math::
+   \text{df} = (r - 1) \times (c - 1)
+
+where \( r \) is the number of rows and \( c \) is the number of columns.
+
+In our example:
+
+.. math::
+   \text{df} = (2 - 1) \times (2 - 1) = 1
+
+Interpreting the Results
+------------------------
+
+To interpret the results, we compare the Chi-Square statistic to a critical value from the Chi-Square distribution with 1 degree of freedom at a 0.05 significance level.
+
+Using a Chi-Square table:
+
+- The critical value for \( \chi^2 \) with 1 degree of freedom at \( \alpha = 0.05 \) is 3.84.
+
+Since our calculated \( \chi^2 = 0.26 \) is much less than 3.84, we do not reject the null hypothesis. This suggests there is no significant association between gender and product preference in this data.
+
+.. admonition:: Important
+   Always ensure that expected counts are sufficiently large (typically at least 5) for the Chi-Square test to be valid. If any expected count is less than 5, consider using Fisher's Exact Test instead.
+
+.. warning::
+   Interpreting results without considering the assumptions of the test can lead to misleading conclusions. Verify that the sample size is adequate and that the expected counts meet the minimum requirements.
+
+
+When is it Okay to Perform a Chi-Square Test?
+---------------------------------------------
+
+Checking the assumptions is essential before performing a Chi-Square test:
+
+- **For tables larger than 2x2**:
+
+  - All cells should have an **expected** count of at least 1 **and**.
+
+  - Less than 20% of cells should have **expected** counts under 5.
+
+- **For a 2x2 table (smallest contingency table)**:
+
+  - All cells must have an **expected** count of 5 or more.
+
+Expected Count Formula
+----------------------
+
+The formula for the expected count in a contingency table is:
+
+.. math::
+   \text{Expected count} = \frac{\text{(Row total)} \times \text{(Column total)}}{\text{Overall total}}.
+
+Intuition Behind the Formula
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- The expected count represents what we would expect to see in each cell of the contingency table if the two variables were **independent**.
+
+- Independence means that the probability of one variable’s category does not depend on the other variable’s category.
+
+Deriving the Formula
+~~~~~~~~~~~~~~~~~~~~
+
+Under the assumption of independence:
+
+- Let the probability of observing category \( A_i \) be:
+
+  .. math::
+     P(A_i) = \frac{\text{Row total for } A_i}{n}.
+
+- Let the probability of observing category \( B_j \) be:
+
+  .. math::
+     P(B_j) = \frac{\text{Column total for } B_j}{n}.
+
+- If \( A \) and \( B \) are independent, then the joint probability is:
+
+  .. math::
+     P(A_i \cap B_j) = P(A_i) \times P(B_j).
+
+- The expected count for cell \((i, j)\) is:
+
+  .. math::
+     \text{Expected count} = n \times P(A_i \cap B_j) = n \times \left(\frac{\text{Row total for } A_i}{n}\right) \times \left(\frac{\text{Column total for } B_j}{n}\right).
+
+- Simplifying this gives:
+
+  .. math::
+     \text{Expected count} = \frac{(\text{Row total}) \times (\text{Column total})}{\text{Overall total}}.
+
+Standardized Residual
+---------------------
+
+The standardized residual is given by:
+
+.. math::
+   Z = \frac{\text{Observed count} - \text{Expected count}}{\sqrt{\text{Expected count}}}.
+
+Intuition Behind the Standardized Residual
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- The standardized residual measures how far the observed count is from the expected count, relative to the variability (standard deviation) of the count.
+
+- If the observed and expected counts are close, the value of \( Z \) is small. Large values indicate a significant deviation.
+
+Derivation Using the Central Limit Theorem
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For large sample sizes:
+
+- The observed count \( O_{ij} \) can be approximated by a **Poisson** or **binomial** distribution, which is approximately normal due to the Central Limit Theorem.
+
+- The variance of the observed count is approximately equal to the expected count:
+
+  .. math::
+     \text{Var}(O_{ij}) \approx E_{ij}.
+
+- The standardized residual becomes:
+
+  .. math::
+     Z = \frac{O_{ij} - E_{ij}}{\sqrt{E_{ij}}}.
+
+- Under the null hypothesis (independence), \( Z \) follows an approximate **standard normal distribution**, \( Z \sim N(0, 1) \).
+
+Chi-Square Statistic
+--------------------
+
+The Chi-Square statistic aggregates the squared standardized residuals across all cells:
+
+.. math::
+   \chi^2 = \sum \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.
+
+Degrees of Freedom
+~~~~~~~~~~~~~~~~~~
+
+The degrees of freedom (DF) for the Chi-Square test are calculated as:
+
+.. math::
+   \text{DF} = (\text{number of rows} - 1) \times (\text{number of columns} - 1).
+
+Interpreting the Chi-Square Statistic
+-------------------------------------
+
+- If the calculated \( \chi^2 \) value is close to zero, the observed counts are similar to the expected counts, supporting the null hypothesis of independence.
+
+- If the calculated \( \chi^2 \) value is large, it suggests a significant deviation, providing evidence against the null hypothesis and indicating an association between the variables.
+
+.. admonition:: Important
+   Before using the Chi-Square test, ensure that the expected counts meet the necessary assumptions. If any expected count is less than 5, consider using an alternative test such as **Fisher’s Exact Test**.
+
+.. warning::
+   The Chi-Square test assumes a sufficiently large sample size. If the sample size is small, or if the expected counts are low, the results may not be reliable.
+
+
+Week 13: Sample Proportions
+===========================
+
+The sample proportion (:math:`\hat{p}`) is used to estimate the population proportion (:math:`p`):
+
+.. math::
+
+   \hat{p} = \frac{X}{n}
+
+where:
+
+- :math:`X`: Count of successes in the sample.
+
+- :math:`n`: Size of the sample.
+
+.. warning::
+   Be sure to distinguish between the count :math:`X` (an integer value) and the proportion :math:`\hat{p}` (a decimal value between 0 and 1).
+
+Example 5.23: Shopping Online
+-----------------------------
+
+A survey reports that 60% of college students agree with a statement about online shopping satisfaction. Given a sample of 2500 students, the probability that the sample proportion is at least 58% can be found using software:
+
+.. math::
+
+   P(\hat{p} \geq 0.58) = 0.9802
+
+Mean and Standard Deviation of Sample Proportion
+------------------------------------------------
+
+The mean (:math:`\mu_{\hat{p}}`) and standard deviation (:math:`\sigma_{\hat{p}}`) of a sample proportion are:
+
+.. math::
+
+   \mu_{\hat{p}} = p, \quad \sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}
+
+This formula is valid for binomial settings and provides a good approximation for large sample sizes.
+
+**Example 5.24: Mean and Standard Deviation Calculation**
+
+Given a sample proportion with :math:`p = 0.6` and :math:`n = 2500`:
+
+.. math::
+
+   \mu_{\hat{p}} = 0.6, \quad \sigma_{\hat{p}} = \sqrt{\frac{0.6 \times 0.4}{2500}} = 0.0098
+
+**Explanation**:
+
+The mean of :math:`\hat{p}` is unbiased, and the variability decreases as the sample size increases, following the formula :math:`\sqrt{p(1-p)/n}`.
+
+.. _normal-approximation:
+
+Normal Approximation for Counts and Proportions
+-----------------------------------------------
+
+Using simulations, it was observed that the sampling distribution of a sample proportion :math:`\hat{p}` is approximately Normal. The distribution of :math:`\hat{p}` can be expressed as the binomial count divided by the sample size :math:`n`. This aligns with the Central Limit Theorem.
+
+The sum of independent random variables :math:`S_i` (taking the value 1 if a success occurs and 0 otherwise) can be represented as:
+
+.. math::
+
+    X = S_1 + S_2 + \cdots + S_n
+
+The sample proportion :math:`\hat{p} = \frac{X}{n}` behaves like the sample mean and is approximately Normal when the sample size :math:`n` is large.
+
+.. figure:: 1301.png
+   :alt: Probability histogram of sample proportion
+   :width: 70%
+
+   Probability histogram of the sample proportion :math:`\hat{p}` based on a binomial distribution with :math:`n = 2500` and :math:`p = 0.6`.
+
+Normal Approximation Formula
+----------------------------
+
+For large samples, the distributions of the count :math:`X` and the sample proportion :math:`\hat{p}` can be approximated as follows:
+
+.. math::
+
+    X \sim N\left(np, \sqrt{np(1-p)}\right)
+   
+    \hat{p} \sim N\left(p, \sqrt{\frac{p(1-p)}{n}}\right)
+
+Rule of Thumb
+-------------
+
+Use the Normal approximation when:
+
+.. math::
+
+    np \geq 10 \quad \text{and} \quad n(1 - p) \geq 10
+
+This ensures that both the count and the sample proportion have distributions close to Normal.
+
+**Example: Normal Approximation vs. Exact Calculation**
+
+We want to calculate :math:`P(\hat{p} \geq 0.58)` for a sample size of :math:`n = 2500` and a population proportion :math:`p = 0.6`. Using the Normal approximation:
+
+.. math::
+
+    \mu_{\hat{p}} = p = 0.6
+
+    \sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}} = \sqrt{\frac{0.6 \times 0.4}{2500}} = 0.0098
+
+.. math::
+
+    P(\hat{p} \geq 0.58) = P\left(\frac{\hat{p} - 0.6}{0.0098} \geq \frac{0.58 - 0.6}{0.0098}\right)
+
+    = P(Z \geq -2.04) = 0.9793
+
+.. figure:: normal-probability-curve.png
+   :alt: Probability curve for Normal approximation
+   :width: 70%
+
+   The probability that :math:`\hat{p} \geq 0.58` is approximately 0.9793.
+
+Conclusion
+----------
+
+The Normal approximation is very accurate for large samples. In this case, the approximation only differs from the exact software calculation (0.9802) by 0.0009.
+
+.. admonition:: Important
+   The Normal approximation is valid only when the sample size is large enough (i.e., when both \( np \) and \( n(1-p) \) are at least 10). For smaller samples, consider using the exact binomial distribution instead.
+
+.. warning::
+   Be cautious when interpreting results from the Normal approximation, especially with small sample sizes or when the sample proportion is close to 0 or 1, as this can lead to inaccurate estimates.
+
+
 Week 12: Multiple Regression
 ============================
 
