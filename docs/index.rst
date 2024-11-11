@@ -731,14 +731,12 @@ We want to calculate :math:`P(\hat{p} \geq 0.58)` for a sample size of :math:`n 
 
     \sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}} = \sqrt{\frac{0.6 \times 0.4}{2500}} = 0.0098
 
-.. math::
-
     P(\hat{p} \geq 0.58) = P\left(\frac{\hat{p} - 0.6}{0.0098} \geq \frac{0.58 - 0.6}{0.0098}\right)
 
     = P(Z \geq -2.04) = 0.9793
 
 
-   The probability that :math:`\hat{p} \geq 0.58` is approximately 0.9793.
+The probability that :math:`\hat{p} \geq 0.58` is approximately 0.9793.
 
 Conclusion
 ----------
