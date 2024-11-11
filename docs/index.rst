@@ -693,7 +693,7 @@ The sum of independent random variables :math:`S_i` (taking the value 1 if a suc
 
 The sample proportion :math:`\hat{p} = \frac{X}{n}` behaves like the sample mean and is approximately Normal when the sample size :math:`n` is large.
 
-.. figure:: 1301.png
+.. figure:: /images/1301.png
    :alt: Probability histogram of sample proportion
    :width: 70%
 
@@ -737,9 +737,6 @@ We want to calculate :math:`P(\hat{p} \geq 0.58)` for a sample size of :math:`n 
 
     = P(Z \geq -2.04) = 0.9793
 
-.. figure:: normal-probability-curve.png
-   :alt: Probability curve for Normal approximation
-   :width: 70%
 
    The probability that :math:`\hat{p} \geq 0.58` is approximately 0.9793.
 
