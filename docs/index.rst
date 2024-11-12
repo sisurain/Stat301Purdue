@@ -749,6 +749,26 @@ The Normal approximation is very accurate for large samples. In this case, the a
 .. warning::
    Be cautious when interpreting results from the Normal approximation, especially with small sample sizes or when the sample proportion is close to 0 or 1, as this can lead to inaccurate estimates.
 
+.. _computing_sample_size:
+
+Necessary Sample Size
+---------------------
+
+When conducting a study to estimate a population parameter, we usually have an idea of the desired confidence level and the acceptable margin of error for our results. With these criteria defined, we can calculate the minimum sample size required to achieve this level of precision. By using algebra to solve for :math:n, we can determine the necessary sample size. Detailed explanations and examples are covered in Week 07.
+
+.. important::
+
+   **Calculating Sample Size for Estimating a Population Proportion**
+
+   .. math::
+      n = \left( \frac{z^*}{M} \right)^2 \, \tilde{p} (1 - \tilde{p})
+
+   - :math:`M` is the margin of error.
+   - :math:`\tilde{p}` is an estimated value of the proportion.
+
+If we do not have an initial estimate for the population proportion, we use :math:\tilde{p} = 0.50. This choice is the most conservative because it maximizes the product :math:\tilde{p}(1 - \tilde{p}), leading to the largest possible sample size and ensuring adequate precision regardless of the true proportion.
+
+
 
 Week 12: Multiple Regression
 ============================
