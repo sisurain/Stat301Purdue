@@ -77,7 +77,7 @@ So we have:
 
 .. math::
 
-   \mathbf{y} = = \mathbf{x}\beta + \mathbf{\epsilon}
+   \mathbf{y} = \mathbf{x}\beta + \mathbf{\epsilon}
 
 
 Mean Squared Error in Matrix Form
@@ -87,7 +87,7 @@ At each data point, using the coefficients :math:`\hat{\beta}` results in some e
 
 .. math::
 
-   \mathbf{\e}(\hat{\beta}) = \mathbf{y} - \mathbf{x}\hat{\beta}
+   \mathbf{e}(\hat{\beta}) = \mathbf{y} - \mathbf{x}\hat{\beta}
 
 
 When we derived the least squares estimator, we wish to find the :math:`\hat{\beta}` which will minimize mean squared error, defined as:
@@ -106,7 +106,7 @@ To see this, look at what the matrix multiplication really involves:
 
 .. math::
 
-   \mathbf{e}^T \mathbf{e} = [e_1, e_2, \dots, e_n]
+   \mathbf{e}^\top \mathbf{e} = [e_1, e_2, \dots, e_n]
    \begin{bmatrix}
    e_1, \\
    e_2, \\
