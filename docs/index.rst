@@ -11,6 +11,165 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
+Wee 14: Special Topic: Simple Least Squares Regression in Matrix Form
+=====================================================================
+
+We have a data set consists of :math:`n` paired observations of the predictor/explanatory variable :math:`X` and the response variable :math:`Y`, i.e., :math:`(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)`. We wish to fit the model with a regression line:
+
+.. math::
+
+   y_n = \beta_0 + \beta_1 x_n + \epsilon_n
+
+where we have the assumptions, :math:`\mathbb{E}[\epsilon_n | x_1, \dots, x_n] = 0`, :math:`\text{Var}[\epsilon_n | x_1, \dots, x_n] = \sigma^2`, and :math:`\epsilon_n` is uncorrelated across measurements. And the parameters are, :math:`\beta_0, \beta_1`, and :math:`\sigma`.
+
+The Matrix Representation
+-------------------------
+
+Group all of the observations of the response into a single column :math:`(n \times 1)` matrix :math:`\mathbf{y}`:
+
+.. math::
+
+   \mathbf{y} =
+   \begin{bmatrix}
+   y_1 \\
+   y_2 \\
+   \vdots \\
+   y_n
+   \end{bmatrix}
+
+Similarly, we group both coefficients into a single vector (i.e., a :math:`2 \times 1` matrix):
+
+.. math::
+
+   \beta =
+   \begin{bmatrix}
+   \beta_0 \\
+   \beta_1
+   \end{bmatrix}
+
+We’d also like to group the observations of the predictor variable together:
+
+.. math::
+
+   \mathbf{x} =
+   \begin{bmatrix}
+   1 & x_1 \\
+   1 & x_2 \\
+   \vdots & \vdots \\
+   1 & x_n
+   \end{bmatrix}
+
+This is an :math:`n \times 2` matrix, where the first column is always 1, and the second column contains the actual observations of :math:`X`. Then we have:
+
+.. math::
+
+   \mathbf{x}\beta =
+   \begin{bmatrix}
+   \beta_0 + \beta_1 x_1 \\
+   \beta_0 + \beta_1 x_2 \\
+   \vdots \\
+   \beta_0 + \beta_1 x_n
+   \end{bmatrix}
+
+That is, :math:`\mathbf{x}\beta` is the :math:`n \times 1` matrix which contains the predictions. The matrix :math:`\mathbf{x}` is sometimes called the **design matrix**.
+
+So we have:
+
+.. math::
+
+   \mathbf{y} = = \mathbf{x}\beta + \mathbf{\epsilon}
+
+
+Mean Squared Error in Matrix Form
+---------------------------------
+
+At each data point, using the coefficients :math:`\hat{\beta}` results in some error of prediction, so we have :math:`n` prediction errors. These form a vector:
+
+.. math::
+
+   \mathbf{\e}(\hat{\beta}) = \mathbf{y} - \mathbf{x}\hat{\beta}
+
+
+When we derived the least squares estimator, we wish to find the :math:`\hat{\beta}` which will minimize mean squared error, defined as:
+
+.. math::
+
+   MSE(\hat{\beta}) = \frac{1}{n} \sum_{i=1}^{n} e_i^2(\hat{\beta})
+
+Again, we can write this equation in matrix form:
+
+.. math::
+
+   MSE(\hat{\beta}) = \frac{1}{n} \mathbf{e}^\top \mathbf{e}
+
+To see this, look at what the matrix multiplication really involves:
+
+.. math::
+
+   \mathbf{e}^T \mathbf{e} = [e_1, e_2, \dots, e_n]
+   \begin{bmatrix}
+   e_1, \\
+   e_2, \\
+   \vdots,\\
+   e_n
+   \end{bmatrix}
+
+This equals :math:`\sum_i e_i^2`.
+
+Expanding MSE Matrix
+--------------------
+
+Let us expand the MSE matrix for further use.
+
+.. math::
+
+   MSE(\hat{\beta}) = \frac{1}{n} \mathbf{e}^\top \mathbf{e} 
+
+   = \frac{1}{n} (\mathbf{y} - \mathbf{x}\hat{\beta})^\top (\mathbf{y} - \mathbf{x}\hat{\beta}) 
+
+   = \frac{1}{n} (\mathbf{y}^\top - \hat{\beta}^\top \mathbf{x}^\top)(\mathbf{y} - \mathbf{x}\hat{\beta}) 
+
+   = \frac{1}{n} (\mathbf{y}^\top \mathbf{y} - \mathbf{y}^\top \mathbf{x}\hat{\beta} - \hat{\beta}^\top \mathbf{x}^\top \mathbf{y} + \hat{\beta}^\top \mathbf{x}^\top \mathbf{x} \hat{\beta}) 
+
+
+Notice that :math:`(\mathbf{y}^\top \mathbf{x}\hat{\beta})^\top = \hat{\beta}^\top \mathbf{x}^\top \mathbf{y}`. Further notice that this is a :math:`1 \times 1` matrix, a scalar, so :math:`\mathbf{y}^\top \mathbf{x}\hat{\beta} = \hat{\beta}^\top \mathbf{x}^\top \mathbf{y}`. Thus:
+
+.. math::
+
+   MSE(\hat{\beta}) = \frac{1}{n} (\mathbf{y}^\top \mathbf{y} - 2\hat{\beta}^\top \mathbf{x}^\top \mathbf{y} + \hat{\beta}^\top \mathbf{x}^\top \mathbf{x} \hat{\beta}) 
+
+Minimizing the MSE
+------------------
+
+First, we find the gradient of the MSE with respect to :math:`\hat{\beta}`:
+
+.. math::
+
+   \nabla MSE(\hat{\beta}) = \frac{1}{n} (\nabla \mathbf{y}^\top \mathbf{y} - 2 \nabla \hat{\beta}^\top \mathbf{x}^\top \mathbf{y} + \nabla \hat{\beta}^\top \mathbf{x}^\top \mathbf{x} \hat{\beta}) 
+
+   = \frac{1}{n} (\mathbf{0} - 2\mathbf{x}^\top \mathbf{y} + 2\mathbf{x}^\top \mathbf{x}\hat{\beta}) 
+
+   = \frac{2}{n} (\mathbf{x}^\top \mathbf{x} \hat{\beta} - \mathbf{x}^\top \mathbf{y})
+
+We now set this to zero to solve the optimum, :math:`\hat{\beta}`:
+
+.. math::
+
+   \mathbf{x}^T \mathbf{x} \hat{\beta} - \mathbf{x}^T \mathbf{y} = \mathbf{0}
+
+This equation, for the two-dimensional vector :math:`\hat{\beta} = [\hat{\beta_0}, \hat{\beta_1}]^\top`.
+
+Solving, we have:
+
+.. math::
+
+   \hat{\beta} = (\mathbf{x}^\top \mathbf{x})^{-1} \mathbf{x}^\top \mathbf{y}
+
+Here are the results from the textbook:
+
+.. figure:: /images/1401.png
+
+
 Week 13: Ch2.6 Two-Way Tables and Ch9.1 Inference for Two-Way Tables
 ====================================================================
 
