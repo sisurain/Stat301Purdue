@@ -11,7 +11,7 @@ The views expressed in this document are my own and do not necessarily reflect t
 
 My primary goal with this resource is to support your learning in STAT 301, and to inspire you to explore statistics further. I hope that what you learn in this class will be valuable to you in the future, and that five or ten years from now, you'll still remember something useful from this experience.
 
-Wee 14: Special Topic: Simple Least Squares Regression in Matrix Form
+Week 14: Special Topic: Simple Least Squares Regression in Matrix Form
 =====================================================================
 
 We have a data set consists of :math:`n` paired observations of the predictor/explanatory variable :math:`X` and the response variable :math:`Y`, i.e., :math:`(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)`. We wish to fit the model with a regression line:
